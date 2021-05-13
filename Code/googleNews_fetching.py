@@ -10,12 +10,16 @@ After that  the IP Address is blocked for a certain time by Google and requires 
 Also max of results in one run are 10 articles -> hence the procedure:
     One run is for half a month, after that combined the data rows in Excel manually
     - time consuming but better than desperately searching for a work around that might 
-    not work in the end anyway! 
+    not work in the end anyway!
+    
+@author: Viktoria
+Added the try except as downloading of articles sometime did not work 
+which resulted in not getting any articles for the specific time period
 """
 
 # authors = ['Lukas Bärfuss', 'Jonas Lüscher', 'Charles Lewinski', 'Adolf Muschg', 
 #            'Ludwig Hasler', 'Martin Meyer', 'Ueli Mäder', 'Martin R. Dean', 
-#            'Peter Bichsel', 'Jürg Halter', 'Rolf Dobelli', 'Milena Moser', 
+#            'Peter Bichsel', 'Jürg Halter', 'Rolf Dobelli', 'Thomas Hürlimann','Milena Moser', 
 #            'Barbara Bleisch', 'Annemarie Piper', 'Sibylle Berg', 'Katja Rost', 
 #            'Zora del Buono', 'Katja Gentinetta', 'Miriam Meckel']
    
@@ -28,21 +32,26 @@ user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36
 config = Config()
 config.browser_user_agent = user_agent
 
-googlenews = GoogleNews(lang='de', start='01/15/2021', end='01/31/2021', encode='utf-8')
-googlenews.search('Peter Bichsel')
+googlenews = GoogleNews(lang='de', start='03/01/2021', end='03/14/2021', encode='utf-8')
+googlenews.search('Zora del Buono')
 result=googlenews.result()
 df=pd.DataFrame(result)
 
 dict={}
 for ind in df.index:
     article = Article(df['link'][ind],config=config)
-    article.download()
-    article.parse()
-    article.nlp()
-    dict[ind]=article.summary
+    
+    try:
+        article.download()
+        article.parse()
+        article.nlp()
+        dict[ind]=article.summary
+    except:
+        print('***FAILED TO DOWNLOAD***', article.url)
+        continue
     
 df['summary'] = df.index.map(dict)
-df.to_excel("articles_Bichsel_Jan_2.xlsx")
+df.to_excel("articles_Buono_Mar_1.xlsx")
 
 """
 Created on Tue May 11 15:50:02 2021
