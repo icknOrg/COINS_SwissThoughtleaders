@@ -1,0 +1,21 @@
+#legacySQL
+SELECT c.Source Source, c.Target Target, Count RawCount, "Undirected" Type, RATIO_TO_REPORT(Count) OVER () Weight FROM (
+SELECT a.name Source, b.name Target, COUNT(*) as Count
+FROM (FLATTEN(
+SELECT GKGRECORDID, UNIQUE(REGEXP_REPLACE(SPLIT(V2Persons,';'), r',.*', '')) name
+FROM [gdelt-bq:gdeltv2.gkg] 
+WHERE DATE>20210101000000 and DATE < 20210515000000  and TranslationInfo like '%srclc:deu%' and (V2Persons like '%Lukas Baerfuss%' or V2Persons like '%Jonas Luescher%' or V2Persons like '%Charles Lewinsky%' or V2Persons like '%Adolf Muschg%' or V2Persons like '%Ludwig Hasler%' or V2Persons like '%Martin Meyer%' or V2Persons like '%Ueli Maeder%' or V2Persons like '%Juerg Halter%'or V2Persons like '%Martin R. Dean%' or V2Persons like '%Peter Bichsel%' or V2Persons like '%Rolf Dobelli%' or V2Persons like '%Thomas Hürlimann%' or V2Persons like '%Milena Moser%' or V2Persons like '%Barbara Bleisch%' or V2Persons like '%Annemarie Piper%' or V2Persons like '%Sibylle Berg%' or V2Persons like '%Katja Rost%' or V2Persons like '%Zora del Buono%' or V2Persons like '%Katja Gentinetta%' or V2Persons like '%Miriam Meckel%')
+,name)) a
+JOIN EACH (
+SELECT GKGRECORDID, UNIQUE(REGEXP_REPLACE(SPLIT(V2Persons,';'), r',.*', '')) name
+FROM [gdelt-bq:gdeltv2.gkg] 
+WHERE DATE>20210101000000 and DATE < 20210515000000 and TranslationInfo like '%srclc:deu%'
+) b
+ON a.GKGRECORDID=b.GKGRECORDID
+WHERE a.name<b.name
+GROUP EACH BY 1,2
+ORDER BY 3 DESC
+LIMIT 500
+) c
+order by Count Desc
+
