@@ -1,0 +1,304 @@
+Source,Target,RawCount,Type,Weight
+Ludwig Hasler,Ludwig Hasler Ludwig Hasler,15,Undirected,0.026455026455026454
+Adolf Muschg,Friedrich Duerrenmatt,11,Undirected,0.019400352733686066
+Adolf Muschg,Literaturchefin Nora Zukker,9,Undirected,0.015873015873015872
+Ludwig Hasler,Samantha Zaugg,8,Undirected,0.014109347442680775
+Adolf Muschg,Ausserrhoden Andrea Caroni,8,Undirected,0.014109347442680775
+Adolf Muschg,States Caroni,7,Undirected,0.012345679012345678
+Friedrich Duerrenmatt,States Caroni,7,Undirected,0.012345679012345678
+Miriam Meckel Miriam Meckel,Walter Benjamin,6,Undirected,0.010582010582010581
+Jeremy Rifkin,Tagblatt Miriam Meckel,6,Undirected,0.010582010582010581
+Jack Dorsey,Walter Benjamin,6,Undirected,0.010582010582010581
+Jack Dorsey,Jeremy Rifkin,6,Undirected,0.010582010582010581
+Jack Dorsey,Miriam Meckel,6,Undirected,0.010582010582010581
+Jeremy Rifkin,Miriam Meckel Miriam Meckel,6,Undirected,0.010582010582010581
+Miriam Meckel,Walter Benjamin,6,Undirected,0.010582010582010581
+Jeremy Rifkin,Miriam Meckel,6,Undirected,0.010582010582010581
+Tagblatt Miriam Meckel,Walter Benjamin,6,Undirected,0.010582010582010581
+Miriam Meckel,Tagblatt Miriam Meckel,6,Undirected,0.010582010582010581
+Jack Dorsey,Miriam Meckel Miriam Meckel,6,Undirected,0.010582010582010581
+Miriam Meckel Miriam Meckel,Tagblatt Miriam Meckel,6,Undirected,0.010582010582010581
+Miriam Meckel,Miriam Meckel Miriam Meckel,6,Undirected,0.010582010582010581
+Samantha Zaugg,Samantha Zaugg Samantha Zaugg,6,Undirected,0.010582010582010581
+Jeremy Rifkin,Walter Benjamin,6,Undirected,0.010582010582010581
+Ludwig Hasler,Samantha Zaugg Samantha Zaugg,6,Undirected,0.010582010582010581
+Jack Dorsey,Tagblatt Miriam Meckel,6,Undirected,0.010582010582010581
+Bernhard Russi,Zugerischen Baar,5,Undirected,0.0088183421516754845
+Adolf Eichmann,Adolf Muschg,5,Undirected,0.0088183421516754845
+Rolf Dobelli,Zugerischen Baar,5,Undirected,0.0088183421516754845
+Barbara Bleisch,Barbara Bleischden,5,Undirected,0.0088183421516754845
+Ivan Wirth,Rolf Dobelli,5,Undirected,0.0088183421516754845
+Bernhard Russi,Ivan Wirth,5,Undirected,0.0088183421516754845
+Dieter Meier,Rolf Dobelli,5,Undirected,0.0088183421516754845
+Bernhard Russi,Rolf Dobelli,5,Undirected,0.0088183421516754845
+Dieter Meier,Ivan Wirth,5,Undirected,0.0088183421516754845
+Dieter Meier,Zugerischen Baar,5,Undirected,0.0088183421516754845
+Bernhard Russi,Dieter Meier,5,Undirected,0.0088183421516754845
+Ivan Wirth,Zugerischen Baar,5,Undirected,0.0088183421516754845
+Adolf Muschg,Luke Brfuss,3,Undirected,0.0052910052910052907
+Friedrich Duerrenmatt,Luke Brfuss,3,Undirected,0.0052910052910052907
+Peter Bichsel,Timmermahnder Mann,3,Undirected,0.0052910052910052907
+Elvis Presley King,Stephen Mawdsley,2,Undirected,0.0035273368606701938
+Elvis Presley King,Leone Baumgartner,2,Undirected,0.0035273368606701938
+Elvis Presley,Lara Stoll,2,Undirected,0.0035273368606701938
+Elvis Impfshow,Stephen Mawdsley,2,Undirected,0.0035273368606701938
+Andy Jllien,Peter Bichsel,2,Undirected,0.0035273368606701938
+Elvis Impfshow,Milena Moser,2,Undirected,0.0035273368606701938
+Elvis Presley,Patti Basel,2,Undirected,0.0035273368606701938
+Leone Baumgartner,Milena Moser,2,Undirected,0.0035273368606701938
+Elvis Presley,Milena Moser,2,Undirected,0.0035273368606701938
+A Verhaltenskodex Elvis Presley,Leone Baumgartner,2,Undirected,0.0035273368606701938
+Ed Sullivan,Elvis Impfshow,2,Undirected,0.0035273368606701938
+Lara Stoll,Patti Basel,2,Undirected,0.0035273368606701938
+Ed Sullivan,Elvis Presley,2,Undirected,0.0035273368606701938
+Leone Baumgartner,Stephen Mawdsley,2,Undirected,0.0035273368606701938
+A Verhaltenskodex Elvis Presley,Lara Stoll,2,Undirected,0.0035273368606701938
+Christoph Bopp,Ludwig Hasler,2,Undirected,0.0035273368606701938
+Andy Jllien,Jack Kerouac,2,Undirected,0.0035273368606701938
+A Verhaltenskodex Elvis Presley,Milena Moser,2,Undirected,0.0035273368606701938
+Barbara Bleisch,Tom Shakespeare,2,Undirected,0.0035273368606701938
+A Verhaltenskodex Elvis Presley,Stephen Mawdsley,2,Undirected,0.0035273368606701938
+A Verhaltenskodex Elvis Presley,Petra Volpe,2,Undirected,0.0035273368606701938
+Ed Sullivan,Lara Stoll,2,Undirected,0.0035273368606701938
+Elvis Presley,Petra Volpe,2,Undirected,0.0035273368606701938
+Jack Kerouac,Peter Bichsel,2,Undirected,0.0035273368606701938
+A Verhaltenskodex Elvis Presley,Elvis Impfshow,2,Undirected,0.0035273368606701938
+Ed Sullivan,Milena Moser,2,Undirected,0.0035273368606701938
+A Verhaltenskodex Elvis Presley,Elvis Presley King,2,Undirected,0.0035273368606701938
+Elvis Presley,Elvis Presley King,2,Undirected,0.0035273368606701938
+Elvis Presley King,Milena Moser,2,Undirected,0.0035273368606701938
+A Verhaltenskodex Elvis Presley,Ed Sullivan,2,Undirected,0.0035273368606701938
+A Verhaltenskodex Elvis Presley,Patti Basel,2,Undirected,0.0035273368606701938
+Elvis Impfshow,Leone Baumgartner,2,Undirected,0.0035273368606701938
+Elvis Impfshow,Elvis Presley,2,Undirected,0.0035273368606701938
+Ed Sullivan,Patti Basel,2,Undirected,0.0035273368606701938
+Elvis Impfshow,Petra Volpe,2,Undirected,0.0035273368606701938
+Patti Basel,Petra Volpe,2,Undirected,0.0035273368606701938
+Jack Kerouac,Timmermahnder Mann,2,Undirected,0.0035273368606701938
+Lara Stoll,Petra Volpe,2,Undirected,0.0035273368606701938
+Lara Stoll,Stephen Mawdsley,2,Undirected,0.0035273368606701938
+Samantha Zaugg,Ueli Maurer,2,Undirected,0.0035273368606701938
+Elvis Presley King,Lara Stoll,2,Undirected,0.0035273368606701938
+Barbara Bleisch,Robert Habeck,2,Undirected,0.0035273368606701938
+Petra Volpe,Stephen Mawdsley,2,Undirected,0.0035273368606701938
+Lara Stoll,Leone Baumgartner,2,Undirected,0.0035273368606701938
+Lara Stoll,Milena Moser,2,Undirected,0.0035273368606701938
+Corona Freiheitsverzicht,Ludwig Hasler,2,Undirected,0.0035273368606701938
+Ed Sullivan,Petra Volpe,2,Undirected,0.0035273368606701938
+Leone Baumgartner,Petra Volpe,2,Undirected,0.0035273368606701938
+Elvis Presley,Stephen Mawdsley,2,Undirected,0.0035273368606701938
+Milena Moser,Patti Basel,2,Undirected,0.0035273368606701938
+Milena Moser,Petra Volpe,2,Undirected,0.0035273368606701938
+Elvis Impfshow,Patti Basel,2,Undirected,0.0035273368606701938
+Milena Moser,Stephen Mawdsley,2,Undirected,0.0035273368606701938
+Elvis Impfshow,Elvis Presley King,2,Undirected,0.0035273368606701938
+Elvis Presley,Leone Baumgartner,2,Undirected,0.0035273368606701938
+Ludwig Hasler,Ueli Maurer,2,Undirected,0.0035273368606701938
+Ed Sullivan,Elvis Presley King,2,Undirected,0.0035273368606701938
+Leone Baumgartner,Patti Basel,2,Undirected,0.0035273368606701938
+Elvis Presley King,Petra Volpe,2,Undirected,0.0035273368606701938
+Ed Sullivan,Stephen Mawdsley,2,Undirected,0.0035273368606701938
+Elvis Presley King,Patti Basel,2,Undirected,0.0035273368606701938
+Elvis Impfshow,Lara Stoll,2,Undirected,0.0035273368606701938
+Patti Basel,Stephen Mawdsley,2,Undirected,0.0035273368606701938
+Peter Bichsels,Peter Handke,2,Undirected,0.0035273368606701938
+A Verhaltenskodex Elvis Presley,Elvis Presley,2,Undirected,0.0035273368606701938
+Andy Jllien,Timmermahnder Mann,2,Undirected,0.0035273368606701938
+Ed Sullivan,Leone Baumgartner,2,Undirected,0.0035273368606701938
+Barbara Dennerlein,Peter Bichsel,1,Undirected,0.0017636684303350969
+Hannes Gassert,Sabine Monauni,1,Undirected,0.0017636684303350969
+Billy Cobham,Rolf Gersbach,1,Undirected,0.0017636684303350969
+Jeff Siegrist,Tony Vescoli,1,Undirected,0.0017636684303350969
+Hans Jonas,Robert Habeck,1,Undirected,0.0017636684303350969
+Frank Plasberg,Kommunikationswissenschaftlerin Miriam Meckel,1,Undirected,0.0017636684303350969
+Rolf Gersbach,Tony Vescoli,1,Undirected,0.0017636684303350969
+Peter Bichsel,Peter Finc,1,Undirected,0.0017636684303350969
+Barbara Dennerlein,Victor Hugo,1,Undirected,0.0017636684303350969
+Luisa Neubauer,Zdf Entfallensommerpause,1,Undirected,0.0017636684303350969
+Jens Spahn,Luisa Neubauer,1,Undirected,0.0017636684303350969
+Frank Plasberg,Luisa Neubauer,1,Undirected,0.0017636684303350969
+Angela Brown,Peter Finc,1,Undirected,0.0017636684303350969
+Kristina Dunz,Miriam Meckel,1,Undirected,0.0017636684303350969
+Philipp Fankhauser,Philippe Kuhn,1,Undirected,0.0017636684303350969
+Jeff Siegrist,Victor Hugo,1,Undirected,0.0017636684303350969
+Adolf Muschg,Lisa Eckhart,1,Undirected,0.0017636684303350969
+Barbara Dennerlein,Jeff Siegrist,1,Undirected,0.0017636684303350969
+Max Weber,Miriam Meckel,1,Undirected,0.0017636684303350969
+Adolf Muschg,Adolf Muschg Suhrkamp,1,Undirected,0.0017636684303350969
+Kristina Dunz,Luisa Neubauer,1,Undirected,0.0017636684303350969
+Dieter Meier,Kurt Aeschbacher,1,Undirected,0.0017636684303350969
+Angela Merkel,Thomas Gottschalk,1,Undirected,0.0017636684303350969
+Angela Brown,Peter Bichsel,1,Undirected,0.0017636684303350969
+Melanie Winiger,Sepp Blatter,1,Undirected,0.0017636684303350969
+Peter Bichsel,Tony Vescoli,1,Undirected,0.0017636684303350969
+Philipp Fankhauser,Victor Hugo,1,Undirected,0.0017636684303350969
+Jeff Siegrist,Rolf Gersbach,1,Undirected,0.0017636684303350969
+Kommunikationswissenschaftlerin Miriam Meckel,Luisa Neubauer,1,Undirected,0.0017636684303350969
+Adolf Muschg,Grasser Ueli Maurer,1,Undirected,0.0017636684303350969
+Peter Finc,Vera Kaa,1,Undirected,0.0017636684303350969
+Angela Brown,Rolf Gersbach,1,Undirected,0.0017636684303350969
+Cultureadolf Muschg,Meinungfabrizio Loris Mainardi,1,Undirected,0.0017636684303350969
+Angela Merkel,Luisa Neubauer,1,Undirected,0.0017636684303350969
+Angela Brown,Victor Hugo,1,Undirected,0.0017636684303350969
+Peter Finc,Rolf Gersbach,1,Undirected,0.0017636684303350969
+Adolf Eichmann,Joseph Ratzinger,1,Undirected,0.0017636684303350969
+Naemi Benz,Rolf Dobelli,1,Undirected,0.0017636684303350969
+Miriam Meckel,Zdf Entfallensommerpause,1,Undirected,0.0017636684303350969
+Merkel Angela Merkel,Miriam Meckel,1,Undirected,0.0017636684303350969
+Kommunikationswissenschaftlerin Miriam Meckel,Miriam Meckel,1,Undirected,0.0017636684303350969
+Herr Blatter,Lisa Eckhart,1,Undirected,0.0017636684303350969
+Adolf Muschg,Cristian Beck Herr Gredig,1,Undirected,0.0017636684303350969
+Barbara Dennerlein,Billy Cobham,1,Undirected,0.0017636684303350969
+Kommunikationswissenschaftlerin Miriam Meckel,Zdf Entfallensommerpause,1,Undirected,0.0017636684303350969
+Frank Plasberg,Thomas Gottschalk,1,Undirected,0.0017636684303350969
+Christoph Franz,Sabine Monauni,1,Undirected,0.0017636684303350969
+Billy Cobham,Victor Hugo,1,Undirected,0.0017636684303350969
+Kristina Dunz,Zdf Entfallensommerpause,1,Undirected,0.0017636684303350969
+Billy Cobham,Tony Vescoli,1,Undirected,0.0017636684303350969
+Cristian Beck Herr Gredig,Roger Federer,1,Undirected,0.0017636684303350969
+Angela Brown,Vera Kaa,1,Undirected,0.0017636684303350969
+Kurt Aeschbacher,Rolf Dobelli,1,Undirected,0.0017636684303350969
+Bernhard Russi,Kurt Aeschbacher,1,Undirected,0.0017636684303350969
+Adolf Muschg,Roger Federer,1,Undirected,0.0017636684303350969
+Angela Merkel,Zdf Entfallensommerpause,1,Undirected,0.0017636684303350969
+Jeff Siegrist,Peter Bichsel,1,Undirected,0.0017636684303350969
+Herr Blatter,Meps Sebastian Ramspeck,1,Undirected,0.0017636684303350969
+Harry Ziegler,Peter Bichsel,1,Undirected,0.0017636684303350969
+Christoph Franz,Hannes Gassert,1,Undirected,0.0017636684303350969
+Meps Sebastian Ramspeck,Roger Federer,1,Undirected,0.0017636684303350969
+Philipp Fankhauser,Vera Kaa,1,Undirected,0.0017636684303350969
+Herr Blatter,Melanie Winiger,1,Undirected,0.0017636684303350969
+Peter Bichsel,Victor Hugo,1,Undirected,0.0017636684303350969
+Barbara Dennerlein,Peter Finc,1,Undirected,0.0017636684303350969
+Peter Finc,Victor Hugo,1,Undirected,0.0017636684303350969
+Peter Finc,Philipp Fankhauser,1,Undirected,0.0017636684303350969
+Herr Blatter,Sepp Blatter,1,Undirected,0.0017636684303350969
+Anis Amri,Merkel Angela Merkel,1,Undirected,0.0017636684303350969
+Adolf Muschg,Melanie Winiger,1,Undirected,0.0017636684303350969
+Philippe Kuhn,Victor Hugo,1,Undirected,0.0017636684303350969
+Frank Plasberg,Wolfgang Kubicki,1,Undirected,0.0017636684303350969
+Kristina Dunz,Thomas Gottschalk,1,Undirected,0.0017636684303350969
+Anis Amri,Max Weber,1,Undirected,0.0017636684303350969
+Frank Plasberg,Jens Spahn,1,Undirected,0.0017636684303350969
+Kurt Aeschbacher,Zugerischen Baar,1,Undirected,0.0017636684303350969
+Hannes Gassert,Rolf Dobelli,1,Undirected,0.0017636684303350969
+Jens Spahn,Zdf Entfallensommerpause,1,Undirected,0.0017636684303350969
+Billy Cobham,Peter Finc,1,Undirected,0.0017636684303350969
+Thomas Gottschalk,Zdf Entfallensommerpause,1,Undirected,0.0017636684303350969
+Naemi Benz,Sabine Monauni,1,Undirected,0.0017636684303350969
+Christoph Franz,Naemi Benz,1,Undirected,0.0017636684303350969
+Adolf Muschg,Joseph Ratzinger,1,Undirected,0.0017636684303350969
+Ludwig Hasler,Magdalene Samantha,1,Undirected,0.0017636684303350969
+Angela Brown,Philipp Fankhauser,1,Undirected,0.0017636684303350969
+Ivan Wirth,Kurt Aeschbacher,1,Undirected,0.0017636684303350969
+Jens Spahn,Wolfgang Kubicki,1,Undirected,0.0017636684303350969
+Tony Vescoli,Victor Hugo,1,Undirected,0.0017636684303350969
+Adolf Muschg,Adolf Muschg Adolf Muschg,1,Undirected,0.0017636684303350969
+Angela Merkel,Wolfgang Kubicki,1,Undirected,0.0017636684303350969
+Basler Mnsterbauhtte,Canton Geneva,1,Undirected,0.0017636684303350969
+Jens Spahn,Thomas Gottschalk,1,Undirected,0.0017636684303350969
+Miriam Meckel,Thomas Gottschalk,1,Undirected,0.0017636684303350969
+Melanie Winiger,Meps Sebastian Ramspeck,1,Undirected,0.0017636684303350969
+Wolfgang Kubicki,Zdf Entfallensommerpause,1,Undirected,0.0017636684303350969
+Philipp Fankhauser,Tony Vescoli,1,Undirected,0.0017636684303350969
+Kommunikationswissenschaftlerin Miriam Meckel,Thomas Gottschalk,1,Undirected,0.0017636684303350969
+Christa Rigozzi,Milena Moser,1,Undirected,0.0017636684303350969
+Frank Plasberg,Kristina Dunz,1,Undirected,0.0017636684303350969
+Cristian Beck Herr Gredig,Herr Blatter,1,Undirected,0.0017636684303350969
+Angela Merkel,Kristina Dunz,1,Undirected,0.0017636684303350969
+Albert Camus,Ludwig Hasler,1,Undirected,0.0017636684303350969
+Cristian Beck Herr Gredig,Meps Sebastian Ramspeck,1,Undirected,0.0017636684303350969
+Billy Cobham,Philippe Kuhn,1,Undirected,0.0017636684303350969
+Anis Amri,Miriam Meckel,1,Undirected,0.0017636684303350969
+Roger Federer,Roger Schawinski,1,Undirected,0.0017636684303350969
+Cultureadolf Muschg,Joseph Ratzinger,1,Undirected,0.0017636684303350969
+Kommunikationswissenschaftlerin Miriam Meckel,Kristina Dunz,1,Undirected,0.0017636684303350969
+Christa Rigozzi,Patrizia Laeri,1,Undirected,0.0017636684303350969
+Jens Spahn,Kommunikationswissenschaftlerin Miriam Meckel,1,Undirected,0.0017636684303350969
+Angela Brown,Tony Vescoli,1,Undirected,0.0017636684303350969
+Lisa Eckhart,Melanie Winiger,1,Undirected,0.0017636684303350969
+Adolf Eichmann,Cultureadolf Muschg,1,Undirected,0.0017636684303350969
+Herr Blatter,Roger Schawinski,1,Undirected,0.0017636684303350969
+Rolf Gersbach,Victor Hugo,1,Undirected,0.0017636684303350969
+Barbara Bleisch,Hans Jonas,1,Undirected,0.0017636684303350969
+Adolf Muschg,Claude Sulzer,1,Undirected,0.0017636684303350969
+Jeff Siegrist,Philipp Fankhauser,1,Undirected,0.0017636684303350969
+Philippe Kuhn,Vera Kaa,1,Undirected,0.0017636684303350969
+Jens Spahn,Kristina Dunz,1,Undirected,0.0017636684303350969
+Barbara Dennerlein,Philippe Kuhn,1,Undirected,0.0017636684303350969
+Peter Bichsel,Philippe Kuhn,1,Undirected,0.0017636684303350969
+Billy Cobham,Jeff Siegrist,1,Undirected,0.0017636684303350969
+Melanie Winiger,Roger Schawinski,1,Undirected,0.0017636684303350969
+Barbara Dennerlein,Philipp Fankhauser,1,Undirected,0.0017636684303350969
+Kommunikationswissenschaftlerin Miriam Meckel,Wolfgang Kubicki,1,Undirected,0.0017636684303350969
+Barbara Dennerlein,Vera Kaa,1,Undirected,0.0017636684303350969
+Billy Cobham,Philipp Fankhauser,1,Undirected,0.0017636684303350969
+Adolf Muschg,Roger Schawinski,1,Undirected,0.0017636684303350969
+Angela Brown,Jeff Siegrist,1,Undirected,0.0017636684303350969
+Kristina Dunz,Wolfgang Kubicki,1,Undirected,0.0017636684303350969
+Peter Bichsel,Rolf Gersbach,1,Undirected,0.0017636684303350969
+Luisa Neubauer,Miriam Meckel,1,Undirected,0.0017636684303350969
+Lisa Eckhart,Meps Sebastian Ramspeck,1,Undirected,0.0017636684303350969
+Joseph Ratzinger,Meinungfabrizio Loris Mainardi,1,Undirected,0.0017636684303350969
+Adolf Muschg,Meinungfabrizio Loris Mainardi,1,Undirected,0.0017636684303350969
+Adolf Muschg,Basler Mnsterbauhtte,1,Undirected,0.0017636684303350969
+Melanie Winiger,Roger Federer,1,Undirected,0.0017636684303350969
+Charles Darwin,Ludwig Hasler,1,Undirected,0.0017636684303350969
+Jeff Siegrist,Peter Finc,1,Undirected,0.0017636684303350969
+Frank Plasberg,Miriam Meckel,1,Undirected,0.0017636684303350969
+Thomas Gottschalk,Wolfgang Kubicki,1,Undirected,0.0017636684303350969
+Lisa Eckhart,Roger Schawinski,1,Undirected,0.0017636684303350969
+Jens Spahn,Miriam Meckel,1,Undirected,0.0017636684303350969
+Angela Brown,Barbara Dennerlein,1,Undirected,0.0017636684303350969
+Max Weber,Merkel Angela Merkel,1,Undirected,0.0017636684303350969
+Jeff Siegrist,Philippe Kuhn,1,Undirected,0.0017636684303350969
+Billy Cobham,Peter Bichsel,1,Undirected,0.0017636684303350969
+Peter Finc,Philippe Kuhn,1,Undirected,0.0017636684303350969
+Luisa Neubauer,Thomas Gottschalk,1,Undirected,0.0017636684303350969
+Roger Federer,Sepp Blatter,1,Undirected,0.0017636684303350969
+Adolf Muschg,Herr Blatter,1,Undirected,0.0017636684303350969
+Jeff Siegrist,Vera Kaa,1,Undirected,0.0017636684303350969
+Adolf Muschg,Philipp Sarasin,1,Undirected,0.0017636684303350969
+Barbara Dennerlein,Tony Vescoli,1,Undirected,0.0017636684303350969
+Peter Bichsel,Vera Kaa,1,Undirected,0.0017636684303350969
+Angela Merkel,Frank Plasberg,1,Undirected,0.0017636684303350969
+Peter Bichsel,Philipp Fankhauser,1,Undirected,0.0017636684303350969
+Philipp Fankhauser,Rolf Gersbach,1,Undirected,0.0017636684303350969
+Tony Vescoli,Vera Kaa,1,Undirected,0.0017636684303350969
+Adolf Muschg,Canton Geneva,1,Undirected,0.0017636684303350969
+Philippe Kuhn,Tony Vescoli,1,Undirected,0.0017636684303350969
+Miriam Meckel,Wolfgang Kubicki,1,Undirected,0.0017636684303350969
+Cristian Beck Herr Gredig,Melanie Winiger,1,Undirected,0.0017636684303350969
+Philippe Kuhn,Rolf Gersbach,1,Undirected,0.0017636684303350969
+Christoph Franz,Rolf Dobelli,1,Undirected,0.0017636684303350969
+Adolf Muschg,Cultureadolf Muschg,1,Undirected,0.0017636684303350969
+Angela Brown,Philippe Kuhn,1,Undirected,0.0017636684303350969
+Cristian Beck Herr Gredig,Lisa Eckhart,1,Undirected,0.0017636684303350969
+Adolf Muschg,Meps Sebastian Ramspeck,1,Undirected,0.0017636684303350969
+Rolf Gersbach,Vera Kaa,1,Undirected,0.0017636684303350969
+Cristian Beck Herr Gredig,Sepp Blatter,1,Undirected,0.0017636684303350969
+Angela Merkel,Kommunikationswissenschaftlerin Miriam Meckel,1,Undirected,0.0017636684303350969
+Milena Moser,Patrizia Laeri,1,Undirected,0.0017636684303350969
+Lisa Eckhart,Sepp Blatter,1,Undirected,0.0017636684303350969
+Cristian Beck Herr Gredig,Roger Schawinski,1,Undirected,0.0017636684303350969
+Luisa Neubauer,Wolfgang Kubicki,1,Undirected,0.0017636684303350969
+Herr Blatter,Roger Federer,1,Undirected,0.0017636684303350969
+Barbara Dennerlein,Rolf Gersbach,1,Undirected,0.0017636684303350969
+Lisa Eckhart,Roger Federer,1,Undirected,0.0017636684303350969
+Angela Merkel,Jens Spahn,1,Undirected,0.0017636684303350969
+Angela Merkel,Miriam Meckel,1,Undirected,0.0017636684303350969
+Ewa Adam,Ludwig Hasler,1,Undirected,0.0017636684303350969
+Frank Plasberg,Zdf Entfallensommerpause,1,Undirected,0.0017636684303350969
+Meps Sebastian Ramspeck,Roger Schawinski,1,Undirected,0.0017636684303350969
+Adolf Muschg,Sepp Blatter,1,Undirected,0.0017636684303350969
+Adolf Eichmann,Meinungfabrizio Loris Mainardi,1,Undirected,0.0017636684303350969
+Ludwig Hasler Ludwig Hasler,Magdalene Samantha,1,Undirected,0.0017636684303350969
+Vera Kaa,Victor Hugo,1,Undirected,0.0017636684303350969
+Angela Brown,Billy Cobham,1,Undirected,0.0017636684303350969
+Rolf Dobelli,Sabine Monauni,1,Undirected,0.0017636684303350969
+Billy Cobham,Vera Kaa,1,Undirected,0.0017636684303350969
+Roger Schawinski,Sepp Blatter,1,Undirected,0.0017636684303350969
+Peter Finc,Tony Vescoli,1,Undirected,0.0017636684303350969
+Meps Sebastian Ramspeck,Sepp Blatter,1,Undirected,0.0017636684303350969
+Charles Darwin,Ewa Adam,1,Undirected,0.0017636684303350969
+Hannes Gassert,Naemi Benz,1,Undirected,0.0017636684303350969
