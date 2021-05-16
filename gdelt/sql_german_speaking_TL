@@ -1,0 +1,20 @@
+#legacySQL
+SELECT c.Source Source, c.Target Target, Count RawCount, "Undirected" Type, RATIO_TO_REPORT(Count) OVER () Weight FROM (
+SELECT a.name Source, b.name Target, COUNT(*) as Count
+FROM (FLATTEN(
+SELECT GKGRECORDID, UNIQUE(REGEXP_REPLACE(SPLIT(V2Persons,';'), r',.*', '')) name
+FROM [gdelt-bq:gdeltv2.gkg] 
+WHERE DATE>20210101000000 and DATE < 20210505000000 and V2Locations like '%Switzerland%Switzerland%' and TranslationInfo like '%srclc:deu%'  
+,name)) a
+JOIN EACH (
+SELECT GKGRECORDID, UNIQUE(REGEXP_REPLACE(SPLIT(V2Persons,';'), r',.*', '')) name
+FROM [gdelt-bq:gdeltv2.gkg] 
+WHERE DATE>20210101000000 and DATE < 20210505000000 and V2Locations like '%Switzerland%Switzerland%' and TranslationInfo like '%srclc:deu%' 
+) b
+ON a.GKGRECORDID=b.GKGRECORDID
+WHERE a.name<b.name
+GROUP EACH BY 1,2
+ORDER BY 3 DESC
+LIMIT 500
+) c
+order by Count DESC 
