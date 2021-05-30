@@ -1,0 +1,501 @@
+Source;Target;RawCount;Type;Weight
+Heiko Maas;Toshimitsu Motegi;36;Undirected;0.044444444444444446
+Christopher Moller;Heike Behrend;10;Undirected;0.012345679012345678
+Geneva Schreibatelier;Normand Patrice;5;Undirected;0.0061728395061728392
+Geneva Starautors;Hansruedi Kugler;5;Undirected;0.0061728395061728392
+Geneva Schreibatelier;Geneva Starautors;5;Undirected;0.0061728395061728392
+Geneva Schreibatelier;Hansruedi Kugler;5;Undirected;0.0061728395061728392
+Geneva Starautors;Normand Patrice;5;Undirected;0.0061728395061728392
+Hansruedi Kugler;Normand Patrice;5;Undirected;0.0061728395061728392
+Bannkraft Silvia;Literaturinstituts Biel;4;Undirected;0.0049382716049382715
+Literaturinstituts Biel;Yulia Stephan;4;Undirected;0.0049382716049382715
+Literaturinstituts Biel;Philipp Schaufelberger;4;Undirected;0.0049382716049382715
+Susanne Kronenberg;Tann Norma;4;Undirected;0.0049382716049382715
+Literaturinstituts Biel;Luna Wedler;4;Undirected;0.0049382716049382715
+Luna Wedler;Max Hubacher;4;Undirected;0.0049382716049382715
+Literaturinstituts Biel;Max Hubacher;4;Undirected;0.0049382716049382715
+Philipp Schaufelberger;Silvia Tschui;4;Undirected;0.0049382716049382715
+Max Hubacher;Yulia Stephan;4;Undirected;0.0049382716049382715
+Max Hubacher;Theaterregisseurs Peter;4;Undirected;0.0049382716049382715
+Literaturinstituts Biel;Theaterregisseurs Peter;4;Undirected;0.0049382716049382715
+Luna Wedler;Silvia Tschui;4;Undirected;0.0049382716049382715
+Luna Wedler;Theaterregisseurs Peter;4;Undirected;0.0049382716049382715
+Silvia Tschui;Verlegertochter Lilli;4;Undirected;0.0049382716049382715
+Ark Verlag;Sylvie Rosokoff;4;Undirected;0.0049382716049382715
+Philipp Schaufelberger;Yulia Stephan;4;Undirected;0.0049382716049382715
+Max Hubacher;Verlegertochter Lilli;4;Undirected;0.0049382716049382715
+Max Hubacher;Silvia Tschui;4;Undirected;0.0049382716049382715
+Bannkraft Silvia;Yulia Stephan;4;Undirected;0.0049382716049382715
+Theaterregisseurs Peter;Verlegertochter Lilli;4;Undirected;0.0049382716049382715
+Bannkraft Silvia;Silvia Tschui;4;Undirected;0.0049382716049382715
+Verlegertochter Lilli;Yulia Stephan;4;Undirected;0.0049382716049382715
+Bannkraft Silvia;Theaterregisseurs Peter;4;Undirected;0.0049382716049382715
+Silvia Tschui;Yulia Stephan;4;Undirected;0.0049382716049382715
+Ark Verlag;Hansruedi Kugler;4;Undirected;0.0049382716049382715
+Philipp Schaufelberger;Verlegertochter Lilli;4;Undirected;0.0049382716049382715
+Bannkraft Silvia;Verlegertochter Lilli;4;Undirected;0.0049382716049382715
+Literaturinstituts Biel;Verlegertochter Lilli;4;Undirected;0.0049382716049382715
+Hansruedi Kugler;Sylvie Rosokoff;4;Undirected;0.0049382716049382715
+Theaterregisseurs Peter;Yulia Stephan;4;Undirected;0.0049382716049382715
+Silvia Tschui;Theaterregisseurs Peter;4;Undirected;0.0049382716049382715
+Max Hubacher;Philipp Schaufelberger;4;Undirected;0.0049382716049382715
+Bannkraft Silvia;Max Hubacher;4;Undirected;0.0049382716049382715
+Bannkraft Silvia;Luna Wedler;4;Undirected;0.0049382716049382715
+Golden Boy;Oscar Fitzek;4;Undirected;0.0049382716049382715
+Literaturinstituts Biel;Silvia Tschui;4;Undirected;0.0049382716049382715
+Luna Wedler;Verlegertochter Lilli;4;Undirected;0.0049382716049382715
+Bannkraft Silvia;Philipp Schaufelberger;4;Undirected;0.0049382716049382715
+Luna Wedler;Philipp Schaufelberger;4;Undirected;0.0049382716049382715
+Luna Wedler;Yulia Stephan;4;Undirected;0.0049382716049382715
+Philipp Schaufelberger;Theaterregisseurs Peter;4;Undirected;0.0049382716049382715
+Ile Royale;Joao Vaz;3;Undirected;0.0037037037037037038
+Fingermalereien Soutters;Sabine Altorfer;3;Undirected;0.0037037037037037038
+Jezebel Tripp;Sam Callaghan;3;Undirected;0.0037037037037037038
+Fingermalereien Soutters;Michel Layaz;3;Undirected;0.0037037037037037038
+Michel Layaz;Sabine Altorfer;3;Undirected;0.0037037037037037038
+Karl Friedrich;Karl Friedrich- Josef Liefers;2;Undirected;0.0024691358024691358
+Allgemeine Sonntagszeitung;Andres Veiel;2;Undirected;0.0024691358024691358
+Angela Merkel;Jens Spahn;2;Undirected;0.0024691358024691358
+Baptistenprediger Franklin Graham;Donald Trump;2;Undirected;0.0024691358024691358
+Allgemeine Sonntagszeitung;Jan Philipp;2;Undirected;0.0024691358024691358
+Clarice Lispector;Jesus Genregerecht;2;Undirected;0.0024691358024691358
+Jesus Genregerecht;Santos Pacheco;2;Undirected;0.0024691358024691358
+Joseph Chen;Mann Josef;2;Undirected;0.0024691358024691358
+Joseph Chen;Lispectors Prosagirlanden;2;Undirected;0.0024691358024691358
+Adolf Dietrich;Isabelle Vonlanthen;2;Undirected;0.0024691358024691358
+Meehan Alex;Sinead Crowley;2;Undirected;0.0024691358024691358
+Andres Veiel;Johann Scheerers;2;Undirected;0.0024691358024691358
+Catherine Ryan Howard;Sinead Crowley;2;Undirected;0.0024691358024691358
+Anne Siemens;Pete Doherty;2;Undirected;0.0024691358024691358
+Clarice Lispector;Rita Alvarenga Chagas Souza;2;Undirected;0.0024691358024691358
+Josh Hawley;Ted Cruz;2;Undirected;0.0024691358024691358
+Cristian Lindner;Jens Spahn;2;Undirected;0.0024691358024691358
+Klaus Leisinger;Thomas Loisl;2;Undirected;0.0024691358024691358
+Heinz Monheim;Mittsommertag Monheim;2;Undirected;0.0024691358024691358
+Santos Pacheco;Visagisten Serjoca;2;Undirected;0.0024691358024691358
+Catherine Ryan Howard;William Butler Yeats;2;Undirected;0.0024691358024691358
+Clarice Lispector;Lispectors Prosagirlanden;2;Undirected;0.0024691358024691358
+Clarice Lispector;Visagisten Serjoca;2;Undirected;0.0024691358024691358
+Liz Nugent;William Butler Yeats;2;Undirected;0.0024691358024691358
+Angela Merkel;Cristian Lindner;2;Undirected;0.0024691358024691358
+Benjamin Moser;Jesus Genregerecht;2;Undirected;0.0024691358024691358
+Elisabeth Rathgeb;Norbert Gstrein;2;Undirected;0.0024691358024691358
+Benjamin Moser;Lispectors Prosagirlanden;2;Undirected;0.0024691358024691358
+Catherine Ryan Howard;Tana French;2;Undirected;0.0024691358024691358
+Sam Blake;Tana French;2;Undirected;0.0024691358024691358
+Sally Rooney;Sinead Crowley;2;Undirected;0.0024691358024691358
+Mann Josef;Rita Alvarenga Chagas Souza;2;Undirected;0.0024691358024691358
+Markus Scholz;Peter Wagener;2;Undirected;0.0024691358024691358
+Liz Nugent;Sinead Crowley;2;Undirected;0.0024691358024691358
+Clarice Lispector;Santos Pacheco;2;Undirected;0.0024691358024691358
+Sally Rooney;William Butler Yeats;2;Undirected;0.0024691358024691358
+Mann Josef;Visagisten Serjoca;2;Undirected;0.0024691358024691358
+Tana French;William Butler Yeats;2;Undirected;0.0024691358024691358
+Catherine Ryan Howard;Meehan Alex;2;Undirected;0.0024691358024691358
+Jesus Genregerecht;Joseph Chen;2;Undirected;0.0024691358024691358
+Catherine Ryan Howard;Liz Nugent;2;Undirected;0.0024691358024691358
+Adrian Ciszewski;Chris Avellone;2;Undirected;0.0024691358024691358
+Bergisch Bach;Mittsommertag Monheim;2;Undirected;0.0024691358024691358
+Catherine Ryan Howard;Sally Rooney;2;Undirected;0.0024691358024691358
+Elisabeth Rathgeb;Jacob Thurner;2;Undirected;0.0024691358024691358
+Jesus Genregerecht;Rita Alvarenga Chagas Souza;2;Undirected;0.0024691358024691358
+Rita Alvarenga Chagas Souza;Visagisten Serjoca;2;Undirected;0.0024691358024691358
+Rita Alvarenga Chagas Souza;Santos Pacheco;2;Undirected;0.0024691358024691358
+Sam Blake;Sinead Crowley;2;Undirected;0.0024691358024691358
+Alissa Ganieva;Buch Germano;2;Undirected;0.0024691358024691358
+Anne Siemens;Jan Philipp;2;Undirected;0.0024691358024691358
+Lispectors Prosagirlanden;Santos Pacheco;2;Undirected;0.0024691358024691358
+Meehan Alex;Sam Blake;2;Undirected;0.0024691358024691358
+Liz Nugent;Meehan Alex;2;Undirected;0.0024691358024691358
+Autoriese Stellantis;Carlos Tavares;2;Undirected;0.0024691358024691358
+Johann Scheerers;Pete Doherty;2;Undirected;0.0024691358024691358
+Benjamin Moser;Visagisten Serjoca;2;Undirected;0.0024691358024691358
+Lispectors Prosagirlanden;Visagisten Serjoca;2;Undirected;0.0024691358024691358
+Josef Liefers;Karl Friedrich- Josef Liefers;2;Undirected;0.0024691358024691358
+Liz Nugent;Sally Rooney;2;Undirected;0.0024691358024691358
+Joseph Chen;Visagisten Serjoca;2;Undirected;0.0024691358024691358
+Jesus Genregerecht;Visagisten Serjoca;2;Undirected;0.0024691358024691358
+Sinead Crowley;Tana French;2;Undirected;0.0024691358024691358
+Jan Philipp;Johann Scheerers;2;Undirected;0.0024691358024691358
+George Hunter;Norbert Gstrein;2;Undirected;0.0024691358024691358
+Jesus Genregerecht;Lispectors Prosagirlanden;2;Undirected;0.0024691358024691358
+George Hunter;Jacob Thurner;2;Undirected;0.0024691358024691358
+Meehan Alex;Sally Rooney;2;Undirected;0.0024691358024691358
+Anne Siemens;Johann Scheerers;2;Undirected;0.0024691358024691358
+Josef Liefers;Karl Friedrich;2;Undirected;0.0024691358024691358
+Liz Nugent;Tana French;2;Undirected;0.0024691358024691358
+Sally Rooney;Tana French;2;Undirected;0.0024691358024691358
+Buch Germano;Caucasia Dagestan;2;Undirected;0.0024691358024691358
+Joseph Chen;Rita Alvarenga Chagas Souza;2;Undirected;0.0024691358024691358
+Sam Blake;William Butler Yeats;2;Undirected;0.0024691358024691358
+Angela Merkel;Karl Lauterbach;2;Undirected;0.0024691358024691358
+Benjamin Moser;Mann Josef;2;Undirected;0.0024691358024691358
+Heike Behrend;Rainer Moritz;2;Undirected;0.0024691358024691358
+Jan Philipp;Pete Doherty;2;Undirected;0.0024691358024691358
+Lispectors Prosagirlanden;Rita Alvarenga Chagas Souza;2;Undirected;0.0024691358024691358
+Benjamin Moser;Clarice Lispector;2;Undirected;0.0024691358024691358
+Bergisch Bach;Heinz Monheim;2;Undirected;0.0024691358024691358
+Liz Nugent;Sam Blake;2;Undirected;0.0024691358024691358
+Lispectors Prosagirlanden;Mann Josef;2;Undirected;0.0024691358024691358
+Benjamin Moser;Joseph Chen;2;Undirected;0.0024691358024691358
+Jesus Genregerecht;Mann Josef;2;Undirected;0.0024691358024691358
+Allgemeine Sonntagszeitung;Pete Doherty;2;Undirected;0.0024691358024691358
+Andres Veiel;Jan Philipp;2;Undirected;0.0024691358024691358
+Benjamin Moser;Rita Alvarenga Chagas Souza;2;Undirected;0.0024691358024691358
+Andres Veiel;Pete Doherty;2;Undirected;0.0024691358024691358
+Mann Josef;Santos Pacheco;2;Undirected;0.0024691358024691358
+Clarice Lispector;Joseph Chen;2;Undirected;0.0024691358024691358
+Allgemeine Sonntagszeitung;Anne Siemens;2;Undirected;0.0024691358024691358
+Catherine Ryan Howard;Sam Blake;2;Undirected;0.0024691358024691358
+Benjamin Moser;Santos Pacheco;2;Undirected;0.0024691358024691358
+Clarice Lispector;Mann Josef;2;Undirected;0.0024691358024691358
+Meehan Alex;William Butler Yeats;2;Undirected;0.0024691358024691358
+Andres Veiel;Anne Siemens;2;Undirected;0.0024691358024691358
+Sinead Crowley;William Butler Yeats;2;Undirected;0.0024691358024691358
+Alissa Ganieva;Caucasia Dagestan;2;Undirected;0.0024691358024691358
+Norbert Gstrein;Norbert Gstrein Tyrol;2;Undirected;0.0024691358024691358
+Elisabeth Rathgeb;George Hunter;2;Undirected;0.0024691358024691358
+Sally Rooney;Sam Blake;2;Undirected;0.0024691358024691358
+Jacob Thurner;Norbert Gstrein;2;Undirected;0.0024691358024691358
+Joseph Chen;Santos Pacheco;2;Undirected;0.0024691358024691358
+Meehan Alex;Tana French;2;Undirected;0.0024691358024691358
+Christopher Moller;Rainer Moritz;2;Undirected;0.0024691358024691358
+Autoriesen Stellantis;Le Parisien;2;Undirected;0.0024691358024691358
+Allgemeine Sonntagszeitung;Johann Scheerers;2;Undirected;0.0024691358024691358
+Astrid Lindgren;Christa Kozik;1;Undirected;0.0012345679012345679
+Gianfranco Fdb;Thurgau Violonistin;1;Undirected;0.0012345679012345679
+Jonathan Jones;Kasseler Fridericianum;1;Undirected;0.0012345679012345679
+Allgemeine Zeitung;Einsatztagen Autobahntrasse;1;Undirected;0.0012345679012345679
+Boris Mezuev Nawalnys;Ilya Remeslo;1;Undirected;0.0012345679012345679
+Claude Debussy;Skulpturenausstellung Ottmar;1;Undirected;0.0012345679012345679
+Nablus Taher El Masri;Stepan Bandera;1;Undirected;0.0012345679012345679
+Herr Scholz;Infektionsschutzgesetz Herr Spahn;1;Undirected;0.0012345679012345679
+Augustin Jagg;Thomas Studer;1;Undirected;0.0012345679012345679
+Lana Del Rey;Lgbt Kim Petras;1;Undirected;0.0012345679012345679
+Angela Merkel;Christine Lagarde;1;Undirected;0.0012345679012345679
+Kunstvermittlerin Christine Stalder;Nik Kevin Koch;1;Undirected;0.0012345679012345679
+Limmat Verlag;Tobias Garcia;1;Undirected;0.0012345679012345679
+Marie Lois;Willi Toblers;1;Undirected;0.0012345679012345679
+Angela Merkel;Johnny Ludvigsson;1;Undirected;0.0012345679012345679
+Stuart Hall;Zellennachbarn Simeon;1;Undirected;0.0012345679012345679
+Jake Sullivan;Stanley Mcchrystal;1;Undirected;0.0012345679012345679
+Abdul Hamid Dabeiba;Ali Ibrahim Dabaiba;1;Undirected;0.0012345679012345679
+Claude Debussy;Rusch Rusch;1;Undirected;0.0012345679012345679
+Frank Sherwood Rowland;Mario Molina;1;Undirected;0.0012345679012345679
+Darcus Howe;Zellennachbarn Simeon;1;Undirected;0.0012345679012345679
+Adam Zagajewski;Seamus Heaney;1;Undirected;0.0012345679012345679
+Rudolf Lutz;Rusch Rusch;1;Undirected;0.0012345679012345679
+George Friedrich Handel;Peter Bcker;1;Undirected;0.0012345679012345679
+Herndon Warnock;Johns Thomas Porter;1;Undirected;0.0012345679012345679
+Bob Dylan;Sophia Hamann;1;Undirected;0.0012345679012345679
+Adrian Bleisch;Peter Roth;1;Undirected;0.0012345679012345679
+Josh Hawley;William Cohen;1;Undirected;0.0012345679012345679
+Navalnyjs Meisterfilm Putin;Sergey Viktorovich Chemezov;1;Undirected;0.0012345679012345679
+Altersmelancholie Aschenbach;Halbgreise Erich;1;Undirected;0.0012345679012345679
+Politaktivist Hans;Tobias Garcia;1;Undirected;0.0012345679012345679
+Ilia Vasella;Politaktivist Hans;1;Undirected;0.0012345679012345679
+Adam Zagajewski;Billie Holiday;1;Undirected;0.0012345679012345679
+Andrin Uetz;Beatproduzent Johns Sarastro;1;Undirected;0.0012345679012345679
+Herr Buchenau;Peter Buchenau;1;Undirected;0.0012345679012345679
+Canton Zurich;Moritz Young;1;Undirected;0.0012345679012345679
+Lika Jungautorin Luna Levey;Peter Roth;1;Undirected;0.0012345679012345679
+Abdelhakim Belhadsch;Armaud Hamelin;1;Undirected;0.0012345679012345679
+Aleksandr Gauland;Thomas Haldenwang;1;Undirected;0.0012345679012345679
+Kim Kardashians;Stefan Wagner;1;Undirected;0.0012345679012345679
+Adrian Bleisch;Lika Jungautorin Luna Levey;1;Undirected;0.0012345679012345679
+Herr Spahn;Johnny Ludvigsson;1;Undirected;0.0012345679012345679
+Claude Debussy;Stefan Wagner;1;Undirected;0.0012345679012345679
+Agatha Christie;Doris Day;1;Undirected;0.0012345679012345679
+Armeeoberbefehlshaber Akhmed Salah Galicia;Louisa Hanoune;1;Undirected;0.0012345679012345679
+Roland Schmid;Tobias Garcia;1;Undirected;0.0012345679012345679
+George William Ziadie;Queen Elizabeth;1;Undirected;0.0012345679012345679
+Beatproduzent Johns Sarastro;Yulia Kubik;1;Undirected;0.0012345679012345679
+Nobel Peter;Willi Toblers;1;Undirected;0.0012345679012345679
+Abdul Madschid;Dschamal Al-Falah;1;Undirected;0.0012345679012345679
+Johns Sarastro;Youtube Berman;1;Undirected;0.0012345679012345679
+Nachwuchsautorin Luna Levay;Roland Schmid;1;Undirected;0.0012345679012345679
+Patricia Highsmith Locarno;Vadim Glowna;1;Undirected;0.0012345679012345679
+Beatproduzent Johns Sarastro;Josef Manser;1;Undirected;0.0012345679012345679
+Alain Berset;Bruno Walpoth;1;Undirected;0.0012345679012345679
+Klaus Hoffmann;Reinhard Mey;1;Undirected;0.0012345679012345679
+Jungautorin Luna Levey;Stefan Altenburger;1;Undirected;0.0012345679012345679
+Alejandro Mayorkas;Despotischem Donald;1;Undirected;0.0012345679012345679
+Lika Jungautorin Luna Levey;Miho Tanaka;1;Undirected;0.0012345679012345679
+Charlotte Rampling;Marie Darrieussecq;1;Undirected;0.0012345679012345679
+Jennifer Panara;Nachwuchsautorin Luna Levay;1;Undirected;0.0012345679012345679
+Calabrio Dow Jones;Magnus Geverts;1;Undirected;0.0012345679012345679
+Jungautorin Luna Levey;Literaturhauses Zurich;1;Undirected;0.0012345679012345679
+Carola Wiemers;Emperor Nachmieter;1;Undirected;0.0012345679012345679
+Annie Dillard;Clara Schumann;1;Undirected;0.0012345679012345679
+Eckermanns Maurice;Sylvia Beach;1;Undirected;0.0012345679012345679
+Adolf Dietrichs;Lika Jungautorin Luna Levey;1;Undirected;0.0012345679012345679
+Literaturhauses Zurich;Marie Lois;1;Undirected;0.0012345679012345679
+Nik Kevin Koch;Rudolf Lutz;1;Undirected;0.0012345679012345679
+Luna Levay;Thomas Studer;1;Undirected;0.0012345679012345679
+Annina Haab;Yulia Kubik Hans;1;Undirected;0.0012345679012345679
+Ben Mandelson Lobo;Katharina Schmitz;1;Undirected;0.0012345679012345679
+Antonio Gramsci;Louis Bonaparte;1;Undirected;0.0012345679012345679
+Stefan Wagner;Tobias Garcia;1;Undirected;0.0012345679012345679
+Christoph Keller;Yulia Kubik;1;Undirected;0.0012345679012345679
+Baptistenprediger Franklin Graham;Obama Mayorkas;1;Undirected;0.0012345679012345679
+Colette Macfarland;Leinkauf Ediths;1;Undirected;0.0012345679012345679
+Amanda Gorman;Kamala Harris;1;Undirected;0.0012345679012345679
+Baptistenprediger Franklin Graham;Stanley Mcchrystal;1;Undirected;0.0012345679012345679
+Juliane Lieberts;Taylor Swift;1;Undirected;0.0012345679012345679
+Adrian Kreyenfeld;Jonathan Jones;1;Undirected;0.0012345679012345679
+Luna Levay;Youtube Berman;1;Undirected;0.0012345679012345679
+Sebastian Rushworth;Theaterbesitzer Georges;1;Undirected;0.0012345679012345679
+Luna Levay;Politaktivist Hans;1;Undirected;0.0012345679012345679
+Franz Xaver;Jungautorin Luna Levey;1;Undirected;0.0012345679012345679
+Alain Berset;Bob Dylan;1;Undirected;0.0012345679012345679
+Annie Proulx;Larry Mcmurtry;1;Undirected;0.0012345679012345679
+Kiara Carriere;Milos Forman;1;Undirected;0.0012345679012345679
+Christopher Seipp;Seipp Christopher Seipp;1;Undirected;0.0012345679012345679
+Andrea Stalder Projektkandidat;Lika Jungautorin Luna Levey;1;Undirected;0.0012345679012345679
+Mikhail Waldron;Tom Hiddleston;1;Undirected;0.0012345679012345679
+Jesus Genregerecht;Lispectors Kurzprosa;1;Undirected;0.0012345679012345679
+Claude Debussy;Ueli Maurer;1;Undirected;0.0012345679012345679
+Herr Assange;Julian Assange;1;Undirected;0.0012345679012345679
+Schumacher Landmann;Valtteri Botta;1;Undirected;0.0012345679012345679
+Globalgeschichtlers Terje;Ressourceklara Schubenz;1;Undirected;0.0012345679012345679
+Rui Camilo;Ute Krause;1;Undirected;0.0012345679012345679
+Kerstin Hensel;Mikhail Bienert;1;Undirected;0.0012345679012345679
+Pfundskerl Joe;Riz Akhmed;1;Undirected;0.0012345679012345679
+Abdelhakim Belkhair;Abdul Madschid;1;Undirected;0.0012345679012345679
+Dieter Henrich;Matthias Bormuth;1;Undirected;0.0012345679012345679
+Annina Haab;Josef Manser;1;Undirected;0.0012345679012345679
+Luna Levay;Thurgau Violonistin;1;Undirected;0.0012345679012345679
+Bob Dylan;Kunstvermittlerin Klara Frick;1;Undirected;0.0012345679012345679
+Josh Holmes;Raphael Warnock;1;Undirected;0.0012345679012345679
+Klara Schubenz;Ressourceklara Schubenz;1;Undirected;0.0012345679012345679
+Kriegsfotograf Dominic Nahr;Kunstvermittlerin Christine Stalder;1;Undirected;0.0012345679012345679
+Beatproduzent Johns Sarastro;Miho Tanaka;1;Undirected;0.0012345679012345679
+Doris Day;Tom Ripley;1;Undirected;0.0012345679012345679
+Axesteve Mcqueen;Malachi Kirby;1;Undirected;0.0012345679012345679
+Adolf Dietrich;Kunstraums Kreuzlingen Richard Tisserand;1;Undirected;0.0012345679012345679
+Rolf Tietgens Aktaufnahme;Ulrike Baureithel;1;Undirected;0.0012345679012345679
+Adrianna Kurek;Rainbow Mythbusters;1;Undirected;0.0012345679012345679
+Adolf Dietrich;Literaturhauses Zurich;1;Undirected;0.0012345679012345679
+Jonathan Bailey;Marina Thompson;1;Undirected;0.0012345679012345679
+Isabelle Vonlanthen;Kunstvermittlerin Klara Frick;1;Undirected;0.0012345679012345679
+Brian Enos;Robert Moog;1;Undirected;0.0012345679012345679
+Jessica Alice Feinmann Waden;Marie Curie;1;Undirected;0.0012345679012345679
+Miho Tanaka;Willi Toblers;1;Undirected;0.0012345679012345679
+Netzwerkers Andreas Kalbitz;Thomas Haldenwang;1;Undirected;0.0012345679012345679
+Lana Del Rey;Sz Liebert;1;Undirected;0.0012345679012345679
+Jimmy Carter;Peter Beaumont;1;Undirected;0.0012345679012345679
+Nobel Peter;Stefan Altenburger;1;Undirected;0.0012345679012345679
+Biografin Amanda Sewell;Robert Moog;1;Undirected;0.0012345679012345679
+Bob Dylan;Rudolf Lutz;1;Undirected;0.0012345679012345679
+Erhard Whydunit;Peter Handke;1;Undirected;0.0012345679012345679
+Literaturhauses Zurich;Peter Roth;1;Undirected;0.0012345679012345679
+Marie Lois;Sophia Hamann;1;Undirected;0.0012345679012345679
+Miho Tanaka;Politaktivist Hans;1;Undirected;0.0012345679012345679
+Jorge Videla;Schwarzenberg David;1;Undirected;0.0012345679012345679
+Stefan Altenburger;Thomas Studer;1;Undirected;0.0012345679012345679
+Schweizerhof Thomas Bernhard;Thomas Bernhard;1;Undirected;0.0012345679012345679
+Kunstraums Kreuzlingen Richard Tisserand;Luna Levay;1;Undirected;0.0012345679012345679
+Herr Spahn;Infektionsschutzgesetz Herr Spahn;1;Undirected;0.0012345679012345679
+Kriegsfotograf Dominic Nahr;Ueli Maurer;1;Undirected;0.0012345679012345679
+Annina Haab;Willi Toblers;1;Undirected;0.0012345679012345679
+Barack Obama;Donald Trump;1;Undirected;0.0012345679012345679
+Bob Dylan;Kunstvermittlerin Christine Stalder;1;Undirected;0.0012345679012345679
+Pierre Henry;Steven Lisberger Carlos;1;Undirected;0.0012345679012345679
+Enola Holmesharry Bradbeer;Yo Ellen;1;Undirected;0.0012345679012345679
+Kunstvermittlerin Susanne;Peter Roth;1;Undirected;0.0012345679012345679
+Jungautorin Luna Levey;Yulia Kubik;1;Undirected;0.0012345679012345679
+Akhmed Ouyahia;Freitagsdemonstrationen Bouteflika;1;Undirected;0.0012345679012345679
+Schwarzenberg David;Viorel Ursu;1;Undirected;0.0012345679012345679
+John Sarastro;Lika Jungautorin Luna Levey;1;Undirected;0.0012345679012345679
+Skulpturenausstellung Ottmar;Youtube Berman;1;Undirected;0.0012345679012345679
+Miho Tanaka;Yulia Kubik Hans;1;Undirected;0.0012345679012345679
+Beatproduzent Johns Sarastro;Franz Xaver;1;Undirected;0.0012345679012345679
+Alain Delon;Patricia Highsmith;1;Undirected;0.0012345679012345679
+Dominic Nahr;Ueli Maurer;1;Undirected;0.0012345679012345679
+Franz Xaver;Gianfranco Fdb;1;Undirected;0.0012345679012345679
+Larry Mcmurtrydrehbuchautor;Robert Duvall;1;Undirected;0.0012345679012345679
+Annemarie Mo;Peter Buchenau Peter Buchenau;1;Undirected;0.0012345679012345679
+Claude Debussy;Lika Jungautorin Luna Levey;1;Undirected;0.0012345679012345679
+Ilia Vasella;Peter Roth;1;Undirected;0.0012345679012345679
+Josef Manser;Ueli Maurer;1;Undirected;0.0012345679012345679
+Adrian Bleisch;Gianfranco Fdb;1;Undirected;0.0012345679012345679
+Adrian Bleisch;Willi Toblers;1;Undirected;0.0012345679012345679
+Rita Mohlau;Vero Eos;1;Undirected;0.0012345679012345679
+Johns Sarastro;Reynaldo Hahn;1;Undirected;0.0012345679012345679
+Louis Girardelli;Willi Toblers;1;Undirected;0.0012345679012345679
+Adolf Dietrichs;Literaturhauses Zurich;1;Undirected;0.0012345679012345679
+Thurgau Buettiker;Thurgau Cecile;1;Undirected;0.0012345679012345679
+Cristian Walther;Thomas Poeschel;1;Undirected;0.0012345679012345679
+Ausnahmesportlerssimon Ammann;Marie Lois;1;Undirected;0.0012345679012345679
+Franz Xaver;Nobel Peter;1;Undirected;0.0012345679012345679
+Laurie Spiegel;Sewells Buch Carlos;1;Undirected;0.0012345679012345679
+Konzertclub Bataclan;Olivier Nakache;1;Undirected;0.0012345679012345679
+Christa Kozik;Rolf Losansky;1;Undirected;0.0012345679012345679
+Bruno Walpoth;Yulia Kubik Hans;1;Undirected;0.0012345679012345679
+Ali Ibrahim Dabaiba;Ibrahim Ali Dabaiba;1;Undirected;0.0012345679012345679
+Bob Dylan;Rusch Rusch;1;Undirected;0.0012345679012345679
+Chelsea Manning;Owen Jones;1;Undirected;0.0012345679012345679
+Ilia Vasella;Marie Lois;1;Undirected;0.0012345679012345679
+Antonio Gramscis;Palmiro Togliatti;1;Undirected;0.0012345679012345679
+Franz Xaver;Johns Sarastro;1;Undirected;0.0012345679012345679
+Bruno Walpoth;Yulia Kubik;1;Undirected;0.0012345679012345679
+John Sarastro;Kunstvermittlerin Klara Frick;1;Undirected;0.0012345679012345679
+Kim Kardashians;Marie Lois;1;Undirected;0.0012345679012345679
+Malachi Kirby;Stuart Hall;1;Undirected;0.0012345679012345679
+Adolf Dietrich;Adrian Bleisch;1;Undirected;0.0012345679012345679
+Kriegsfotograf Dominic Nahr;Skulpturenausstellung Ottmar;1;Undirected;0.0012345679012345679
+Allgemeine Sonntagszeitung;Yulia Encke;1;Undirected;0.0012345679012345679
+Carlos Tavares;Tesla Fdb;1;Undirected;0.0012345679012345679
+Autorin Ulrike;Ulrike Herrmann;1;Undirected;0.0012345679012345679
+Claude Debussy;Franz Xaver;1;Undirected;0.0012345679012345679
+Konzertclub Bataclan;Sephardischer Jews;1;Undirected;0.0012345679012345679
+David Rockefeller;Hillary Clinton;1;Undirected;0.0012345679012345679
+Adrian Bleisch;Youtube Berman;1;Undirected;0.0012345679012345679
+Thomas Studer;Tobias Garcia;1;Undirected;0.0012345679012345679
+Franz Xaver;Stefan Altenburger;1;Undirected;0.0012345679012345679
+Barack Obama;Janet Yellen;1;Undirected;0.0012345679012345679
+Andrin Uetz;Roland Schmid;1;Undirected;0.0012345679012345679
+Peter Roth;Reynaldo Hahn;1;Undirected;0.0012345679012345679
+Einheitsregierung Mohamed;Politanalyst Muammar;1;Undirected;0.0012345679012345679
+Gianfranco Fdb;Ralph Streule Hans;1;Undirected;0.0012345679012345679
+Kunstvermittlerin Christine Stalder;Willi Toblers;1;Undirected;0.0012345679012345679
+Abdul Hamid Mohammed;Aya Burweila;1;Undirected;0.0012345679012345679
+Larry Sanger;Mann Pierre;1;Undirected;0.0012345679012345679
+Nik Kevin Koch;Sophia Hamann;1;Undirected;0.0012345679012345679
+Kunstvermittlerin Christine Stalder;Peter Roth;1;Undirected;0.0012345679012345679
+Eberhard Bosch;Remchinger Mariel;1;Undirected;0.0012345679012345679
+Johann Sebastian Bach;Limmat Verlag;1;Undirected;0.0012345679012345679
+Dominic Nahr;Ilia Vasella;1;Undirected;0.0012345679012345679
+Gianfranco Fdb;Sophia Hamann;1;Undirected;0.0012345679012345679
+Bettina Kugler;Kristin Thielemann;1;Undirected;0.0012345679012345679
+Johns Sarastro;Thomas Studer;1;Undirected;0.0012345679012345679
+Nik Kevin Koch;Nobel Peter;1;Undirected;0.0012345679012345679
+Reynaldo Hahn;Thomas Studer;1;Undirected;0.0012345679012345679
+Alain Berset;Kim Kardashians;1;Undirected;0.0012345679012345679
+Globalgeschichtlers Terje;Joni Mitchell;1;Undirected;0.0012345679012345679
+Julie Cotler;Serienmacherin Shonda Rhimes;1;Undirected;0.0012345679012345679
+Johann Sebastian Bach;Shea Owens;1;Undirected;0.0012345679012345679
+Bob Dylan;Jungautorin Luna Levey;1;Undirected;0.0012345679012345679
+Lana Del Rey;Vergewaltigungshauptstadt Europes;1;Undirected;0.0012345679012345679
+Joseph Brodsky;Lars Gustafsson;1;Undirected;0.0012345679012345679
+Adolf Dietrich;Louis Girardelli;1;Undirected;0.0012345679012345679
+Karl Lauterbach;Sebastian Rushworth;1;Undirected;0.0012345679012345679
+Hannah Arendt;Robert Habeck;1;Undirected;0.0012345679012345679
+Adolf Dietrichs;Adrian Bleisch;1;Undirected;0.0012345679012345679
+Laurence Finch;Max Uthoff;1;Undirected;0.0012345679012345679
+Nicole Kidman;William Blake;1;Undirected;0.0012345679012345679
+Kunstvermittlerin Christine Stalder;Thurgau Violonistin;1;Undirected;0.0012345679012345679
+Ausnahmesportlerssimon Ammann;Tobias Garcia;1;Undirected;0.0012345679012345679
+Luna Levay;Reynaldo Hahn;1;Undirected;0.0012345679012345679
+Allgemeine Zeitung;Elmar Janssens;1;Undirected;0.0012345679012345679
+Andrea Stalder Projektkandidat;Limmat Verlag;1;Undirected;0.0012345679012345679
+Charlotte Rampling;Wikipedia Marie;1;Undirected;0.0012345679012345679
+Nils Markwardt;Saskia Esken;1;Undirected;0.0012345679012345679
+Klaus Tewes;Mikhail Klocke;1;Undirected;0.0012345679012345679
+Bentley Claire;Bert Leston Taylor;1;Undirected;0.0012345679012345679
+Bruno Walpoth;Miho Tanaka;1;Undirected;0.0012345679012345679
+Reynaldo Hahn;Roland Schmid;1;Undirected;0.0012345679012345679
+Boris Becker;Tobias King;1;Undirected;0.0012345679012345679
+Peter Roth;Yulia Kubik;1;Undirected;0.0012345679012345679
+Juliane Liebert;Sz Liebert;1;Undirected;0.0012345679012345679
+Nablus Taher El Masri;Norman Lamont;1;Undirected;0.0012345679012345679
+Emperor Wilhelm;Norbert Walter Borjans;1;Undirected;0.0012345679012345679
+Adolf Dietrichs;Reynaldo Hahn;1;Undirected;0.0012345679012345679
+Provokateurin Birgit;Shriers Buch;1;Undirected;0.0012345679012345679
+Clarice Lispectors;Karin Ritter;1;Undirected;0.0012345679012345679
+Ulrike Baureithel;Walter Riester;1;Undirected;0.0012345679012345679
+Christoph Keller;Franz Xaver;1;Undirected;0.0012345679012345679
+Adolf Dietrich;Johns Sarastro;1;Undirected;0.0012345679012345679
+Naturhasser Bernhard;Torsun Burkhardt;1;Undirected;0.0012345679012345679
+Koalicji Ratujmy;Rocco Buchta;1;Undirected;0.0012345679012345679
+Christoph Keller;Johns Sarastro Fdb;1;Undirected;0.0012345679012345679
+Pepe Egger Pantoffelportfolio;Walter Riester;1;Undirected;0.0012345679012345679
+Kommissionschefin Ursula;Manuela Schwesig Mecklenburg;1;Undirected;0.0012345679012345679
+Nadelstreifenfaschist Tucker Carlsson;Steve Doocy;1;Undirected;0.0012345679012345679
+Bryan Ashley;Nauman Mustafa;1;Undirected;0.0012345679012345679
+Augustin Jagg;Ralph Streule Hans;1;Undirected;0.0012345679012345679
+Los Angeles;Marc Kelly;1;Undirected;0.0012345679012345679
+Maniokwurzel Guzman Aris;Zurich Wiedikon;1;Undirected;0.0012345679012345679
+Annan Seghers;Thomas Poeschel;1;Undirected;0.0012345679012345679
+Janet Yellen;Plassnik Madeline Albright;1;Undirected;0.0012345679012345679
+Lisa Kuner;Rainbow Mythbusters;1;Undirected;0.0012345679012345679
+Altersmelancholie Aschenbach;Erich Ackermann;1;Undirected;0.0012345679012345679
+Shea Owens;Tobias Garcia;1;Undirected;0.0012345679012345679
+Lady Diana;Queen Elizabeth;1;Undirected;0.0012345679012345679
+Pierre Gasly;Sebastian Vettel;1;Undirected;0.0012345679012345679
+Mohamed Al-Menfi;Stephanie Williams;1;Undirected;0.0012345679012345679
+Kunstraums Kreuzlingen Richard Tisserand;Sophia Hamann;1;Undirected;0.0012345679012345679
+Brigitte Bardot;Edmond Rostand;1;Undirected;0.0012345679012345679
+Dick Cheney;Donald Rumsfeld;1;Undirected;0.0012345679012345679
+Dominic Nahr;Lika Jungautorin Luna Levey;1;Undirected;0.0012345679012345679
+Ausnahmesportlerssimon Ammann;Christoph Keller;1;Undirected;0.0012345679012345679
+Josh Holmes;Luther King;1;Undirected;0.0012345679012345679
+Bob Dylan;Johns Sarastro Fdb;1;Undirected;0.0012345679012345679
+Kamala Harris;Marc Kelly;1;Undirected;0.0012345679012345679
+Ali Zeidan;Pribaz Rovera;1;Undirected;0.0012345679012345679
+Dominic Nahr;Peter Roth;1;Undirected;0.0012345679012345679
+Adolf Dietrich;Kunstvermittlerin Christine Stalder;1;Undirected;0.0012345679012345679
+Literaturhauses Zurich;Youtube Berman;1;Undirected;0.0012345679012345679
+Kim Kardashians;Nachwuchsautorin Luna Levay;1;Undirected;0.0012345679012345679
+Claude Debussy;Yulia Kubik Hans;1;Undirected;0.0012345679012345679
+Kunstvermittlerin Klara Frick;Nachwuchsautorin Luna Levay;1;Undirected;0.0012345679012345679
+Klaus Hoffmann;Kris Kristofferson;1;Undirected;0.0012345679012345679
+Adolf Dietrich;Dominic Nahr;1;Undirected;0.0012345679012345679
+Despotischem Donald;Donald Trump;1;Undirected;0.0012345679012345679
+Allgemeine Zeitung;Herr Janssens;1;Undirected;0.0012345679012345679
+Johns Burnside;Los Angeles;1;Undirected;0.0012345679012345679
+Bruno Walpoth;Thurgau Violonistin;1;Undirected;0.0012345679012345679
+El Masri;Hermann Scheer;1;Undirected;0.0012345679012345679
+Helena Ilias;Jessica Alice Feinmann Waden;1;Undirected;0.0012345679012345679
+Isabelle Grubertute Krause;Rui Camilo;1;Undirected;0.0012345679012345679
+Augustin Jagg;Yulia Kubik;1;Undirected;0.0012345679012345679
+Jens Spahn;Manuela Schwesig Mecklenburg;1;Undirected;0.0012345679012345679
+Abdelhakim Belhadsch;Politanalyst Muammar;1;Undirected;0.0012345679012345679
+Peter Tolstoy;Serguei Sobyanin;1;Undirected;0.0012345679012345679
+Gholamreza Khosravi;Moezzi Massoud Rajavi;1;Undirected;0.0012345679012345679
+Doris Day;Vadim Glowna;1;Undirected;0.0012345679012345679
+Herbert Dutzler;Ren Groeger;1;Undirected;0.0012345679012345679
+Ingrid Brodnig;Renate Welsh;1;Undirected;0.0012345679012345679
+Albert Bourda;Cristian Lindner;1;Undirected;0.0012345679012345679
+Adolf Dietrichs;Johns Sarastro Fdb;1;Undirected;0.0012345679012345679
+Kim Kardashians;Willi Toblers;1;Undirected;0.0012345679012345679
+Roland Schmid;Yulia Kubik;1;Undirected;0.0012345679012345679
+Alain Berset;Nachwuchsautorin Luna Levay;1;Undirected;0.0012345679012345679
+Al Jouili;Le Parisien;1;Undirected;0.0012345679012345679
+Adolf Dietrichs;Stefan Wagner;1;Undirected;0.0012345679012345679
+Beate Uhse;Globalgeschichtlers Terje;1;Undirected;0.0012345679012345679
+Ilia Vasella;Johns Sarastro Fdb;1;Undirected;0.0012345679012345679
+Elliot Rodger;Jordan Peterson;1;Undirected;0.0012345679012345679
+Kim Kardashians;Miho Tanaka;1;Undirected;0.0012345679012345679
+Kommissionschefin Ursula;Robert Habeck;1;Undirected;0.0012345679012345679
+Bruno Walpoth;Nachwuchsautorin Luna Levay;1;Undirected;0.0012345679012345679
+Kiera Bell;Provokateurin Birgit;1;Undirected;0.0012345679012345679
+Marwan Kassem;Viorel Ursu;1;Undirected;0.0012345679012345679
+Isabelle Vonlanthen;Johns Sarastro;1;Undirected;0.0012345679012345679
+Luna Levay;Nbg Ragaz;1;Undirected;0.0012345679012345679
+Max Uthoff;Wargaby Weber;1;Undirected;0.0012345679012345679
+Alejandro Mayorkas;Barack Obama;1;Undirected;0.0012345679012345679
+Alain Berset;Thurgau Violonistin;1;Undirected;0.0012345679012345679
+Bruno Walpoth;Ueli Maurer;1;Undirected;0.0012345679012345679
+Andrea Stalder Projektkandidat;Willi Toblers;1;Undirected;0.0012345679012345679
+Mikhail Grynbaum;Tucker Carlsson;1;Undirected;0.0012345679012345679
+Colette Macfarland;Plein Soleil;1;Undirected;0.0012345679012345679
+Thurgau Violonistin;Tobias Garcia;1;Undirected;0.0012345679012345679
+Franz Xaver;John Sarastro;1;Undirected;0.0012345679012345679
+Johann Scheerers;Yulia Encke;1;Undirected;0.0012345679012345679
+Johns Sarastro Fdb;Thurgau Violonistin;1;Undirected;0.0012345679012345679
+Darius Marten;Olivia Cooke;1;Undirected;0.0012345679012345679
+Adolf Dietrich;Yulia Kubik;1;Undirected;0.0012345679012345679
+John Sarastro;Kunstvermittlerin Christine Stalder;1;Undirected;0.0012345679012345679
+Eckermanns Maurice;Thomas Mann Gustav;1;Undirected;0.0012345679012345679
+Adolf Dietrichs;Tobias Garcia;1;Undirected;0.0012345679012345679
+Jungautorin Luna Levey;Skulpturenausstellung Ottmar;1;Undirected;0.0012345679012345679
+Juliane Lieberts;Lgbt Kim Petras;1;Undirected;0.0012345679012345679
+Nachwuchsautorin Luna Levay;Peter Roth;1;Undirected;0.0012345679012345679
+Claude Chabrol;Franziska Schlotterer;1;Undirected;0.0012345679012345679
+Billie Holiday;Tzvetan Todorov;1;Undirected;0.0012345679012345679
+Mister Joe;Verlag Young;1;Undirected;0.0012345679012345679
+Tobias Garcia;Youtube Berman;1;Undirected;0.0012345679012345679
+Alex Wheatle;Axesteve Mcqueen;1;Undirected;0.0012345679012345679
+Heiderose Hildebrand;Kim Kardashians;1;Undirected;0.0012345679012345679
+Ashton Carter;Ted Cruz;1;Undirected;0.0012345679012345679
