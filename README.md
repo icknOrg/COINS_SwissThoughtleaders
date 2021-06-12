@@ -23,6 +23,7 @@ The sentiment index gets calculated by
 - for now: using a Min/Max Normalization to scale the values on a range from 0 to 1 
 
 - a row of plots is created and saved for the polarity of each author in the training set
+![PLot](polarity_Berg.png)
 
 - a training set and a test set are defined for the usage in later models 
 
