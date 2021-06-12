@@ -28,6 +28,7 @@ Example of the current index assignment to the different authors in the current 
 - a row of plots is created and saved for the polarity of each author in the training set.
 
 For example the following for Sybille Berg 
+
 ![PLot](polarity_Berg.png)
 
 - a training set and a test set are defined for the usage in later models 
