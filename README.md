@@ -23,7 +23,13 @@ The sentiment index gets calculated by
 - for now: using a Min/Max Normalization to scale the values on a range from 0 to 1 
 
 - a row of plots is created and saved for the polarity of each author in the training set
+
 - a training set and a test set are defined for the usage in later models 
+
+## BERT
+The BERT model gets implemented via Ktrain and trains as well as tests on some pre-prepared datasets.
+In a second step it predicts the sentiment of another dataset based on the pre-processed summary and 
+outputs the probability of each summary to belong to one of the categories Negative, Neutral and Positive. 
 
 ## TO DO
 - [ ] Re-think the calculation process of the sentiment for each article
