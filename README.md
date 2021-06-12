@@ -21,9 +21,12 @@ The sentiment index gets calculated by
 - calculating the mean of the sentiment per author
 - substracting/adding the standard deviation devided by 10 from/to the mean depending on whether the highest sentiment is negative or positive
 - for now: using a Min/Max Normalization to scale the values on a range from 0 to 1 
+
 Example of the current index assignment to the different authors in the current training set 
 ![PLot](Screenshot_result_sentiment_index.PNG)
-- a row of plots is created and saved for the polarity of each author in the training set
+
+- a row of plots is created and saved for the polarity of each author in the training set.
+
 For example the following for Sybille Berg 
 ![PLot](polarity_Berg.png)
 
