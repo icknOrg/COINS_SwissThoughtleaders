@@ -41,4 +41,6 @@ outputs the probability of each summary to belong to one of the categories Negat
 ## TO DO
 - [ ] Re-think the calculation process of the sentiment for each article
 - [ ] Re-think the calculation process of the sentiment_index
-- [ ] Search for different normalization methods and see which one is the most applicable 
+- [ ] Search for different normalization methods and see which one is the most applicable
+- [ ] Try out a specifically German version BERT like https://deepset.ai/german-bert
+- [ ] Try out a specifically German version of GPT-2 like https://github.com/stefan-it/german-gpt2 
