@@ -38,9 +38,13 @@ The BERT model gets implemented via Ktrain and trains as well as tests on some p
 In a second step it predicts the sentiment of another dataset based on the pre-processed summary and 
 outputs the probability of each summary to belong to one of the categories Negative, Neutral and Positive. 
 
+## German-BERT
+The classification Model gets implemented via SimpleTransformers. The usual test and train data is used to train
+the model. The Model is then saved and loaded again, in order to predict the sentiments of a test data. 
+
 ## TO DO
 - [ ] Re-think the calculation process of the sentiment for each article
 - [ ] Re-think the calculation process of the sentiment_index
 - [ ] Search for different normalization methods and see which one is the most applicable
-- [ ] Try out a specifically German version BERT like https://deepset.ai/german-bert
-- [ ] Try out a specifically German version of GPT-2 like https://github.com/stefan-it/german-gpt2 
+- [x] Try out a specifically German version BERT like https://deepset.ai/german-bert
+ 
