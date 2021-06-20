@@ -39,7 +39,7 @@ In a second step it predicts the sentiment of another dataset based on the pre-p
 outputs the probability of each summary to belong to one of the categories Negative, Neutral and Positive. 
 
 ## German-BERT
-The classification Model gets implemented via SimpleTransformers. The usual test and train data is used to train
+The classification Model gets implemented via SimpleTransformers based on "bert-base-german-cased". The usual test and train data is used to train
 the model. The Model is then saved and loaded again, in order to predict the sentiments of a test data. 
 
 ## TO DO
