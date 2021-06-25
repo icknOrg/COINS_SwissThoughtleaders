@@ -146,6 +146,8 @@ for thoughtleader in thoughtleaders:
     
     df = pd.concat([df, df_2])
 
+
+
 df = df.iloc[1:]
 df.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')    
 
