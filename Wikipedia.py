@@ -16,24 +16,24 @@ wiki_wiki = wikipediaapi.Wikipedia(
 )
 
 thoughtleaders = ['Aaron Troschke', 'Adolf Muschg', 'Alice Schwarzer', 'Aline Wanner', 'Andres Veiel',
-                 'Anne Siemens', 'Anne Will', 'Annemarie Piper', 'Annika Brockschmidt', 'Axel Honneth',
+                 'Anne Siemens', 'Anne Will', 'Annemarie Pieper', 'Annika Brockschmidt', 'Axel Honneth',
                  'Barbara Bleisch', 'Benedikt XVI.', 'Bernhard Waldenfels', 'Carina Kontio', 'Charles Lewinsky', 
-                 'Christian Drosten', 'Christian Walther', 'Christoph Keller', 'Clemens Fuest', 'Deniz Utlu', 
-                 'Dorothea Baur', 'Elham Manea', 'Felix Dachsel', 'Florian Aigner', 'Flurina Badel', 'Frank Thelen', 
+                 'Christian Drosten', 'Christian Walther (Journalist)', 'Christoph Keller (Schriftsteller)', 'Clemens Fuest', 'Deniz Utlu', 
+                 'Dorothea Baur', 'Elham Manea', 'Felix Dachsel', 'Florian Aigner (Publizist)', 'Flurina Badel', 'Frank Thelen', 
                  'Friedrich Ani', 'Georg Diez', 'Günther Jauch', 'Günther Witzany', 'Hans-Werner Sinn', 'Hazel Brugger', 
                  'Heike Behrend', 'Herta Müller', 'Isabella Eckerle', 'Jan Böhmermann', 'Jan Fleischhauer', 'Jan Philipp Reemtsma', 
                  'Jasmina Kuhnke', 'Jochen Arlt', 'Jochen Wegner', 'Joko Winterscheidt', 'Jonas Lüscher', 'Joyce Ilg', 'Julia Jäkel',
                  'Julia Zeh', 'Julian Reichelt', 'Jürg Halter', 'Jürgen Habermas', 'Kai Diekmann', 'Karl Lauterbach', 
-                 'Kathrin Passig', 'Katja Gentinetta', 'Katja Rost', 'Klaas Heufer Umlauf', 'Lena-Sophie Müller', 'Linus Schöpfer', 
-                 'Ludwig Hasler', 'Luisa Neubauer', 'Lukas Bärfuss', 'Mai Thi Nguyen-Kim', 'Maja Goepel', 'Malcolm Ohanwe', 
-                 'Marietta Slomka', 'Mario Adorf', 'Markus Gabriel', 'Martin Meyer', 'Martin R. Dean', 'Melanie Brinkmann', 'Michael Roes', 
-                 'Michael Zürn', 'Milena Moser', 'Milo Rau', 'Miriam Meckel', 'Mirjam Fischer', 'Mo Asumang', 'Natascha Hoffner', 
+                 'Kathrin Passig', 'Katja Gentinetta', 'Katja Rost', 'Klaas Heufer-Umlauf', 'Lena-Sophie Müller', 'Linus Schöpfer', 
+                 'Ludwig Hasler', 'Luisa Neubauer', 'Lukas Bärfuss', 'Mai Thi Nguyen-Kim', 'Maja Göpel', 'Malcolm Ohanwe', 
+                 'Marietta Slomka', 'Mario Adorf', 'Markus Gabriel', 'Martin Meyer (Publizist)', 'Martin R. Dean', 'Melanie Brinkmann', 'Michael Roes', 
+                 'Michael Zürn (Politikwissenschaftler)', 'Milena Moser', 'Milo Rau', 'Miriam Meckel', 'Mirjam Fischer', 'Mo Asumang', 'Natascha Hoffner', 
                  'Natascha Strobl', 'Nikolaus Blome', 'Norbert Gstrein', 'Oliver Welke', 'Patti Basler', 'Peter Bichsel', 
-                 'Peter Bieri', 'Peter Sloterdijk', 'Peter Spork', 'Philipp Huebl', 'Pinar Atalay', 'Rainer Moritz', 'Rana Ahmad', 
+                 'Peter Bieri', 'Peter Sloterdijk', 'Peter Spork', 'Philipp Hübl', 'Pinar Atalay', 'Rainer Moritz', 'Rana Ahmad', 
                  'Rezo', 'Richard David Precht', 'Robert Pfaller', 'Rolf Dobelli', 'Roman Bucheli', 'Ronnie Grob', 'Ronya Othmann', 
                  'Sascha Lobo', 'Sibylle Berg', 'Silvia Tschui', 'Simon Bärtschi', 'Sophie Passmann', 'Stephan Anpalagan', 
                  'Tamara Wernli', 'Teo Pham', 'Thomas Hürlimann', 'Tijen Onaran', 'Ueli Mäder', 'Ulrich Wickert', 'Volker Quaschning', 
-                 'Werner Herzog', 'Wilhelm Schmid', 'Yael Meier', 'Zora del Buono']
+                 'Werner Herzog', 'Wilhelm Schmid (Philosoph)', 'Yaël Meier', 'Zora del Buono']
 
 df = pd.DataFrame({'Thoughtleader': 'no one', 'Backlinks': [0], 'Links': [0], 'Awards': [0], 'Publications': [0]})
 
@@ -93,46 +93,59 @@ for thoughtleader in thoughtleaders:
     #get the amount of publications
     def print_amount_of_publications(sections):
         
-        publications_2020 = 0
-        publications_2021 = 0
+        publications_20_21 = 0
      
-        werke = ['Prosa', 'Sachbuch', 'Als Herausgeber', 'Als Herausgeberin', 'Al Übersetzer', 'Theaterstücke', 'Übersetzungen',
-                         'Hörspiele', 'Hörbücher', 'Radiomoderationen', 'Podcast', 
-                         'TV-Moderationen', 'Veröffentlichungen', 'Bücher', 'Hörbücher', 
-                         'Singles', 'Alben', 'Bühnenprogramme', 'Ausführender Produzent', 
-                         'Gastauftritte', 'Ausstellung', 'Fernsehen', 'Kino', 'Synchronrollen', 'Filme',
-                         'Moderation', 'Serien', 'Fernsehshows', 'Dokumentationen', 
-                         'Moderation', 'Radio', 'Podcast', 'Sonstiges', 'Reporter / Moderator', 'Als Gast / Teilnehmer', 
-                         'Chronologisches Werkverzeichnis', 'Debatte', 'Als Autorin', 'Monographien', 'Wissenschaftliche Fachartikel (Auswahl)',
-                         'Sonstige Artikel (Auswahl)']
+        werke = ['Werk', 'Publikation', 'Prosa', 'Fernsehen', 'Schrift', 'Sach', 'Als', 'Theater', 'Übersetzung',
+                 'Hör', 'Radio', 'Podcast', 'Veröffentlichung', 'Buch', 'Diskografie',
+                 'CD', 'Bücher', 'Krimi', 'Romane', 'Bühne', 'Singles', 'Alben', 
+                 'Ausführender Produzent', 'Ausführende Produzentin', 'Gastauftritte', 
+                 'Ausstellung', 'Kino', 'Synchronrollen', 'Film', 'Moderation', 'Serien', 
+                 'Fernsehshows', 'Dokumentationen', 'Fernsehauftritte', 'Sonstiges', 
+                 'Reporter / Moderator', 'Video', 'Artikel', 'Chronologisch', 'Debatte', 
+                 'Monographien', 'Wissenschaftliche Fachartikel', 'Literatur', 'Anthologien', 
+                 'Herausgabe', 'titel', 'Originalausgaben', 'Politisch', 'kritik', 'Kritik']
+        
+        #Looking at the first level
         for s in sections:
-    
-            if s.title == 'Werke' or s.title == 'Werk' or s.title == 'Veröffentlichungen' or s.title == 'Veröffentlichungen (Auswahl)' or s.title == 'Publikationen' or s.title == 'Filmografie' or s.title == 'Fernsehen' or s.title == 'Schriften':  
-                
-                publications_2020 += s.text.count("2020")
-                publications_2021 += s.text.count("2021") 
-                
-                sections = s.sections
-                
-                for s in sections:
-                    for w in werke:
-                        if s.title == w:
-                            #print(s.title)
-                            if s.title == 'Veröffentlichungen':
-                                sections = s.sections
-                                #print(sections)
-                                for s in sections:
-                                    for w in werke:
-                                        if s.title == w:
-                                            #print(s.title)
-                                            publications_2020 += s.text.count("2020")
-                                            publications_2021 += s.text.count("2021") 
-                            else:
-                                publications_2020 += s.text.count("2020")
-                                publications_2021 += s.text.count("2021")
-
-                
-        publications_20_21 = publications_2020 + publications_2021
+            for w in werke:
+                if w in s.title:  
+                    print("1. Level: ",s.title)
+                    partitioned_string = s.text.split('\n')
+                    print(partitioned_string)
+                    for line in partitioned_string:
+                        
+                        if line.count("2020") > 0 or line.count("2021") > 0:
+                            
+                            publications_20_21 += 1
+                    
+                    #Looking at the second level
+                    sub_sections = s.sections
+                    
+                    for sub in sub_sections:
+                        for w in werke:
+                            if w in sub.title:
+                                    print("2. Level: ",sub.title)
+                                    partitioned_string = sub.text.split('\n')
+                                    print(partitioned_string)
+                                    for line in partitioned_string:
+                                        if line.count("2020") > 0 or line.count("2021") > 0:
+                                            
+                                            publications_20_21 += 1
+                                            
+                                    #Looking at the third level
+                                    sub_sub_sections = sub.sections
+                                    
+                                    #print(sections)
+                                    for sub_sub in sub_sub_sections:
+                                        for w in werke:
+                                            if w in sub_sub.title:
+                                                 print("3. Level: ", sub_sub.title)
+                                                 partitioned_string = sub_sub.text.split('\n')
+                                                 for line in partitioned_string:
+                                                     if line.count("2020") > 0 or line.count("2021") > 0:
+                                                         
+                                                         publications_20_21 += 1
+                                    
                 
         return publications_20_21
                     
