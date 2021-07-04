@@ -15,25 +15,10 @@ wiki_wiki = wikipediaapi.Wikipedia(
         extract_format=wikipediaapi.ExtractFormat.WIKI
 )
 
-thoughtleaders = ['Aaron Troschke', 'Adolf Muschg', 'Alice Schwarzer', 'Aline Wanner', 'Andres Veiel',
-                 'Anne Siemens', 'Anne Will', 'Annemarie Pieper', 'Annika Brockschmidt', 'Axel Honneth',
-                 'Barbara Bleisch', 'Benedikt XVI.', 'Bernhard Waldenfels', 'Carina Kontio', 'Charles Lewinsky', 
-                 'Christian Drosten', 'Christian Walther (Journalist)', 'Christoph Keller (Schriftsteller)', 'Clemens Fuest', 'Deniz Utlu', 
-                 'Dorothea Baur', 'Elham Manea', 'Felix Dachsel', 'Florian Aigner (Publizist)', 'Flurina Badel', 'Frank Thelen', 
-                 'Friedrich Ani', 'Georg Diez', 'Günther Jauch', 'Günther Witzany', 'Hans-Werner Sinn', 'Hazel Brugger', 
-                 'Heike Behrend', 'Herta Müller', 'Isabella Eckerle', 'Jan Böhmermann', 'Jan Fleischhauer', 'Jan Philipp Reemtsma', 
-                 'Jasmina Kuhnke', 'Jochen Arlt', 'Jochen Wegner', 'Joko Winterscheidt', 'Jonas Lüscher', 'Joyce Ilg', 'Julia Jäkel',
-                 'Julia Zeh', 'Julian Reichelt', 'Jürg Halter', 'Jürgen Habermas', 'Kai Diekmann', 'Karl Lauterbach', 
-                 'Kathrin Passig', 'Katja Gentinetta', 'Katja Rost', 'Klaas Heufer-Umlauf', 'Lena-Sophie Müller', 'Linus Schöpfer', 
-                 'Ludwig Hasler', 'Luisa Neubauer', 'Lukas Bärfuss', 'Mai Thi Nguyen-Kim', 'Maja Göpel', 'Malcolm Ohanwe', 
-                 'Marietta Slomka', 'Mario Adorf', 'Markus Gabriel', 'Martin Meyer (Publizist)', 'Martin R. Dean', 'Melanie Brinkmann', 'Michael Roes', 
-                 'Michael Zürn (Politikwissenschaftler)', 'Milena Moser', 'Milo Rau', 'Miriam Meckel', 'Mirjam Fischer', 'Mo Asumang', 'Natascha Hoffner', 
-                 'Natascha Strobl', 'Nikolaus Blome', 'Norbert Gstrein', 'Oliver Welke', 'Patti Basler', 'Peter Bichsel', 
-                 'Peter Bieri', 'Peter Sloterdijk', 'Peter Spork', 'Philipp Hübl', 'Pinar Atalay', 'Rainer Moritz', 'Rana Ahmad', 
-                 'Rezo', 'Richard David Precht', 'Robert Pfaller', 'Rolf Dobelli', 'Roman Bucheli', 'Ronnie Grob', 'Ronya Othmann', 
-                 'Sascha Lobo', 'Sibylle Berg', 'Silvia Tschui', 'Simon Bärtschi', 'Sophie Passmann', 'Stephan Anpalagan', 
-                 'Tamara Wernli', 'Teo Pham', 'Thomas Hürlimann', 'Tijen Onaran', 'Ueli Mäder', 'Ulrich Wickert', 'Volker Quaschning', 
-                 'Werner Herzog', 'Wilhelm Schmid (Philosoph)', 'Yaël Meier', 'Zora del Buono']
+tl = pd.read_excel('COINs Intelektuellen-Ranking.xlsx', index_col=0, dtype=str)
+thoughtleaders = tl['Wikipedia'].tolist()
+thoughtleaders = [x for x in thoughtleaders if pd.notnull(x)]
+print(thoughtleaders)
 
 df = pd.DataFrame({'Thoughtleader': 'no one', 'Backlinks': [0], 'Links': [0], 'Awards': [0], 'Publications': [0]})
 
@@ -165,3 +150,14 @@ df = df.iloc[1:]
 df.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')    
 
 print(df)
+
+def get_wikipedia(): 
+    global wikipedia; 
+    wikipedia = pd.DataFrame(df)
+    return wikipedia; 
+    
+
+
+
+
+
