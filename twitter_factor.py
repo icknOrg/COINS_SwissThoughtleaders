@@ -45,22 +45,18 @@ twitter = twitter.fillna(0)
 # load the thoughtleader list 
 # I replaced - in the twitter account column in the thoughtleader list by nothing, so I have an nan value 
 
-tl = pd.read_excel('Thoughtleader_List.xlsx', index_col=0, dtype=str)
+tl = pd.read_excel('COINs Intelektuellen-Ranking.xlsx', index_col=0, dtype=str)
 
 tl = tl.fillna(0)
 
-# could be possible that you need to reset the index here first
-# tl = tl.reset_index()
-
-
 # merge the datasets
-#  already noticed there are duplicates, so check what values are correct and what can be deleted 
-# also pretty sure these are not all users with twitter, so probably gotta check manually how
-# names have to be changed 
+
 twitter = twitter.rename(columns={'name' : 'Name'})
+#tl = tl.rename(columns={'Twitter' : 'Twittername'})
+#tl = tl.replace(to_replace='@', value=' ', regex=True)
 combined = pd.merge(twitter, tl, on='Name')
 
-combined = combined.drop(columns=['Anmerkungen', 'Beruf', 'Wikipedia', 'Google Search im letzten Jahr', 'Twitter'])
+combined = combined.drop(columns=['Bereich', 'Wikipedia', 'Google Search Results (this year)', 'Twitter'])
 
 conditions = [
     (combined['Twitter Verifiziert?'] == 'nicht verifiziert') | (combined['Twitter Verifiziert?'] == 0),
@@ -73,17 +69,21 @@ combined['verified'] = np.select(conditions, values)
 # calculations for the values we need 
 # followers count not added yet 
 # change calculations for the honest signals if you have better idea 
+
 combined['central_leadership'] = combined['degree'] + combined['betweenness']
 combined['rotation_leadership'] = combined['betweenness_oscillation']
 combined['balanced_contribution'] = combined['contribution_index']
 combined['rapid_responses'] = combined['ego_art'] + combined['ego_nudges'] + combined['alter_nudges'] + combined['alter_art']
 combined['honest_language'] = combined['sentiment_avg'] + combined['emotionality_avg']
 combined['shared_context'] = combined['complexity_avg']
+#combined = combined.fillna(0)
+combined['twitter_index'] = combined['central_leadership'] +combined['rotation_leadership'] + combined['balanced_contribution'] + (1/combined['rapid_responses']) + combined['honest_language'] + combined['shared_context']+(combined['followers_count']/100)
 
+#drop unncessary columns 
+combined = combined[['Name', 'twitter_index']]
 
-# how to calculate the end-factor?
-# normalize data and then add everything up?
-
-
-
-
+def get_twitter_factor(): 
+    global twitter_factor; 
+    twitter_factor = pd.DataFrame(combined)
+    return twitter_factor; 
+    
