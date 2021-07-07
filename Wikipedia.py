@@ -143,7 +143,7 @@ for thoughtleader in thoughtleaders:
     publications = print_amount_of_publications(p_wiki.sections)
     
     #calculate the wikipedia score by adding all up
-    wikipedia_score = links + backlinks + auszeichnungen + publications
+    wikipedia_score = links + backlinks + 100*auszeichnungen + 100*publications
     
     d = {'Thoughtleader': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
     df_wikipedia_values = pd.DataFrame(data=d)
@@ -156,7 +156,11 @@ for thoughtleader in thoughtleaders:
 
 
 df = df.iloc[1:]
-df_2 = df_2.iloc[1:]   
+df_2 = df_2.iloc[1:]  
+
+#Normalize score with min-max normalization
+df_2['Wikipedia_score']=(df_2['Wikipedia_score']-df_2['Wikipedia_score'].min())/(df_2['Wikipedia_score'].max()-df_2['Wikipedia_score'].min())
+
 df_2.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')
 
 print(df)
