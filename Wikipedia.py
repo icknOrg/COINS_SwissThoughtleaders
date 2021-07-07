@@ -21,6 +21,7 @@ thoughtleaders = [x for x in thoughtleaders if pd.notnull(x)]
 print(thoughtleaders)
 
 df = pd.DataFrame({'Thoughtleader': 'no one', 'Backlinks': [0], 'Links': [0], 'Awards': [0], 'Publications': [0]})
+df_2 = pd.DataFrame({'Thoughtleader': 'no one', 'Wikipedia_score': [0]})
 
 for thoughtleader in thoughtleaders:
     
@@ -139,17 +140,24 @@ for thoughtleader in thoughtleaders:
     auszeichnungen = print_amount_of_auszeichnungen(p_wiki.sections)
     publications = print_amount_of_publications(p_wiki.sections)
     
-    d = {'Thoughtleader': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
-    df_2 = pd.DataFrame(data=d)
+    wikipedia_score = links + backlinks + auszeichnungen + publications
     
-    df = pd.concat([df, df_2])
+    d = {'Thoughtleader': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
+    df_wikipedia_values = pd.DataFrame(data=d)
+    df = pd.concat([df, df_wikipedia_values])
+    
+    d_2 = {'Thoughtleader': thoughtleader, 'Wikipedia_score': [wikipedia_score]}
+    df_wikipedia_score = pd.DataFrame(data=d_2)
+    df_2 = pd.concat([df_2, df_wikipedia_score])
 
 
 
 df = df.iloc[1:]
-df.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')    
+df_2 = df_2.iloc[1:]   
+df_2.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')
 
 print(df)
+print(df_2)
 
 def get_wikipedia(): 
     global wikipedia; 
