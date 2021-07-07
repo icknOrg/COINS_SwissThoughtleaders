@@ -9,17 +9,19 @@ import pandas as pd
 import wikipediaapi
 import pywikibot as pw
 
-
+#settings
 wiki_wiki = wikipediaapi.Wikipedia(
         language='de',
         extract_format=wikipediaapi.ExtractFormat.WIKI
 )
 
+#get data of .xlsx file
 tl = pd.read_excel('COINs Intelektuellen-Ranking.xlsx', index_col=0, dtype=str)
 thoughtleaders = tl['Wikipedia'].tolist()
 thoughtleaders = [x for x in thoughtleaders if pd.notnull(x)]
 print(thoughtleaders)
 
+#initialize dataframes
 df = pd.DataFrame({'Thoughtleader': 'no one', 'Backlinks': [0], 'Links': [0], 'Awards': [0], 'Publications': [0]})
 df_2 = pd.DataFrame({'Thoughtleader': 'no one', 'Wikipedia_score': [0]})
 
@@ -140,6 +142,7 @@ for thoughtleader in thoughtleaders:
     auszeichnungen = print_amount_of_auszeichnungen(p_wiki.sections)
     publications = print_amount_of_publications(p_wiki.sections)
     
+    #calculate the wikipedia score by adding all up
     wikipedia_score = links + backlinks + auszeichnungen + publications
     
     d = {'Thoughtleader': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
