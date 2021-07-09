@@ -22,6 +22,8 @@ added of the max value is positive and substracted if the max value is negative.
 Afterwards the value gets normalized in a Min/Max (in a range from 0 to 1). 
 
 The results together with the names of the persons are saved in a dataframe and returned. 
+
+Keep in mind if you haven't used CUDA yet, you might have to assign your GPU device first. Without an error might occur.
 """
 """
 SentiWS is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 
@@ -47,9 +49,10 @@ from nltk import word_tokenize
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-# from sentiment_analysis import bert_sentiment
+# for bert sentiment
 from germansentiment import SentimentModel
 import torch
+
 # download necessary documents for pre-processing 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -218,10 +221,7 @@ def bert_sentiment(dataframes_list):
     for dataset in dataframes_list: 
         for i in range(dataset.shape[0]): 
             summary = dataset.iloc[i, 2]
-            #d={p: summary}
-            #texts.update(d)
             summaries.append(summary)
-            #summaries.append(texts)
         if dataset.empty == False:
             sentiment.append(model.predict_sentiment(summaries))
         else:
@@ -230,8 +230,8 @@ def bert_sentiment(dataframes_list):
         summaries = []
         sentiment = []
         torch.cuda.empty_cache()
-
-# torch.cuda.memory_summary(device=None, abbreviated=False)
+        
+# add sentiment index per author
 sentiment_index = []
 def author_sentiment(df): 
     var = 0; 
@@ -272,7 +272,6 @@ def author_sentiment(df):
         
         if (negative_value+positive_value+neutral_value+pos_bit_value+neg_bit_value) > 0: 
             mean = (negative_value*1+neg_bit_value*2+neutral_value*3+pos_bit_value*4+positive_value*5)/(negative_value+positive_value+neutral_value+pos_bit_value+neg_bit_value)
-            #print(mean)
             if negative_value == max(negative_value, neg_bit_value, positive_value, pos_bit_value, neutral_value):
                 var = (1-mean)**2*negative_value+(2-mean)**2*neg_bit_value+(3-mean)**2*neutral_value+(4-mean)**2*pos_bit_value+(5-mean)**2*positive_value
                 std_var = math.sqrt(var)
@@ -303,11 +302,11 @@ def author_sentiment(df):
             sentiment_index.append(index_value)
     else:
         sentiment_index.append(0)
-    
+
+# get the index
 def get_index(): 
     return sentiment_index; 
 
-# instead of using min, max maybe check all data at the end again, and just divide by 3 or 4 
 # normalize values for the overall author sentiment
 def get_listing(sentiment_index, list_of_names):
     sentiment_index=[(float(i)-min(sentiment_index))/(max(sentiment_index)-min(sentiment_index)) for i in sentiment_index]
@@ -317,20 +316,12 @@ def get_listing(sentiment_index, list_of_names):
         
     return sentiment_listing
 
-# for dataset in dataframes_list:
-#    author_sentiment(dataset)
-
 # get the sentiment index in a df
 def get_df_sentiment_index(sentiment_listing): 
      global sentiment_index_df;
      sentiment_index_df = pd.DataFrame(sentiment_listing.items(), columns=['Name', 'Index'])
      return sentiment_index_df
-
-# call functions
-
-#  save the index as csv
-# sentiment_index_df = pd.DataFrame(sentiment_listing.items(), columns=['Name', 'Index'])
-# sentiment_index_df.to_csv("Sentiment_Index.csv", encoding='utf-8')    
+   
 
 
 
