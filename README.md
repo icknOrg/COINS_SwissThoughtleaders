@@ -49,6 +49,7 @@ The Sentiment Index is calculated by:
 <a id="1">[1]</a> 
 R. Remus, U. Quasthoff & G. Heyer: SentiWS - a Publicly Available German-language Resource for Sentiment Analysis. 
 In: Proceedings of the 7th International Language Ressources and Evaluation (LREC'10), 2010.
+
 <a id="2">[2]</a> 
 Guhr O, Schumann AK, Bahrmann F, Böhme HJ. Training a Broad-Coverage German Sentiment Classification Model for Dialog Systems. 
 In: Proceedings of the 12th Language Resources and Evaluation Conference 2020 May (pp. 1627-1632).
