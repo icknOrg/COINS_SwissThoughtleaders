@@ -4,7 +4,25 @@ Created on Tue Jun  8 13:14:37 2021
 
 @author: Johanna
 """
+"""
+The sentiment Index is calculated by combining two different methods of assigning a sentiment to the article,
+first by applying a bag of words for the German Language called SentiWS and comparing its words to the articles, 
+second by using BERT implemented in a sentiment model that assigns sentiments to an article. 
+A weight is applied to each article that consists of how often the persons name is mentioned in the 
+description of the article (mostly ranging from 0 to 2). 
 
+The Author's Index is then calculated by comparing the both sentiments of BERT and SentiWS and how often these values overlap 
+in negative, neutral and positive articles using the weight to let the article weigh more or less 
+in the calculation. 
+
+In order to let the index deviate more into a negative/positive area (since the overall calculation showed to even out
+articles in a neutral area), the mean of the values is calculated and the standard deviation divided by 10 is 
+added of the max value is positive and substracted if the max value is negative. 
+
+Afterwards the value gets normalized in a Min/Max (in a range from 0 to 1). 
+
+The results together with the names of the persons are saved in a dataframe and returned. 
+"""
 """
 SentiWS is licensed under a Creative Commons Attribution-Noncommercial-Share Alike 3.0 
 Unported License (http://creativecommons.org/licenses/by-nc-sa/3.0/). If you use SentiWS in
@@ -14,39 +32,34 @@ R. Remus, U. Quasthoff & G. Heyer: SentiWS - a Publicly Available German-languag
 In: Proceedings of the 7th International Language Ressources and Evaluation (LREC'10), 2010
 
 """
-
-import warnings
+import warnings 
 warnings.filterwarnings("ignore")
-import numpy as np 
 import pandas as pd 
-import seaborn as sns 
-import matplotlib.pyplot as plt
+import glob
+# seaborn as sns 
+# import matplotlib.pyplot as plt
 
 import re
 import nltk
 import unidecode
 import math 
-from sklearn.preprocessing import MinMaxScaler 
-
-from nltk.corpus import opinion_lexicon
 from nltk import word_tokenize 
-from nltk.tokenize import treebank
 from nltk.corpus import stopwords
 from nltk.stem.porter import PorterStemmer
 
-#autocorrect is not used yet cause it creates deprecation warnings that 
-#for whatever aren't filtered
-#from autocorrect import spell
-#nltk.download('opinion_lexicon')
+# from sentiment_analysis import bert_sentiment
+from germansentiment import SentimentModel
+import torch
+# download necessary documents for pre-processing 
 nltk.download('punkt')
 nltk.download('stopwords')
 
 stemmer = PorterStemmer()
 
-#read bag of words for positve and negative sentiment
-#process data to fit our articles 
-#remove document specifics, umlaute and numbers
-with open("SentiWS_v1.8c_Negative.txt", "r", encoding='utf-8') as sem1:
+# read bag of words for positve and negative sentiment
+# process data to fit our articles 
+# remove document specifics, umlaute and numbers
+with open("SentiWS_v2.0_Negative.txt", "r", encoding='utf-8') as sem1:
     negative_words = sem1.read()
     negative_words = negative_words.replace('|NN', '')
     negative_words = negative_words.lower()
@@ -54,7 +67,7 @@ with open("SentiWS_v1.8c_Negative.txt", "r", encoding='utf-8') as sem1:
     negative_words = re.sub('[^A-Za-z]', ' ', negative_words)
 sem1.close()
 
-with open("SentiWS_v1.8c_Positive.txt", "r", encoding='utf-8') as sem2:
+with open("SentiWS_v2.0_Positive.txt", "r", encoding='utf-8') as sem2:
     positive_words = sem2.read()
     positive_words = positive_words.replace('|NN', '')
     positive_words = positive_words.lower()
@@ -65,19 +78,65 @@ sem2.close()
 positive_words = positive_words.split(',')
 negative_words = negative_words.split(',')
 
-#read the excel data 
-#df = pd.read_excel("Muschg_all_2021.xlsx", index_col=0, dtype=str)
-list_of_names = ['Berg', 'Buono', 'Mäder', 'Huerlimann', 'Meckel', 'Gentinetta']
-dataframes_list = []
-for i in range(len(list_of_names)):
-    temp_df = pd.read_excel("./Train/"+list_of_names[i]+"_all_2021.xlsx", index_col=0, dtype=str)
-    dataframes_list.append(temp_df)
+# read the excel data and prepare the dataframe list
+# path = r'C:\Users\Johanna\Documents\GitHub\COINS_SwissTribeleaders\all' # use your path
+
+def df_prep(path):
+    list_of_names = []
+    all_files = glob.glob(path + "/*.xlsx")
     
-#Preprocessing 
+    for filename in all_files:
+        filename = filename.replace(path, "")
+        filename = filename.replace(".xlsx", "")
+        filename = filename.replace("\\", "")
+        list_of_names.append(filename)
+    return list_of_names;
+
+def get_list(list_of_names, path):
+    dataframes_list = []
+    for i in range(len(list_of_names)):
+        temp_df = pd.read_excel(path+"/"+list_of_names[i]+".xlsx", index_col=0, dtype=str)
+        dataframes_list.append(temp_df)
+    return dataframes_list;
+
+# add the weight for the articles based on how often the name is mentioned in description
+def add_weight(dataframes_list, list_of_names):
+    a = 0
+    for dataset in dataframes_list:
+        dataset["count"]= dataset["desc"].str.count(list_of_names[a], re.I)
+        a += 1
+
+def drop_columns(df): 
+    df = df.drop(columns=['title', 'media', 'date', 'desc', 'link'], axis='columns', inplace=True)
+
+def prepare_columns(dataframes_list):
+    for dataset in dataframes_list:
+        drop_columns(dataset)
+        
+    for dataset in dataframes_list:
+        if 'flag' in dataset:
+            dataset = dataset.drop(columns=['flag'], axis='columns', inplace=True)
+    
+    for dataset in dataframes_list:
+        if 'datetime' in dataset:
+            dataset = dataset.drop(columns=['datetime'], axis='columns', inplace=True) 
+            
+    for dataset in dataframes_list:
+        if 'img' in dataset:
+            dataset = dataset.drop(columns=['img'], axis='columns', inplace=True)      
+            
+    for dataset in dataframes_list: 
+        #dataset = dataset[dataset.count != 0]
+        dataset.drop(dataset.loc[dataset['count']==0].index, inplace=True)
+    
+    for dataset in dataframes_list:
+        dataset.dropna(inplace=True)
+        
+# Preprocessing 
 def process_summary(df):
     data = []
     for i in range(df.shape[0]):
-        text = df.iloc[i, 5]
+        text = df.iloc[i, 0]
 
     # remove non alphabatic characters
         text = unidecode.unidecode(str(text))
@@ -94,38 +153,27 @@ def process_summary(df):
         for word in tokenized_text:
             if word not in set(stopwords.words('german')):
             #here you could include the Stemmer like stemmer.stem(word) 
-            #though I'm not sure if the comparison dictionary for the words also
-            #includes stems, so I use the original words for now 
+            #though since sentiWS has all versions of a word it is not necessary 
                 text_processed.append(word)
 
         new_text = " ".join(text_processed)
         data.append(new_text)
     df['Processed_summary'] = data
- 
+
+# count the positive and negative words and return the overall sentiment
 def simple_sentiment(text):
     pos_words = 0
     neg_words = 0
 
     tokens = [word.lower() for word in word_tokenize(text)]
-#    x = list(range(len(tokens))) # x axis for the plot
-#    y = []
     
     for word in tokens:
-        #if word in opinion_lexicon.positive():
           if word in positive_words[0]:
             pos_words += 1
-#            y.append(1) # positive
-        # elif word in opinion_lexicon.negative():
+
           if word in negative_words[0]:
             neg_words += 1
-#            y.append(-1) # negative
-#        else:
-#            y.append(0) # neutral
-# I'm not a big fan of just adding up the negative and positive words and 
-# afterwards comparing the amount. If there are 6 neg words and 5 pos words, is the 
-# text still positive? For now this is fine though
-# we could also add numerical values here instead of words if it's better for later 
-#analysis  
+ 
     if pos_words > neg_words:
         return 'Positiv'
     elif pos_words < neg_words:
@@ -133,10 +181,11 @@ def simple_sentiment(text):
     elif pos_words == neg_words:
         return 'Neutral'
 
+# add the sentiment to the dataset 
 def add_polarity(df): 
     sentiment = []
     for i in range(df.shape[0]):
-        proc_sum = df.iloc[i, 7]
+        proc_sum = df.iloc[i, 2]
     
         if proc_sum == 'nan': 
             pol = 'nan'
@@ -146,111 +195,144 @@ def add_polarity(df):
     
     df['sentiment'] = sentiment
 
-i = 0
-#calls the different functions and produces a plot for the polarity count of the article count for the author 
-for dataset in dataframes_list:   
-    process_summary(dataset)
-    simple_sentiment(str(dataset['Processed_summary']))
-    add_polarity(dataset)
-    sns.countplot(dataset.sentiment)
-    plt.xlabel('summary sentiment')
-    plt.savefig('polarity_'+ list_of_names[i] +'.png')
-    plt.clf()
-    i = i + 1
+# add the bert sentiment
 
-def add_weight(df): 
-    w = 0
-    weight = []
-    for i in range(df.shape[0]):
-        flag = int(df.iloc[i, 6])
-        summary = (df.iloc[i, 7])
-        if summary == 'nan': 
-            w = 0; 
-        elif summary != 'nan': 
-            if flag == 0: 
-                w = 2;
-            elif flag == 1:
-                w = 1; 
-            elif flag == 2:
-                w = 0.5;  
-        #return w;
-        weight.append(w)
-    df['weight'] = weight
+# you could use this to save the dataset in different partitions if its too big for one run for you
+# dataframes_fifth = []
+# i = 51; 
+# for dataset in dataframes_list:
+#     if i <= 71:
+#         dataframes_fifth.append(dataset)
+#         i+=1;  
+#     else:
+#         pass;
+# in here run the sentiment model first, then the next two lines
+# dataframes_fifth = pd.concat(dataframes_fifth)
+# dataframes_fifth.to_csv("DF_5.csv", encoding='utf-8')
+
+def bert_sentiment(dataframes_list): 
+    model = SentimentModel()
+    sentiment = []
+    summaries = []
     
+    for dataset in dataframes_list: 
+        for i in range(dataset.shape[0]): 
+            summary = dataset.iloc[i, 2]
+            #d={p: summary}
+            #texts.update(d)
+            summaries.append(summary)
+            #summaries.append(texts)
+        if dataset.empty == False:
+            sentiment.append(model.predict_sentiment(summaries))
+        else:
+            sentiment.append(0)
+        dataset['sentiment_bert'] = sentiment[0]
+        summaries = []
+        sentiment = []
+        torch.cuda.empty_cache()
 
-sentiment_index = []   
-def author_sentiment(df):
-    mean = 0; 
+# torch.cuda.memory_summary(device=None, abbreviated=False)
+sentiment_index = []
+def author_sentiment(df): 
     var = 0; 
     index_value = 0
     negative_value = 0; 
     positive_value = 0;
     neutral_value = 0;
+    neg_bit_value = 0; 
+    pos_bit_value = 0; 
+
+    if df.empty != True: 
+        for i in range(df.shape[0]):
+            sentiment = df.iloc[i, 3]
+            sentiment_bert = df.iloc[i, 4]
+            weight = df.iloc[i, 1]
+            
+            if sentiment == 'Neutral': 
+                if sentiment_bert == "neutral":
+                    neutral_value += weight
+                elif sentiment_bert == "positive": 
+                    pos_bit_value += weight 
+                elif sentiment_bert == "negative":
+                    neg_bit_value += weight
+            elif sentiment == 'Positiv':
+                if sentiment_bert == "neutral":
+                    pos_bit_value += weight
+                elif sentiment_bert == "positive": 
+                    positive_value += weight
+                elif sentiment_bert == "negative":
+                    neutral_value += weight
+            elif sentiment == 'Negativ':
+                if sentiment_bert == "neutral":
+                    neg_bit_value += weight
+                elif sentiment_bert == "positive": 
+                    neutral_value += weight
+                elif sentiment_bert == "negative":
+                    negative_value += weight
+        
+        if (negative_value+positive_value+neutral_value+pos_bit_value+neg_bit_value) > 0: 
+            mean = (negative_value*1+neg_bit_value*2+neutral_value*3+pos_bit_value*4+positive_value*5)/(negative_value+positive_value+neutral_value+pos_bit_value+neg_bit_value)
+            #print(mean)
+            if negative_value == max(negative_value, neg_bit_value, positive_value, pos_bit_value, neutral_value):
+                var = (1-mean)**2*negative_value+(2-mean)**2*neg_bit_value+(3-mean)**2*neutral_value+(4-mean)**2*pos_bit_value+(5-mean)**2*positive_value
+                std_var = math.sqrt(var)
+                index_value = mean - (std_var/10); 
+                sentiment_index.append(index_value)
+            elif positive_value == max(negative_value, neg_bit_value, positive_value, pos_bit_value, neutral_value):
+                var = (1-mean)**2*negative_value+(2-mean)**2*neg_bit_value+(3-mean)**2*neutral_value+(4-mean)**2*pos_bit_value+(5-mean)**2*positive_value
+                std_var = math.sqrt(var)
+                index_value = mean + (std_var/10); 
+                sentiment_index.append(index_value)
+            elif neutral_value == max(negative_value, neg_bit_value, positive_value, pos_bit_value, neutral_value):
+                index_value = mean; 
+                sentiment_index.append(index_value)
+            elif neg_bit_value == max(negative_value, neg_bit_value, positive_value, pos_bit_value, neutral_value):
+                var = (1-mean)**2*negative_value+(2-mean)**2*neg_bit_value+(3-mean)**2*neutral_value+(4-mean)**2*pos_bit_value+(5-mean)**2*positive_value
+                std_var = math.sqrt(var)
+                index_value = mean - (std_var/50);
+                sentiment_index.append(index_value)
+            elif pos_bit_value == max(negative_value, neg_bit_value, positive_value, pos_bit_value, neutral_value):
+                var = (1-mean)**2*negative_value+(2-mean)**2*neg_bit_value+(3-mean)**2*neutral_value+(4-mean)**2*pos_bit_value+(5-mean)**2*positive_value
+                std_var = math.sqrt(var)
+                index_value = mean + (std_var/50); 
+                sentiment_index.append(index_value)
+
+        else: 
+            mean = 0; 
+            index_value = mean
+            sentiment_index.append(index_value)
+    else:
+        sentiment_index.append(0)
     
-    for i in range(df.shape[0]):
-        sentiment = df.iloc[i, 8]
-        weight = df.iloc[i, 9]
-        if sentiment == 'Neutral':
-                neutral_value += weight
-        if sentiment == 'Positiv':
-                positive_value += weight
-        if sentiment == 'Negativ':
-                negative_value += weight
+def get_index(): 
+    return sentiment_index; 
+
+# instead of using min, max maybe check all data at the end again, and just divide by 3 or 4 
+# normalize values for the overall author sentiment
+def get_listing(sentiment_index, list_of_names):
+    sentiment_index=[(float(i)-min(sentiment_index))/(max(sentiment_index)-min(sentiment_index)) for i in sentiment_index]
     
-    mean = (negative_value*1+neutral_value*2+positive_value*3)/(negative_value+positive_value+neutral_value)
-    print(mean)
-    if negative_value == max(negative_value, positive_value, neutral_value):
-        var = (1-mean)**2*negative_value+(2-mean)**2*neutral_value+(3-mean)**2*positive_value
-        std_var = math.sqrt(var)
-        index_value = mean - (std_var/10); 
-        sentiment_index.append(index_value)
-    if positive_value == max(negative_value, positive_value, neutral_value):
-        var = (1-mean)**2*negative_value+(2-mean)**2*neutral_value+(3-mean)**2*positive_value
-        std_var = math.sqrt(var)
-        index_value = mean + (std_var/10); 
-        sentiment_index.append(index_value)
-    if neutral_value == max(negative_value, positive_value, neutral_value):
-        index_value = mean; 
-        sentiment_index.append(index_value)
+    zip_sentiment = zip(list_of_names, sentiment_index)
+    sentiment_listing = dict(zip_sentiment)
+        
+    return sentiment_listing
 
-for dataset in dataframes_list:
-   add_weight(dataset)
-   author_sentiment(dataset)
-
-print(sentiment_index)
-
-#instead of using min, max maybe check all data at the end again, and just divide by 3 or 4 
-#normalize values for the overall author sentiment
-sentiment_index=[(float(i)-min(sentiment_index))/(max(sentiment_index)-min(sentiment_index)) for i in sentiment_index]
-
-zip_sentiment = zip(list_of_names, sentiment_index)
-sentiment_listing = dict(zip_sentiment)
-    
-print(sentiment_listing)
-
-
-#concate the produced dfs to a training dataset 
-all_train_dfs = pd.concat(dataframes_list)
-all_train_dfs.to_excel("authors_train.xlsx")
-
-#read 2 datasets as testdata and prepare them 
-list_of_names_test = ['Bleisch', 'Rost']
-dataframes_list_test = []
-for i in range(len(list_of_names_test)):
-    temp_df = pd.read_excel("./Test/"+list_of_names_test[i]+"_all_2021.xlsx", index_col=0, dtype=str)
-    dataframes_list_test.append(temp_df)
-
-#calls the different functions for the testdata 
-for dataset in dataframes_list_test:   
-    process_summary(dataset)
-    simple_sentiment(str(dataset['Processed_summary']))
-    add_polarity(dataset)
-    add_weight(dataset)
+# for dataset in dataframes_list:
 #    author_sentiment(dataset)
 
-#save test data as xlsx
-all_test_dfs = pd.concat(dataframes_list_test)
-all_test_dfs.to_excel("authors_test.xlsx")
+# get the sentiment index in a df
+def get_df_sentiment_index(sentiment_listing): 
+     global sentiment_index_df;
+     sentiment_index_df = pd.DataFrame(sentiment_listing.items(), columns=['Name', 'Index'])
+     return sentiment_index_df
+
+# call functions
+
+#  save the index as csv
+# sentiment_index_df = pd.DataFrame(sentiment_listing.items(), columns=['Name', 'Index'])
+# sentiment_index_df.to_csv("Sentiment_Index.csv", encoding='utf-8')    
+
+
 
 
 
