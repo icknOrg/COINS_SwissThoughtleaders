@@ -18,8 +18,8 @@ The different Google News Articles are assigned a weight based on how often the 
 correlated articles are later deleted in the Analysis. 
 
 The Sentiment is assigned in 2 ways: 
-- by adding comparing positive and negative words of the SentiWS (see references) dataset with the articles and assigning the sentiment of majority to the overall article. 
-- by using the SentimentModel which includes the German model of BERT and assigns the sentiments automatically to the articles. 
+- by comparing positive and negative words of the SentiWS (see references) dataset with the articles and assigning the sentiment of majority to the overall article. 
+- by using the SentimentModel which includes the German model of BERT (see references) and assigns the sentiments automatically to the articles. 
 
 The Sentiment Index is calculated by: 
 - comparing the two sentiments of an article an adding up the amount of articles for a specific value times the weight that was assigned in the beginning.
@@ -49,3 +49,6 @@ The Sentiment Index is calculated by:
 <a id="1">[1]</a> 
 R. Remus, U. Quasthoff & G. Heyer: SentiWS - a Publicly Available German-language Resource for Sentiment Analysis. 
 In: Proceedings of the 7th International Language Ressources and Evaluation (LREC'10), 2010.
+<a id="2">[2]</a> 
+Guhr O, Schumann AK, Bahrmann F, Böhme HJ. Training a Broad-Coverage German Sentiment Classification Model for Dialog Systems. 
+In: Proceedings of the 12th Language Resources and Evaluation Conference 2020 May (pp. 1627-1632).
