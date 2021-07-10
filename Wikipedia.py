@@ -22,8 +22,8 @@ thoughtleaders = [x for x in thoughtleaders if pd.notnull(x)]
 print(thoughtleaders)
 
 #initialize dataframes
-df = pd.DataFrame({'Thoughtleader': 'no one', 'Backlinks': [0], 'Links': [0], 'Awards': [0], 'Publications': [0]})
-df_2 = pd.DataFrame({'Thoughtleader': 'no one', 'Wikipedia_score': [0]})
+df = pd.DataFrame({'Name': 'no one', 'Backlinks': [0], 'Links': [0], 'Awards': [0], 'Publications': [0]})
+df_2 = pd.DataFrame({'Name': 'no one', 'Wikipedia_score': [0]})
 
 for thoughtleader in thoughtleaders:
     
@@ -145,11 +145,11 @@ for thoughtleader in thoughtleaders:
     #calculate the wikipedia score by adding all up
     wikipedia_score = links + backlinks + 100*auszeichnungen + 100*publications
     
-    d = {'Thoughtleader': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
+    d = {'Name': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
     df_wikipedia_values = pd.DataFrame(data=d)
     df = pd.concat([df, df_wikipedia_values])
     
-    d_2 = {'Thoughtleader': thoughtleader, 'Wikipedia_score': [wikipedia_score]}
+    d_2 = {'Name': thoughtleader, 'Wikipedia_score': [wikipedia_score]}
     df_wikipedia_score = pd.DataFrame(data=d_2)
     df_2 = pd.concat([df_2, df_wikipedia_score])
 
