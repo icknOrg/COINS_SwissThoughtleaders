@@ -5,7 +5,7 @@ Created on Fri May 28 10:16:27 2021
 @author: vikto
 Fetch data from Wikipedia: Links, Backlinks, Awards and Publications in 2020/2021
 Based on this a Wikipedia Score is calculated. 
-For this, Awards and Publications are multiplied by 100 as they are seen as important as 100 links or backlinks.
+For this, Awards and Publications are multiplied by 50 as they are seen as important as 50 links or backlinks.
 Furthermore, the min-max normalization is used to get a score between 0 and 1.
 """
 
@@ -20,14 +20,15 @@ wiki_wiki = wikipediaapi.Wikipedia(
 )
 
 #get data of .xlsx file
-tl = pd.read_excel('COINs Intelektuellen-Ranking.xlsx', index_col=0, dtype=str)
+tl = pd.read_excel('COINs Intelektuellen-Ranking.xlsx')
+
 thoughtleaders = tl['Wikipedia'].tolist()
 thoughtleaders = [x for x in thoughtleaders if pd.notnull(x)]
 print(thoughtleaders)
 
 #initialize dataframes
-df = pd.DataFrame({'Name': 'no one', 'Backlinks': [0], 'Links': [0], 'Awards': [0], 'Publications': [0]})
-df_2 = pd.DataFrame({'Name': 'no one', 'Wikipedia_score': [0]})
+df = pd.DataFrame({'Wikipedia_name': 'no one', 'Backlinks': [0], 'Links': [0], 'Awards': [0], 'Publications': [0]})
+df_2 = pd.DataFrame({'Wikipedia_name': 'no one', 'Wikipedia_score': [0]})
 
 for thoughtleader in thoughtleaders:
     
@@ -146,16 +147,17 @@ for thoughtleader in thoughtleaders:
     links = print_links(p_wiki)
     auszeichnungen = print_amount_of_auszeichnungen(p_wiki.sections)
     publications = print_amount_of_publications(p_wiki.sections)
+
     
     #calculate the wikipedia score by adding all up
-    wikipedia_score = links + backlinks + 100*auszeichnungen + 100*publications
+    wikipedia_score = links + backlinks + 50*auszeichnungen + 50*publications
     
     #create the dataframes
-    d = {'Name': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
+    d = {'Wikipedia_name': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
     df_wikipedia_values = pd.DataFrame(data=d)
     df = pd.concat([df, df_wikipedia_values])
     
-    d_2 = {'Name': thoughtleader, 'Wikipedia_score': [wikipedia_score]}
+    d_2 = {'Wikipedia_name': thoughtleader, 'Wikipedia_score': [wikipedia_score]}
     df_wikipedia_score = pd.DataFrame(data=d_2)
     df_2 = pd.concat([df_2, df_wikipedia_score])
 
@@ -164,13 +166,19 @@ for thoughtleader in thoughtleaders:
 df = df.iloc[1:]
 df_2 = df_2.iloc[1:]  
 
+
 #Normalize score with min-max normalization
 df_2['Wikipedia_score']=(df_2['Wikipedia_score']-df_2['Wikipedia_score'].min())/(df_2['Wikipedia_score'].max()-df_2['Wikipedia_score'].min())
 
-df_2.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')
+#Merge with tl again, to get the original name of the thoughtleader and not the name of the wikipedia page
+df_3 = pd.merge(tl[['Name', 'Wikipedia']], df_2, left_on="Wikipedia", right_on='Wikipedia_name', how='left')
+df_3 = df_3[['Name', 'Wikipedia_score']]
+
+df_3.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')
 
 print(df)
 print(df_2)
+print(df_3)
 
     
 
