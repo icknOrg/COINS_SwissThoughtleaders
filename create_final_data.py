@@ -9,16 +9,21 @@ create final dataframe with all attributes needed for classification
 
 import pandas as pd
 
+#get Google Search Result
 df_gsr = pd.read_excel('COINs Intelektuellen-Ranking.xlsx')
 df_gsr.rename(columns={'Google Search Results (this year)': 'GSR'}, inplace=True)
 
+#Get Wikipedia Score
 df_wikipedia = pd.read_csv('Thoughtleader_Wikipedia.csv')
 
+#Get Sentiment Score of Google News
 df_sentiment = pd.read_csv('Sentiment_Index.csv', sep=';')
 df_sentiment.rename(columns={'Index': 'Sentiment_score'}, inplace=True)
 
+#Get Twitter Score
 #df_twitter = pd.read_csv('')
 
+#Merge all dataframes
 df_thoughtleaders = pd.merge(df_gsr[['Name', 'GSR']], df_wikipedia[['Name', 'Wikipedia_score']], on='Name', how='left')
 df_thoughtleaders = pd.merge(df_thoughtleaders, df_sentiment, on='Name', how='left')
 #df_thoughtleaders = pd.merge(df_thoughtleaders, df_twitter, on='Name', how='left')

@@ -3,6 +3,10 @@
 Created on Fri May 28 10:16:27 2021
 
 @author: vikto
+Fetch data from Wikipedia: Links, Backlinks, Awards and Publications in 2020/2021
+Based on this a Wikipedia Score is calculated. 
+For this, Awards and Publications are multiplied by 100 as they are seen as important as 100 links or backlinks.
+Furthermore, the min-max normalization is used to get a score between 0 and 1.
 """
 
 import pandas as pd
@@ -82,7 +86,8 @@ for thoughtleader in thoughtleaders:
     def print_amount_of_publications(sections):
         
         publications_20_21 = 0
-     
+        
+        #List of names found for the category "Werke" on Wikipedia pages
         werke = ['Werk', 'Publikation', 'Prosa', 'Fernsehen', 'Schrift', 'Sach', 'Als', 'Theater', 'Übersetzung',
                  'Hör', 'Radio', 'Podcast', 'Veröffentlichung', 'Buch', 'Diskografie',
                  'CD', 'Bücher', 'Krimi', 'Romane', 'Bühne', 'Singles', 'Alben', 
@@ -145,6 +150,7 @@ for thoughtleader in thoughtleaders:
     #calculate the wikipedia score by adding all up
     wikipedia_score = links + backlinks + 100*auszeichnungen + 100*publications
     
+    #create the dataframes
     d = {'Name': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
     df_wikipedia_values = pd.DataFrame(data=d)
     df = pd.concat([df, df_wikipedia_values])
@@ -166,10 +172,6 @@ df_2.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')
 print(df)
 print(df_2)
 
-def get_wikipedia(): 
-    global wikipedia; 
-    wikipedia = pd.DataFrame(df)
-    return wikipedia; 
     
 
 
