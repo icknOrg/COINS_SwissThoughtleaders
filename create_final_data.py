@@ -22,9 +22,9 @@ df_wikipedia = pd.read_csv('Thoughtleader_Wikipedia.csv')
 
 
 #Get Sentiment Score of Google News
-df_sentiment = pd.read_csv('Sentiment_Index.csv', sep=',')
+df_sentiment = pd.read_csv('Sentiment_Index.csv')
 df_sentiment.rename(columns={'Index': 'Sentiment_score'}, inplace=True)
-print(df_sentiment[df_sentiment['Name']=='Sibylle Berg'])
+
 
 #Get Twitter Score
 df_twitter = pd.read_csv('Thoughtleader_Twitter.csv')
@@ -41,7 +41,7 @@ df_thoughtleaders.fillna(0, inplace=True)
 df_thoughtleaders['Thoughtleader_Score']=(df_thoughtleaders['GSR_score']+df_thoughtleaders['Wikipedia_score']+df_thoughtleaders['Sentiment_score']+df_thoughtleaders['Twitter_score'])/4
 
 #Some duplicates occured because of the merge
-#df_thoughtleaders.drop_duplicates(inplace=True)
+df_thoughtleaders.drop_duplicates(inplace=True)
 
 print(df_thoughtleaders)
 df_thoughtleaders.to_csv('Thoughtleaders_final.csv', index=False)
