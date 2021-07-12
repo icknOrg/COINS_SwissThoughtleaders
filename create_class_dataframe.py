@@ -30,21 +30,39 @@ values = [0, 1]
 data['verified'] = np.select(conditions, values)
 
 # Get Sentiment Score of Google News
-df_sentiment = pd.read_csv('Sentiment_Index.csv', sep=';')
-df_sentiment.rename(columns={'Index': 'Sentiment_score'}, inplace=True)
+#df_sentiment = pd.read_csv('Sentiment_Index.csv', sep=';')
+#df_sentiment.rename(columns={'Index': 'Sentiment_score'}, inplace=True)
 
 # get wikipedia
 wikipedia_data = get_wikipedia()
 
+# get thoughtleader score 
+thoughtleader_score = pd.read_csv('Thoughtleaders_final.csv')
+
 # Merge all dataframes
 class_data = pd.merge(data, twitter_data, on='id', how='left')
 class_data = pd.merge(class_data, wikipedia_data, on='Name', how='left')
-class_data = pd.merge(class_data, df_sentiment[['Name', 'Sentiment_score']], on='Name', how='left')
+class_data = pd.merge(class_data, thoughtleader_score, on='Name', how='left')
+#class_data = pd.merge(class_data, df_sentiment[['Name', 'Sentiment_score']], on='Name', how='left')
 class_data.fillna(0, inplace=True)
 
 # drop columns that we don't need 
 class_data = class_data.drop(columns=['Unnamed: 7'])
 
+# get percentage, top 30%
+x = class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False)[(class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False).cumsum()
+                                                 /class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False).sum())<=.3].dropna()
+
+# add labels
+class_labels = []
+for value in class_data.index: 
+    if value in x.index:
+        class_labels.append(1)
+    else:
+        class_labels.append(0)
+
+class_data['class_labels'] = class_labels
+    
 # function to retrieve classification data in the code for the classification model
 def get_class_original():
     global classification_data; 
