@@ -20,8 +20,8 @@ wiki_wiki = wikipediaapi.Wikipedia(
 )
 
 #get data of .xlsx file
-tl_DE = pd.read_excel('COINs Intelektuellen-Ranking.xlsx')
-tl_SW = pd.read_excel('Thoughtleader List_GermanSpeaking.xlsx')
+tl_SW = pd.read_excel('COINs Intelektuellen-Ranking.xlsx')
+tl_DE = pd.read_excel('Thoughtleader List_GermanSpeaking.xlsx')
 
 def prepare_Wikipedia(tl):
     thoughtleaders = tl['Wikipedia'].tolist()
