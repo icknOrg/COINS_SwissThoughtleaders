@@ -50,10 +50,10 @@ The Sentiment Index is calculated by:
 
 ## Wikipedia
 For each of the potential Thoughtleaer of our initial list disposing of a Wikipedia entry, a Wikipedia Index [0,1] is calculated based on the following aspects:
-  - # of backlinks 
-  - # of links
-  - # of awards won in 2020/21
-  - # of publications in 2020/21
+  - $# of backlinks 
+  - $# of links
+  - $# of awards won in 2020/21
+  - $# of publications in 2020/21
 This information was fetched using the Python library wikipediaapi. Doing so, Awards and Publications were multiplied by 50 as they are seen as important as 50 links or backlinks. Furthermore, the min-max normalization is used to get a score between 0 and 1.
 
 ## References
