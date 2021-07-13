@@ -32,7 +32,6 @@ The Sentiment Index is calculated by:
 - the different values are then cumulated and the mean is calculated. 
 - If the highest value is the cumulated negative value, the standard deviation is calculated, divided by 10 and then substracted from the mean, as seen here:
 
-
 ```python
  if (negative_value+positive_value+neutral_value+pos_bit_value+neg_bit_value) > 0: 
             mean = (negative_value*1+neg_bit_value*2+neutral_value*3+pos_bit_value*4+positive_value*5)/(negative_value+positive_value+neutral_value+pos_bit_value+neg_bit_value)
@@ -44,6 +43,12 @@ The Sentiment Index is calculated by:
 ```
 - The same is done for the highest positive value, where the standard deviation divided by 10 is added to the mean. For the neg_bit and pos_bit values the same is done with a division by 50.
 - The Index List gets then normalized in a Min/Max way and returned as Dataframe to be completed with the rest of the analysis.
+
+## Twitter Data fetched with Griffin
+
+## Google Search Results
+
+## Wikipedia
 
 ## References
 <a id="1">[1]</a> 
