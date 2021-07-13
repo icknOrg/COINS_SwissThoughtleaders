@@ -32,6 +32,11 @@ The Sentiment Index is calculated by:
 - the different values are then cumulated and the mean is calculated. 
 - If the highest value is the cumulated negative value, the standard deviation is calculated, divided by 10 and then substracted from the mean, as seen here:
 
+## Twitter Data fetched with Griffin
+
+## Google Search Results
+
+## Wikipedia
 
 ```python
  if (negative_value+positive_value+neutral_value+pos_bit_value+neg_bit_value) > 0: 
