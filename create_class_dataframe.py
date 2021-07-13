@@ -9,8 +9,8 @@ load the different dfs and tables with the data that we want to use for the clas
 
 import pandas as pd
 import numpy as np
-from Twitter_final import get_twitter_original
-from Wikipedia import get_wikipedia
+from Twitter_final import get_twitter_original_SW
+from Wikipedia import get_wikipedia_SW
 
 data = pd.read_excel('COINs Intelektuellen-Ranking.xlsx')
 data.rename(columns={'Google Search Results (this year)': 'GSR'}, inplace=True)
@@ -18,12 +18,12 @@ data.Twitter = data.Twitter.str.replace("@", "")
 data = data.rename(columns={'Twitter' : 'id'})
 
 # get original twitter data and add the verified part just in case for now 
-twitter_data = get_twitter_original()
-twitter_data = twitter_data.drop(columns=['Name'])
+twitter_data = get_twitter_original_SW()
+twitter_data = twitter_data.drop(columns=['name'])
 
 conditions = [
     (data['Twitter Verifiziert?'] == 'nicht verifiziert') | (data['Twitter Verifiziert?'] == 0),
-    (data['Twitter Verifiziert?'] == 'verifiziert')]
+    (data['Twitter Verifiziert?'] == 'ja')]
 
 values = [0, 1]
 
@@ -34,7 +34,7 @@ data['verified'] = np.select(conditions, values)
 #df_sentiment.rename(columns={'Index': 'Sentiment_score'}, inplace=True)
 
 # get wikipedia
-wikipedia_data = get_wikipedia()
+wikipedia_data = get_wikipedia_SW()
 
 # get thoughtleader score 
 thoughtleader_score = pd.read_csv('Thoughtleaders_final.csv')
