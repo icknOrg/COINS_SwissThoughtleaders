@@ -44,11 +44,17 @@ The Sentiment Index is calculated by:
 - The same is done for the highest positive value, where the standard deviation divided by 10 is added to the mean. For the neg_bit and pos_bit values the same is done with a division by 50.
 - The Index List gets then normalized in a Min/Max way and returned as Dataframe to be completed with the rest of the analysis.
 
-## Twitter Data fetched with Griffin
+## Twitter Data (fetched with Griffin)
 
 ## Google Search Results
 
 ## Wikipedia
+For each of the potential Thoughtleaer of our initial list disposing of a Wikipedia entry, a Wikipedia Index [0,1] is calculated based on the following aspects:
+  - # of backlinks 
+  - # of links
+  - # of awards won in 2020/21
+  - # of publications in 2020/21
+This information was fetched using the Python library wikipediaapi. Doing so, Awards and Publications were multiplied by 50 as they are seen as important as 50 links or backlinks. Furthermore, the min-max normalization is used to get a score between 0 and 1.
 
 ## References
 <a id="1">[1]</a> 
@@ -58,3 +64,6 @@ In: Proceedings of the 7th International Language Ressources and Evaluation (LRE
 <a id="2">[2]</a> 
 Guhr O, Schumann AK, Bahrmann F, Böhme HJ. Training a Broad-Coverage German Sentiment Classification Model for Dialog Systems. 
 In: Proceedings of the 12th Language Resources and Evaluation Conference 2020 May (pp. 1627-1632).
+
+<a id="3">[3]</a> 
+Frick, K., Guertler, D., & Gloor, P. A. (2013). Coolhunting for the world's thought leaders. arXiv preprint arXiv:1308.1160.
