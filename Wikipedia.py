@@ -24,7 +24,7 @@ tl = pd.read_excel('COINs Intelektuellen-Ranking.xlsx')
 
 thoughtleaders = tl['Wikipedia'].tolist()
 thoughtleaders = [x for x in thoughtleaders if pd.notnull(x)]
-print(thoughtleaders)
+#print(thoughtleaders)
 
 #initialize dataframes
 df = pd.DataFrame({'Wikipedia_name': 'no one', 'Backlinks': [0], 'Links': [0], 'Awards': [0], 'Publications': [0]})
@@ -32,7 +32,7 @@ df_2 = pd.DataFrame({'Wikipedia_name': 'no one', 'Wikipedia_score': [0]})
 
 for thoughtleader in thoughtleaders:
     
-    print(thoughtleader)
+    #print(thoughtleader)
     p_wiki = wiki_wiki.page(thoughtleader)
     
     
@@ -103,9 +103,9 @@ for thoughtleader in thoughtleaders:
         for s in sections:
             for w in werke:
                 if w in s.title:  
-                    print("1. Level: ",s.title)
+                    #print("1. Level: ",s.title)
                     partitioned_string = s.text.split('\n')
-                    print(partitioned_string)
+                    #print(partitioned_string)
                     for line in partitioned_string:
                         
                         if line.count("2020") > 0 or line.count("2021") > 0:
@@ -118,9 +118,9 @@ for thoughtleader in thoughtleaders:
                     for sub in sub_sections:
                         for w in werke:
                             if w in sub.title:
-                                    print("2. Level: ",sub.title)
+                                    #print("2. Level: ",sub.title)
                                     partitioned_string = sub.text.split('\n')
-                                    print(partitioned_string)
+                                    #print(partitioned_string)
                                     for line in partitioned_string:
                                         if line.count("2020") > 0 or line.count("2021") > 0:
                                             
@@ -133,7 +133,7 @@ for thoughtleader in thoughtleaders:
                                     for sub_sub in sub_sub_sections:
                                         for w in werke:
                                             if w in sub_sub.title:
-                                                 print("3. Level: ", sub_sub.title)
+                                                 #print("3. Level: ", sub_sub.title)
                                                  partitioned_string = sub_sub.text.split('\n')
                                                  for line in partitioned_string:
                                                      if line.count("2020") > 0 or line.count("2021") > 0:
@@ -166,20 +166,27 @@ for thoughtleader in thoughtleaders:
 df = df.iloc[1:]
 df_2 = df_2.iloc[1:]  
 
+#Merge with tl again, to get the original name of the thoughtleader and not the name of the wikipedia page
+df = pd.merge(tl[['Name', 'Wikipedia']], df, left_on="Wikipedia", right_on='Wikipedia_name', how='left')
+df = df[['Name', 'Wikipedia_name', 'Backlinks', 'Links', 'Awards', 'Publications']]
 
 #Normalize score with min-max normalization
 df_2['Wikipedia_score']=(df_2['Wikipedia_score']-df_2['Wikipedia_score'].min())/(df_2['Wikipedia_score'].max()-df_2['Wikipedia_score'].min())
 
 #Merge with tl again, to get the original name of the thoughtleader and not the name of the wikipedia page
-df_3 = pd.merge(tl[['Name', 'Wikipedia']], df_2, left_on="Wikipedia", right_on='Wikipedia_name', how='left')
-df_3 = df_3[['Name', 'Wikipedia_score']]
+df_2 = pd.merge(tl[['Name', 'Wikipedia']], df_2, left_on="Wikipedia", right_on='Wikipedia_name', how='left')
+df_2 = df_2[['Name', 'Wikipedia_score']]
 
-df_3.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')
+df_2.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')
 
 print(df)
 print(df_2)
-print(df_3)
 
+
+def get_wikipedia():
+    global wikipedia; 
+    wikipedia = pd.DataFrame(df)
+    return wikipedia;
     
 
 
