@@ -30,7 +30,6 @@ def prepare_Wikipedia(tl):
     
     #initialize dataframes
     df = pd.DataFrame({'Wikipedia_name': 'no one', 'Backlinks': [0], 'Links': [0], 'Awards': [0], 'Publications': [0]})
-    #df_2 = pd.DataFrame({'Wikipedia_name': 'no one', 'Wikipedia_score': [0]})
     
     for thoughtleader in thoughtleaders:
         
@@ -159,27 +158,14 @@ def prepare_Wikipedia(tl):
         df_wikipedia_values = pd.DataFrame(data=d)
         df = pd.concat([df, df_wikipedia_values])
         
-        #d_2 = {'Wikipedia_name': thoughtleader, 'Wikipedia_score': [wikipedia_score]}
-        #df_wikipedia_score = pd.DataFrame(data=d_2)
-        #df_2 = pd.concat([df_2, df_wikipedia_score])
     
     
     
-    df = df.iloc[1:]
-    #df_2 = df_2.iloc[1:]  
+    df = df.iloc[1:]  
     
     #Merge with tl again, to get the original name of the thoughtleader and not the name of the wikipedia page
     df = pd.merge(tl[['Name', 'Wikipedia']], df, left_on="Wikipedia", right_on='Wikipedia_name', how='left')
     df = df[['Name', 'Wikipedia_name', 'Backlinks', 'Links', 'Awards', 'Publications']]
-    
-    #Normalize score with min-max normalization
-    #df_2['Wikipedia_score']=(df_2['Wikipedia_score']-df_2['Wikipedia_score'].min())/(df_2['Wikipedia_score'].max()-df_2['Wikipedia_score'].min())
-    
-    #Merge with tl again, to get the original name of the thoughtleader and not the name of the wikipedia page
-    #df_2 = pd.merge(tl[['Name', 'Wikipedia']], df_2, left_on="Wikipedia", right_on='Wikipedia_name', how='left')
-    #df_2 = df_2[['Name', 'Wikipedia_score']]
-    
-    #df_2.to_csv("Thoughtleader_Wikipedia.csv", encoding='utf-8')
     
     return df; 
 
@@ -200,9 +186,11 @@ def get_wikipedia_SW():
 def get_wikipedia_score_DE():
     global wikipedia_score_DE; 
     wikipedia_score_DE = pd.DataFrame(Wikipedia_DE)
-    #Calculate score
+    
+    #Calculate Wikipedia score
     wikipedia_score_DE["Wikipedia_score"] = wikipedia_score_DE.apply(lambda x: x['Links'] + x['Backlinks'] + 50* x['Awards'] + 50* x['Publications'], axis=1)
-    #Normalize
+    
+    #Normalize with min_max
     wikipedia_score_DE['Wikipedia_score']=(wikipedia_score_DE['Wikipedia_score']-wikipedia_score_DE['Wikipedia_score'].min())/(wikipedia_score_DE['Wikipedia_score'].max()-wikipedia_score_DE['Wikipedia_score'].min())
     wikipedia_score_DE = wikipedia_score_DE[['Name', 'Wikipedia_score']]
     return wikipedia_score_DE;
@@ -210,9 +198,11 @@ def get_wikipedia_score_DE():
 def get_wikipedia_score_SW():
     global wikipedia_score_SW; 
     wikipedia_score_SW = pd.DataFrame(Wikipedia_SW)
-    #Calculate score
+    
+    #Calculate Wikipedia score
     wikipedia_score_SW["Wikipedia_score"] = wikipedia_score_SW.apply(lambda x: x['Links'] + x['Backlinks'] + 50* x['Awards'] + 50* x['Publications'], axis=1)
-    #Normalize
+    
+    #Normalize with min_max
     wikipedia_score_SW['Wikipedia_score']=(wikipedia_score_SW['Wikipedia_score']-wikipedia_score_SW['Wikipedia_score'].min())/(wikipedia_score_SW['Wikipedia_score'].max()-wikipedia_score_SW['Wikipedia_score'].min())
     wikipedia_score_SW = wikipedia_score_SW[['Name', 'Wikipedia_score']]
     return wikipedia_score_SW;
