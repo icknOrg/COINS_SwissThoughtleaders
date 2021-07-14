@@ -28,6 +28,7 @@ def load_nodes_data(path):
         twitter_list.append(df)
         
     twitter = pd.concat(twitter_list)
+    twitter.id = twitter.id.str.lower()
     
     twitter = twitter[['id', 'name', 'followers_count', 'degree', 'betweenness', 'contribution_index', 
                        'sentiment_avg', 'emotionality_avg', 'ego_art', 'ego_nudges', 'alter_art', 'alter_nudges',
@@ -53,6 +54,7 @@ def prepare_data(path):
     data = pd.read_excel(path)
     data.rename(columns={'Google Search Results (this year)': 'GSR'}, inplace=True)
     data.Twitter = data.Twitter.str.replace("@", "")
+    data.Twitter = data.Twitter.str.lower()
     data = data.rename(columns={'Twitter' : 'id'})
     return data;
     #df = xls.parse(parse_cols=[0, 1, 2, 3], index_col=0, nrows=100, usecols = "A,B,C,D,E,F,G", na_values=[0])
@@ -114,9 +116,15 @@ def get_twitter_original_SW():
     twitter_original_SW = pd.DataFrame(nodes_SW)
     return twitter_original_SW;
 
-def get_twitter_factor(): 
-    global twitter_factor; 
-    twitter_factor = pd.DataFrame(twitter_SW)    
-    twitter_factor['Twitter']=(twitter_factor['Twitter']-twitter_factor['Twitter'].min())/(twitter_factor['Twitter'].max()-twitter_factor['Twitter'].min())
-    return twitter_factor;
+def get_twitter_factor_SW(): 
+    global twitter_factor_SW; 
+    twitter_factor_SW = pd.DataFrame(twitter_SW)    
+    twitter_factor_SW['Twitter']=(twitter_factor_SW['Twitter']-twitter_factor_SW['Twitter'].min())/(twitter_factor_SW['Twitter'].max()-twitter_factor_SW['Twitter'].min())
+    return twitter_factor_SW;
+
+def get_twitter_factor_DE(): 
+    global twitter_factor_DE; 
+    twitter_factor_DE = pd.DataFrame(twitter_DE)    
+    twitter_factor_DE['Twitter']=(twitter_factor_DE['Twitter']-twitter_factor_DE['Twitter'].min())/(twitter_factor_DE['Twitter'].max()-twitter_factor_DE['Twitter'].min())
+    return twitter_factor_DE;
 
