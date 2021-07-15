@@ -3,6 +3,7 @@
 Created on Fri May 28 10:16:27 2021
 
 @author: vikto
+
 Fetch data from Wikipedia: Links, Backlinks, Awards and Publications in 2020/2021
 Based on this a Wikipedia Score is calculated. 
 For this, Awards and Publications are multiplied by 50 as they are seen as important as 50 links or backlinks.

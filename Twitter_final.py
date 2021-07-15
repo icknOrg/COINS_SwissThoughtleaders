@@ -86,7 +86,7 @@ def create_final_twitter(twitter, data):
     
     #drop unncessary columns 
     combined = combined[['Name', 'Twitter']]
-    
+    #print(combined)
     #Merge with tl again, to get the original name of the thoughtleader and not the name of the wikipedia page
     #final_twitter = pd.merge(data, combined, on='Name', how="left")
     
