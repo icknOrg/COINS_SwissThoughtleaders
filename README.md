@@ -10,12 +10,10 @@ consisting of
 - Wikipedia Backlinks, Publications and Awards in 2020/2021
 - Sentiment Analysis from Google News Articles in the year 2021
 
-Each area calculates an index for each person. In the end the various factors are combined into one general index where the highest number is closest to be considered a Thoughtleader
-based on our collected data. 
+Each area calculates an index for each person. In the end the various factors are combined into one general index where the highest number is closest to be considered a Thoughtleader based on our collected data. 
 
 ## Sentiment Analysis
-The different Google News Articles are assigned a weight based on how often the name of the person is mentioned in the description of the artcicle (mostly 0 to 3). With that non-
-correlated articles are later deleted in the Analysis. 
+The different Google News Articles are assigned a weight based on how often the name of the person is mentioned in the description of the artcicle (mostly 0 to 3). With that non-correlated articles are later deleted in the Analysis. 
 
 The Sentiment is assigned in 2 ways: 
 - by comparing positive and negative words of the SentiWS [1] dataset with the articles and assigning the sentiment of majority to the overall article. 
@@ -48,6 +46,7 @@ The Sentiment Index is calculated by:
 Using the fetcher from Griffin to extract the Twitter data for each Thoughtleader candidate, we calculate an index describing the overall trend of each profile. This results in our normalized Twitter index [0,1].
 
 ## Google Search Results
+For getting the Google Search Results of each person, we manually searched for them in Google, set the filter to results of the last year and put the name into "" to make sure that only relevant results were included. Then, these numbers were punt into our initial Thoughtleader.csv file, for both the German and the Swiss people.
 
 ## Wikipedia
 For each of the potential Thoughtledaer of our initial list disposing of a Wikipedia entry, a Wikipedia Index [0,1] is calculated based on the following aspects:
@@ -55,7 +54,23 @@ For each of the potential Thoughtledaer of our initial list disposing of a Wikip
   - number of links
   - number of awards won in 2020/21
   - number of publications in 2020/21
+
 This information was fetched using the Python library wikipediaapi. Doing so, Awards and Publications were multiplied by 50 as they are seen as important as 50 links or backlinks. Furthermore, the min-max normalization is used to get a score between 0 and 1.
+
+```python
+#Calculate Wikipedia score
+wikipedia_score = links + backlinks + 50*auszeichnungen + 50*publications
+#Normalize with min_max
+wikipedia_score['Wikipedia_score']=(wikipedia_score['Wikipedia_score']-wikipedia_score['Wikipedia_score'].min())/(wikipedia_score['Wikipedia_score'].max()-wikipedia_score['Wikipedia_score'].min())
+```
+
+## Classification
+We decided to predict the membership of the people to our Thoughtleader Tribe in a two-fold way. First, a model was trained by the Swiss people and then used for predicitng the German people's Thoughtleader Tribe membership. Second, a model was trained by the German people and then used for predicting the Swiss people's Thoughtleader Tribe membership.
+For this, two Machine Learning Models were used:
+  - Neural Network
+  - Random Forest Model
+
+In the end, the ... was selected as ...
 
 ## References
 <a id="1">[1]</a> 
