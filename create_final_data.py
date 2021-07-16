@@ -59,8 +59,6 @@ def prepare_data(df_gsr, wikipedia_score, twitter_score, sentiment_score):
     df_thoughtleaders.drop_duplicates(inplace=True)
     return df_thoughtleaders
     
-    #print(df_thoughtleaders)
-    #df_thoughtleaders.to_csv('Thoughtleaders_final.csv', index=False)
 
 Thoughtleaders_DE = prepare_data(tl_DE, wikipedia_score_DE,  twitter_DE, sentiment_DE);
 Thoughtleaders_SW = prepare_data(tl_SW, wikipedia_score_SW,  twitter_SW, sentiment_SW);
@@ -68,9 +66,13 @@ Thoughtleaders_SW = prepare_data(tl_SW, wikipedia_score_SW,  twitter_SW, sentime
 def get_thoughtleaders_DE():
     global df_thoughtleaders_de; 
     df_thoughtleaders_de = pd.DataFrame(Thoughtleaders_DE)
+    df_thoughtleaders_de.drop_duplicates(subset=['Name'], inplace=True)
+    #df_thoughtleaders_de.to_csv('Thoughtleaders_DE_final.csv', index=False)
     return df_thoughtleaders_de;
     
 def get_thoughtleaders_SW():
     global df_thoughtleaders_sw; 
     df_thoughtleaders_sw = pd.DataFrame(Thoughtleaders_SW)
+    df_thoughtleaders_sw.drop_duplicates(subset=['Name'], inplace=True)
+    #df_thoughtleaders_sw.to_csv('Thoughtleaders_SW_final.csv', index=False)
     return df_thoughtleaders_sw;
