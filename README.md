@@ -43,7 +43,7 @@ The Sentiment Index is calculated by:
 - The Index List gets then normalized in a Min/Max way and returned as Dataframe to be completed with the rest of the analysis.
 
 ## Twitter Data (fetched with Griffin)
-Using the fetcher from Griffin to extract the Twitter data for each Thoughtleader candidate, we calculate an index describing the overall trend of each profile. This results in our normalized Twitter index [0,1].
+We used the fetcher from Griffin to extract Twitter data for each Thoughtleader candidate for analysing of their tweets sand comparing their vocabulary [3]. Building on that, we calculated an index describing the overall trend of each profile. This results in our normalized Twitter index [0,1].
 
 ## Google Search Results
 For getting the Google Search Results of each person, we manually searched for them in Google, set the filter to results of the last year and put the name into "" to make sure that only relevant results were included. Then, these numbers were punt into our initial Thoughtleader.csv file, for both the German and the Swiss people.
@@ -83,3 +83,6 @@ In: Proceedings of the 12th Language Resources and Evaluation Conference 2020 Ma
 
 <a id="3">[3]</a> 
 Frick, K., Guertler, D., & Gloor, P. A. (2013). Coolhunting for the world's thought leaders. arXiv preprint arXiv:1308.1160.
+
+<a id="4">[4]</a> 
+Gloor, P. A., Colladon, A. F., de Oliveira, J. M., Rovelli, P., Galbier, M., & Vogel, M. (2019). Identifying tribes on twitter through shared context. In Collaborative innovation networks (pp. 91-111). Springer, Cham.
