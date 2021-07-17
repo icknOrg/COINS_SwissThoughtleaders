@@ -14,8 +14,8 @@ from Twitter_final import get_twitter_original_SW
 from Twitter_final import get_twitter_original_DE
 from Wikipedia import get_wikipedia_SW
 from Wikipedia import get_wikipedia_DE
-from create_final_data import get_thoughtleaders_SW
-from create_final_data import get_thoughtleaders_DE
+from thoughtleader_index import get_thoughtleaders_SW
+from thoughtleader_index import get_thoughtleaders_DE
 
 tl_SW = pd.read_excel('COINs Intelektuellen-Ranking.xlsx')
 tl_DE = pd.read_excel('Thoughtleader List_GermanSpeaking.xlsx')
