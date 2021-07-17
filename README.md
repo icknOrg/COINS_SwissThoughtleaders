@@ -1,4 +1,4 @@
-# COINS_SwissTribeleaders
+# COINS_SwissThoughtleaders
 A Repository for Data Storage for the Seminar COINS - Topic Swiss Tribeleaders 
 
 ## Goal of the project
