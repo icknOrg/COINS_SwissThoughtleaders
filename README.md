@@ -1,5 +1,5 @@
 # COINS_SwissThoughtleaders
-A Repository for Data Storage for the Seminar COINS - Topic Swiss Tribeleaders 
+A Repository for Data Storage for the Seminar COINS - Topic Swiss Thoughtleaders 
 
 ## Goal of the project
 The Project started with a list of people that could pontentially be called Swiss Thoughtleaders. In order to question this statement we collected data on the various people 
