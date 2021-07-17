@@ -8,6 +8,9 @@ Created on Sun Jun 20 18:53:11 2021
 
 Load the nodes data that was fetched with Griffin for the persons that have a Twitter account. 
 Calculate the Twitter Index based on the columns that define the honest signals.
+
+@ Johanna 18.07.2021:
+    Added certain persona from German data for extra calculation since data was missing in Griffin Data
 """
 
 import pandas as pd
@@ -57,8 +60,8 @@ def load_nodes_csv(path):
 # shared context: avg. complexity 
 
 
-rank_SW = 'COINs Intelektuellen-Ranking.xlsx'
-rank_DE = 'Thoughtleader List_GermanSpeaking.xlsx'
+rank_SW = r'CSV Data/COINs Intelektuellen-Ranking.xlsx'
+rank_DE = r'CSV Data/Thoughtleader List_GermanSpeaking.xlsx'
 
 def prepare_data(path):
     data = pd.read_excel(path)
@@ -126,12 +129,38 @@ def get_twitter_factor_SW():
     twitter_factor_SW['Twitter']=(twitter_factor_SW['Twitter']-twitter_factor_SW['Twitter'].min())/(twitter_factor_SW['Twitter'].max()-twitter_factor_SW['Twitter'].min())
     return twitter_factor_SW;
 
+
+
+# get Twitter Data for German data
+# since many of the important people were not incldued in the twitter data we chose some specific persons
+# we calculate the mean and add the follower count 
+# then proceed as usual with normalisation 
 def get_twitter_factor_DE(): 
     global twitter_factor_DE; 
+    
+    Empties = {'Jan Böhmermann': 2324793, 'Karl Lauterbach': 556072, 'Frank Thelen': 58203, 'Rezo': 471174, 'Mai Thi Nguyen-Kim': 327247, 'Joko Winterscheidt': 2148369}
+    Empties = pd.DataFrame(Empties.items(),  columns=['Name', 'Twitter'])
+    
     twitter_DE = create_final_twitter(nodes_DE, data_DE)
     twitter_factor_DE = pd.DataFrame(twitter_DE) 
     twitter_factor_DE.replace([np.inf, -np.inf], np.nan, inplace=True)
     twitter_factor_DE = twitter_factor_DE.fillna(0)
+    
+    mean = twitter_factor_DE.Twitter.mean()
+    for i in range(Empties.shape[0]): 
+        Empties.Twitter = mean + (Empties.Twitter/100)
+        
+    twitter_factor_DE = twitter_factor_DE.merge(Empties, on="Name", how="left")
+    twitter_factor_DE = twitter_factor_DE.assign(Twitter_x = twitter_factor_DE.Twitter_y.fillna(twitter_factor_DE.Twitter_x)).drop('Twitter_y', axis=1)
+    twitter_factor_DE = twitter_factor_DE.rename(columns={'Twitter_x' : 'Twitter'})
+
     twitter_factor_DE['Twitter']=(twitter_factor_DE['Twitter']-twitter_factor_DE['Twitter'].min())/(twitter_factor_DE['Twitter'].max()-twitter_factor_DE['Twitter'].min())
     return twitter_factor_DE;
+
+
+
+
+
+
+
 

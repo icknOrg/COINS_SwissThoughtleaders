@@ -14,16 +14,16 @@ from Wikipedia import get_wikipedia_score_SW
 from Wikipedia import get_wikipedia_score_DE
 
 #get data of .xlsx, .csv files and from other scripts
-tl_SW = pd.read_excel('COINs Intelektuellen-Ranking.xlsx')
-tl_DE = pd.read_excel('Thoughtleader List_GermanSpeaking.xlsx')
+tl_SW = pd.read_excel(r'CSV Data/COINs Intelektuellen-Ranking.xlsx')
+tl_DE = pd.read_excel(r'CSV Data/Thoughtleader List_GermanSpeaking.xlsx')
 twitter_DE = get_twitter_factor_DE()
 twitter_SW = get_twitter_factor_SW()
 wikipedia_score_DE = get_wikipedia_score_DE()
 wikipedia_score_DE = wikipedia_score_DE.fillna(0)
 wikipedia_score_SW = get_wikipedia_score_SW()
 wikipedia_score_SW = wikipedia_score_SW.fillna(0)
-sentiment_DE = pd.read_csv('Sentiment_Index_DE.csv', sep=';')
-sentiment_SW = pd.read_csv('Sentiment_Index.csv',  sep=';')
+sentiment_DE = pd.read_csv(r'CSV Data/Sentiment_Index_DE.csv', sep=';')
+sentiment_SW = pd.read_csv(r'CSV Data/Sentiment_Index.csv',  sep=';')
 
 def prepare_data(df_gsr, wikipedia_score, twitter_score, sentiment_score):
     
@@ -66,19 +66,17 @@ Thoughtleaders_SW = prepare_data(tl_SW, wikipedia_score_SW,  twitter_SW, sentime
 def get_thoughtleaders_DE():
     global df_thoughtleaders_de; 
     df_thoughtleaders_de = pd.DataFrame(Thoughtleaders_DE)
-    df_thoughtleaders_de = df_thoughtleaders_de.drop_duplicates(subset=['Name'], inplace=True)
-    #df_thoughtleaders_de.to_csv('Thoughtleaders_DE_final.csv', index=False)
+    #df_thoughtleaders_de = df_thoughtleaders_de.drop_duplicates(subset=['Name'], inplace=True)
+    #df_thoughtleaders_de.to_csv(r'CSV Data/Thoughtleaders_DE_final.csv', index=False)
     return df_thoughtleaders_de;
     
 def get_thoughtleaders_SW():
     global df_thoughtleaders_sw; 
     df_thoughtleaders_sw = pd.DataFrame(Thoughtleaders_SW)
-    df_thoughtleaders_sw = df_thoughtleaders_sw.drop_duplicates(subset=['Name'], inplace=True)
-   # df_thoughtleaders_sw = df_thoughtleaders_sw.to_csv('Thoughtleaders_SW_final.csv', index=False)
+    df_thoughtleaders_sw.drop_duplicates(subset=['Name'], inplace=True)
+    #df_thoughtleaders_sw = df_thoughtleaders_sw.to_csv(r'CSV Data/Thoughtleaders_SW_final.csv', index=False)
     return df_thoughtleaders_sw;
 
-get_thoughtleaders_DE()
-get_thoughtleaders_SW()
 
 
 
