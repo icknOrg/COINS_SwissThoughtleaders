@@ -19,9 +19,11 @@ tl_DE = pd.read_excel('Thoughtleader List_GermanSpeaking.xlsx')
 twitter_DE = get_twitter_factor_DE()
 twitter_SW = get_twitter_factor_SW()
 wikipedia_score_DE = get_wikipedia_score_DE()
+wikipedia_score_DE = wikipedia_score_DE.fillna(0)
 wikipedia_score_SW = get_wikipedia_score_SW()
+wikipedia_score_SW = wikipedia_score_SW.fillna(0)
 sentiment_DE = pd.read_csv('Sentiment_Index_DE.csv', sep=';')
-sentiment_SW = pd.read_csv('Sentiment_Index.csv')
+sentiment_SW = pd.read_csv('Sentiment_Index.csv',  sep=';')
 
 def prepare_data(df_gsr, wikipedia_score, twitter_score, sentiment_score):
     
@@ -51,12 +53,10 @@ def prepare_data(df_gsr, wikipedia_score, twitter_score, sentiment_score):
     df_thoughtleaders = pd.merge(df_thoughtleaders, df_sentiment[['Name', 'Sentiment_score']], on='Name', how='left')
     df_thoughtleaders = pd.merge(df_thoughtleaders, df_twitter[['Name', 'Twitter_score']], on='Name', how='left')
     df_thoughtleaders.fillna(0, inplace=True)
-    
+
     #Calculate overall Thoughtleader Score
     df_thoughtleaders['Thoughtleader_Score']=(df_thoughtleaders['GSR_score']+df_thoughtleaders['Wikipedia_score']+df_thoughtleaders['Sentiment_score']+df_thoughtleaders['Twitter_score'])/4
-    
-    #Some duplicates occured because of the merge
-    df_thoughtleaders.drop_duplicates(inplace=True)
+   
     return df_thoughtleaders
     
 
@@ -66,13 +66,19 @@ Thoughtleaders_SW = prepare_data(tl_SW, wikipedia_score_SW,  twitter_SW, sentime
 def get_thoughtleaders_DE():
     global df_thoughtleaders_de; 
     df_thoughtleaders_de = pd.DataFrame(Thoughtleaders_DE)
-    df_thoughtleaders_de.drop_duplicates(subset=['Name'], inplace=True)
+    df_thoughtleaders_de = df_thoughtleaders_de.drop_duplicates(subset=['Name'], inplace=True)
     #df_thoughtleaders_de.to_csv('Thoughtleaders_DE_final.csv', index=False)
     return df_thoughtleaders_de;
     
 def get_thoughtleaders_SW():
     global df_thoughtleaders_sw; 
     df_thoughtleaders_sw = pd.DataFrame(Thoughtleaders_SW)
-    df_thoughtleaders_sw.drop_duplicates(subset=['Name'], inplace=True)
-    #df_thoughtleaders_sw.to_csv('Thoughtleaders_SW_final.csv', index=False)
+    df_thoughtleaders_sw = df_thoughtleaders_sw.drop_duplicates(subset=['Name'], inplace=True)
+   # df_thoughtleaders_sw = df_thoughtleaders_sw.to_csv('Thoughtleaders_SW_final.csv', index=False)
     return df_thoughtleaders_sw;
+
+get_thoughtleaders_DE()
+get_thoughtleaders_SW()
+
+
+

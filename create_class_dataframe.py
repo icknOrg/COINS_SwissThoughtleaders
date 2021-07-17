@@ -17,7 +17,6 @@ from Wikipedia import get_wikipedia_DE
 from create_final_data import get_thoughtleaders_SW
 from create_final_data import get_thoughtleaders_DE
 
-
 tl_SW = pd.read_excel('COINs Intelektuellen-Ranking.xlsx')
 tl_DE = pd.read_excel('Thoughtleader List_GermanSpeaking.xlsx')
 twitter_DE = get_twitter_original_DE()
@@ -61,9 +60,7 @@ def prepare_data(data, wikipedia, twitter, score):
     class_data = pd.merge(class_data, thoughtleader_score, on='Name', how='left')
     #class_data = pd.merge(class_data, df_sentiment[['Name', 'Sentiment_score']], on='Name', how='left')
     class_data.fillna(0, inplace=True)
-    
-    # drop columns that we don't need 
-    class_data = class_data.drop(columns=['Unnamed: 7'])
+
     
     # get percentage, top 30%
     x = class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False)[(class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False).cumsum()
@@ -87,11 +84,12 @@ Classification_SW = prepare_data(tl_SW,  wikipedia_SW, twitter_SW, score_SW);
 def get_class_original_DE():
     global classification_data_de; 
     classification_data_de = pd.DataFrame(Classification_DE)
-    #classification_data_de.to_csv('Classified_Thoughtleaders_DE.csv')
+   # classification_data_de.to_csv('Classified_Thoughtleaders_DE.csv')
     return classification_data_de;
 
 def get_class_original_SW():
     global classification_data_sw; 
     classification_data_sw = pd.DataFrame(Classification_SW)
-    #classification_data_sw.to_csv('Classified_Thoughtleaders_SW.csv')
+#    classification_data_sw.to_csv('Classified_Thoughtleaders_SW.csv')
     return classification_data_sw;
+
