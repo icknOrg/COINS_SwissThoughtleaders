@@ -17,13 +17,12 @@ import pandas as pd
 import numpy as np 
 import glob
 
-twitter_list = []
-
 # read nodes data
 path_DE = r'Nodes_DE/Swiss German nodes.csv'
 path_SW = r'Nodes_SW'
 
 def load_nodes_data(path):
+    twitter_list = []
     all_files = glob.glob(path + "/*.parquet")
     
     for filename in all_files:
@@ -166,7 +165,7 @@ def create_final_twitter(twitter, data):
     return combined;
 
 # call functions
-nodes_DE = load_nodes_csv(path_DE);
+nodes_DE = load_nodes_data(path_SW);
 nodes_SW = load_nodes_data(path_SW);
 
 data_DE = prepare_data(rank_DE);
@@ -178,7 +177,7 @@ data_SW = prepare_data(rank_SW);
 
 def get_twitter_original_DE():
     global twitter_original_DE;
-    nodes_DE = load_nodes_csv(path_DE);
+    nodes_DE = load_nodes_csv(path_SW);
     twitter_original_DE = pd.DataFrame(nodes_DE)
     return twitter_original_DE;
 
@@ -206,9 +205,5 @@ def get_twitter_factor_DE():
    twitter_factor_DE['Twitter']=(twitter_factor_DE['Twitter']-twitter_factor_DE['Twitter'].min())/(twitter_factor_DE['Twitter'].max()-twitter_factor_DE['Twitter'].min())
    return twitter_factor_DE;
 
-
-test = get_twitter_factor_SW()
-
-test2 = get_twitter_factor_DE()
 
 
