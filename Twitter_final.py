@@ -138,7 +138,10 @@ def get_twitter_factor_SW():
 def get_twitter_factor_DE(): 
     global twitter_factor_DE; 
     
-    Empties = {'Jan Böhmermann': 2324793, 'Karl Lauterbach': 556072, 'Frank Thelen': 58203, 'Rezo': 471174, 'Mai Thi Nguyen-Kim': 327247, 'Joko Winterscheidt': 2148369}
+    Empties = {'Jan Böhmermann': 2324793, 'Karl Lauterbach': 556072, 'Frank Thelen': 58203, 'Rezo': 471174, 'Mai Thi Nguyen-Kim': 327247, 'Joko Winterscheidt': 2148369, 'Luisa Neubauer': 263300,
+               'Sophie Passmann': 181300, 'Peter Spork': 1227, 'Clemens Fuest': 24600, 'Sascha Lobo': 760900, 'Richard David Precht': 3180, 'Natascha Strobl': 125600, 'Pinar Atalay': 27200,
+               'Peter Sloterdijk': 5917, 'Mirjam Fischer': 14000, 'Melanie Brinkmann': 103700, 'Malcolm Ohanwe': 30600, 'Maja Göpel': 77000, 'Kathrin Passig': 34900, 'Kai Diekmann': 178400, 
+               'Joyce Ilg': 326000, 'Isabella Eckerle': 54600, 'Deniz Utlu': 2040, 'Annika Brockschmidt': 43200, 'Alice Schwarzer': 2318}
     Empties = pd.DataFrame(Empties.items(),  columns=['Name', 'Twitter'])
     
     twitter_DE = create_final_twitter(nodes_DE, data_DE)
@@ -155,6 +158,7 @@ def get_twitter_factor_DE():
     twitter_factor_DE = twitter_factor_DE.rename(columns={'Twitter_x' : 'Twitter'})
 
     twitter_factor_DE['Twitter']=(twitter_factor_DE['Twitter']-twitter_factor_DE['Twitter'].min())/(twitter_factor_DE['Twitter'].max()-twitter_factor_DE['Twitter'].min())
+    print(twitter_factor_DE)
     return twitter_factor_DE;
 
 
