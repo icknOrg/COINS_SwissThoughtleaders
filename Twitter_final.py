@@ -177,7 +177,7 @@ data_SW = prepare_data(rank_SW);
 
 def get_twitter_original_DE():
     global twitter_original_DE;
-    nodes_DE = load_nodes_csv(path_SW);
+    nodes_DE = load_nodes_data(path_SW);
     twitter_original_DE = pd.DataFrame(nodes_DE)
     return twitter_original_DE;
 
