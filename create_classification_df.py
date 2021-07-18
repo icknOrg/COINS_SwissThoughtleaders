@@ -26,50 +26,6 @@ wikipedia_SW = get_wikipedia_SW()
 score_DE = get_thoughtleaders_DE()
 score_SW = get_thoughtleaders_SW()
 
-
-
-# def prepare_data_DE(data, wikipedia, twitter, score):
-#     data.rename(columns={'Google Search Results (this year)': 'GSR'}, inplace=True)
-#     data.Twitter = data.Twitter.str.replace("@", "")
-#     data = data.rename(columns={'Twitter' : 'id'})
-#     data.id = data.id.str.lower()    
-
-#     # get original twitter data and add the verified part just in case for now 
-#     twitter_data = twitter
-#     twitter_data = twitter_data.drop(columns=['name', 'Name', 'central_leadership', 'rotation_leadership', 'balanced_contribution', 'rapid_responses', 'honest_language', 'shared_context', 'Twitter'])
-    
-#     # get wikipedia
-#     wikipedia_data = wikipedia
-    
-#     # get thoughtleader score 
-#     thoughtleader_score = score
-    
-#     # Merge all dataframes
-#     class_data = pd.merge(data, twitter_data, on='id', how='left')
-#     class_data = pd.merge(class_data, wikipedia_data, on='Name', how='left')
-#     class_data = pd.merge(class_data, thoughtleader_score, on='Name', how='left')
-#     #class_data = pd.merge(class_data, df_sentiment[['Name', 'Sentiment_score']], on='Name', how='left')
-#     class_data.fillna(0, inplace=True)
-
-#     class_data.drop_duplicates(subset=['Name'], inplace=True)
-
-#     # get percentage, top 30%
-#     x = class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False)[(class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False).cumsum()
-#                                                      /class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False).sum())<=.3].dropna()
-    
-#     # add labels
-#     class_labels = []
-#     for value in class_data.index: 
-#         if value in x.index:
-#             class_labels.append(1)
-#         else:
-#             class_labels.append(0)
-    
-#     class_data['class_labels'] = class_labels
-#     return class_data
-
-
-
 def prepare_data(data, wikipedia, twitter, score):
     
     data.rename(columns={'Google Search Results (this year)': 'GSR'}, inplace=True)
