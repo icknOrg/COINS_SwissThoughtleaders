@@ -20,7 +20,7 @@ import glob
 twitter_list = []
 
 # read nodes data
-path = r'Nodes_DE/Swizz German nodes.csv' # use your path
+path = r'Nodes_DE/Swiss German nodes.csv' # use your path
 path2 = r'Nodes_SW'
 
 def load_nodes_data(path):
@@ -42,13 +42,75 @@ def load_nodes_data(path):
     return twitter;
 
 def load_nodes_csv(path):
+    
     twitter = pd.read_csv(path)        
     twitter.id = twitter.id.str.lower()    
     twitter = twitter[['id', 'name', 'followers_count', 'degree', 'betweenness', 'contribution_index', 
                        'sentiment_avg', 'emotionality_avg', 'ego_art', 'ego_nudges', 'alter_art', 'alter_nudges',
                        'complexity_avg', 'betweenness_oscillation']]  
-    twitter = twitter.fillna(0)    
+    twitter = twitter.fillna(0)
+    
+    Empties = {'janboehm': 2324793, 'Karl_lauterbach': 556072, 'frank_thelen': 58203, 'rezomusik': 471174, 'maithi_nk': 327247, 'officiallyjoko': 2148369, 'Luisamneubauer': 263300,
+                'SophiePassmann': 181300, 'SporkPeter': 1227, 'FuestClemens': 24600, 'saschalobo': 760900, 'richprecht': 3180, 'Natascha_Strobl': 125600, 'PinarAtalay': 27200,
+                'Sloterdijk_P': 5917, 'Mirjam_Fischer': 14000, 'BrinkmannLab': 103700, 'MalcolmOhanwe': 30600, 'beyond_ideology': 77000, 'kathrinpassig': 34900, 'KaiDiekmann': 178400, 
+                'JoyceIlg': 326000, 'EckerleIsabella': 54600, 'DenizUtlu': 2040, 'ardenthistorian': 43200, '_AliceSchwarzer': 2318}
+    Empties = pd.DataFrame(Empties.items(),  columns=['id', 'followers_count'])
+    Empties.id = Empties.id.str.lower()    
+
+    degree = twitter.degree.mean()
+    betweenness = twitter.betweenness.mean()
+    contribution_index = twitter.contribution_index.mean()
+    sentiment_avg = twitter.sentiment_avg.mean()
+    emotionality_avg = twitter.emotionality_avg.mean()
+    ego_art = twitter.ego_art.mean()
+    ego_nudges = twitter.ego_nudges.mean()
+    alter_art = twitter.alter_art.mean()
+    alter_nudges = twitter.alter_nudges.mean()
+    complexity_avg = twitter.complexity_avg.mean()
+    betweenness_oscillation = twitter.betweenness_oscillation.mean()
+
+    for i in range(Empties.shape[0]): 
+        Empties['degree'] = degree
+        Empties['betweenness'] = betweenness
+        Empties['contribution_index'] = contribution_index
+        Empties['sentiment_avg'] = sentiment_avg
+        Empties['emotionality_avg'] = emotionality_avg
+        Empties['ego_art'] = ego_art
+        Empties['ego_nudges'] = ego_nudges
+        Empties['alter_art'] = alter_art
+        Empties['alter_nudges'] = alter_nudges
+        Empties['complexity_avg'] = complexity_avg
+        Empties['betweenness_oscillation'] = betweenness_oscillation
+               
+    twitter = twitter.merge(Empties, on="id", how="left")
+    twitter = twitter.assign(followers_count_x = twitter.followers_count_y.fillna(twitter.followers_count_x)).drop('followers_count_y', axis=1)
+    twitter = twitter.assign(degree_x = twitter.degree_y.fillna(twitter.degree_x)).drop('degree_y', axis=1)
+    twitter = twitter.assign(betweenness_x = twitter.betweenness_y.fillna(twitter.betweenness_x)).drop('betweenness_y', axis=1)
+    twitter = twitter.assign(contribution_index_x = twitter.contribution_index_y.fillna(twitter.contribution_index_x)).drop('contribution_index_y', axis=1)
+    twitter = twitter.assign(sentiment_avg_x = twitter.sentiment_avg_y.fillna(twitter.sentiment_avg_x)).drop('sentiment_avg_y', axis=1)
+    twitter = twitter.assign(emotionality_avg_x = twitter.emotionality_avg_y.fillna(twitter.emotionality_avg_x)).drop('emotionality_avg_y', axis=1)
+    twitter = twitter.assign(ego_art_x = twitter.ego_art_y.fillna(twitter.ego_art_x)).drop('ego_art_y', axis=1)
+    twitter = twitter.assign(ego_nudges_x = twitter.ego_nudges_y.fillna(twitter.ego_nudges_x)).drop('ego_nudges_y', axis=1)
+    twitter = twitter.assign(complexity_avg_x = twitter.complexity_avg_y.fillna(twitter.complexity_avg_x)).drop('complexity_avg_y', axis=1)
+    twitter = twitter.assign(alter_nudges_x = twitter.alter_nudges_y.fillna(twitter.alter_nudges_x)).drop('alter_nudges_y', axis=1)
+    twitter = twitter.assign(alter_art_x = twitter.alter_art_y.fillna(twitter.alter_art_x)).drop('alter_art_y', axis=1)
+    twitter = twitter.assign(betweenness_oscillation_x = twitter.betweenness_oscillation_y.fillna(twitter.betweenness_oscillation_x)).drop('betweenness_oscillation_y', axis=1)
+
+    twitter = twitter.rename(columns={'followers_count_x' : 'followers_count'})
+    twitter = twitter.rename(columns={'degree_x' : 'degree'})
+    twitter = twitter.rename(columns={'betweenness_x' : 'betweenness'})
+    twitter = twitter.rename(columns={'contribution_index_x' : 'contribution_index'})
+    twitter = twitter.rename(columns={'sentiment_avg_x' : 'sentiment_avg'})
+    twitter = twitter.rename(columns={'emotionality_avg_x' : 'emotionality_avg'})
+    twitter = twitter.rename(columns={'ego_art_x' : 'ego_art'})
+    twitter = twitter.rename(columns={'ego_nudges_x' : 'ego_nudges'})
+    twitter = twitter.rename(columns={'alter_art_x' : 'alter_art'})
+    twitter = twitter.rename(columns={'alter_nudges_x' : 'alter_nudges'})
+    twitter = twitter.rename(columns={'complexity_avg_x' : 'complexity_avg'})
+    twitter = twitter.rename(columns={'betweenness_oscillation_x' : 'betweenness_oscillation'})
+
     return twitter;
+
 
 # absolute values: followers
 # six honest signals based on chosen values: check if correct values were chosen from the data 
@@ -91,7 +153,7 @@ def create_final_twitter(twitter, data):
     combined['rapid_responses'] = (1/combined['ego_art']) + (1/combined['ego_nudges']) + (1/combined['alter_nudges']) + (1/combined['alter_art'])
     combined['honest_language'] = combined['sentiment_avg'] + combined['emotionality_avg']
     combined['shared_context'] = combined['complexity_avg']
-    #combined = combined.fillna(0)
+    combined = combined.fillna(0)
     combined['Twitter'] = combined['central_leadership'] + combined['rotation_leadership'] + combined['balanced_contribution'] + combined['rapid_responses'] + combined['honest_language'] + combined['shared_context']+(combined['followers_count']/100)
     
     #drop unncessary columns 
@@ -136,33 +198,15 @@ def get_twitter_factor_SW():
 # we calculate the mean and add the follower count 
 # then proceed as usual with normalisation 
 def get_twitter_factor_DE(): 
-    global twitter_factor_DE; 
-    
-    Empties = {'Jan Böhmermann': 2324793, 'Karl Lauterbach': 556072, 'Frank Thelen': 58203, 'Rezo': 471174, 'Mai Thi Nguyen-Kim': 327247, 'Joko Winterscheidt': 2148369, 'Luisa Neubauer': 263300,
-               'Sophie Passmann': 181300, 'Peter Spork': 1227, 'Clemens Fuest': 24600, 'Sascha Lobo': 760900, 'Richard David Precht': 3180, 'Natascha Strobl': 125600, 'Pinar Atalay': 27200,
-               'Peter Sloterdijk': 5917, 'Mirjam Fischer': 14000, 'Melanie Brinkmann': 103700, 'Malcolm Ohanwe': 30600, 'Maja Göpel': 77000, 'Kathrin Passig': 34900, 'Kai Diekmann': 178400, 
-               'Joyce Ilg': 326000, 'Isabella Eckerle': 54600, 'Deniz Utlu': 2040, 'Annika Brockschmidt': 43200, 'Alice Schwarzer': 2318}
-    Empties = pd.DataFrame(Empties.items(),  columns=['Name', 'Twitter'])
-    
-    twitter_DE = create_final_twitter(nodes_DE, data_DE)
-    twitter_factor_DE = pd.DataFrame(twitter_DE) 
-    twitter_factor_DE.replace([np.inf, -np.inf], np.nan, inplace=True)
-    twitter_factor_DE = twitter_factor_DE.fillna(0)
-    
-    mean = twitter_factor_DE.Twitter.mean()
-    for i in range(Empties.shape[0]): 
-        Empties.Twitter = mean + (Empties.Twitter/100)
-        
-    twitter_factor_DE = twitter_factor_DE.merge(Empties, on="Name", how="left")
-    twitter_factor_DE = twitter_factor_DE.assign(Twitter_x = twitter_factor_DE.Twitter_y.fillna(twitter_factor_DE.Twitter_x)).drop('Twitter_y', axis=1)
-    twitter_factor_DE = twitter_factor_DE.rename(columns={'Twitter_x' : 'Twitter'})
+   global twitter_factor_DE; 
+   twitter_DE = create_final_twitter(nodes_DE, data_DE)
+   twitter_factor_DE = pd.DataFrame(twitter_DE)
+   twitter_factor_DE.replace([np.inf, -np.inf], np.nan, inplace=True)
+   twitter_factor_DE = twitter_factor_DE.fillna(0)
+   twitter_factor_DE['Twitter']=(twitter_factor_DE['Twitter']-twitter_factor_DE['Twitter'].min())/(twitter_factor_DE['Twitter'].max()-twitter_factor_DE['Twitter'].min())
+   return twitter_factor_DE;
 
-    twitter_factor_DE['Twitter']=(twitter_factor_DE['Twitter']-twitter_factor_DE['Twitter'].min())/(twitter_factor_DE['Twitter'].max()-twitter_factor_DE['Twitter'].min())
-    print(twitter_factor_DE)
-    return twitter_factor_DE;
-
-
-
+test = get_twitter_factor_DE()
 
 
 

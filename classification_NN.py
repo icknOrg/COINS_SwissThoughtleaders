@@ -107,11 +107,31 @@ grid = GridSearchCV(estimator=model_opt, param_grid=param_grid, n_jobs=-1, cv=3)
 grid_result = grid.fit(X_train, y_train)
 print_summary(grid_result)
 
+# Function to create model to improve activation function
+def create_model_act(activation='relu'):
+    model = Sequential()
+    
+    model.add(Dense(8, activation=activation, input_shape=(19,)))
+    
+    model.add(Dense(8, activation=activation))
+    
+    model.add(Dense(1, activation='sigmoid'))
+    
+    
+    model.compile(loss='binary_crossentropy',
+                  optimizer='sgd',
+                  metrics=['accuracy'])
+    
+    return model
 
 
-
-
-
+# create model
+model_act = KerasClassifier(build_fn=create_model_act, epochs=20, batch_size=1, verbose=0)
+activation = ['softmax', 'softplus', 'softsign', 'relu', 'tanh', 'sigmoid', 'hard_sigmoid', 'linear']
+param_grid = dict(activation=activation)
+grid = GridSearchCV(estimator=model_act, param_grid=param_grid, n_jobs=-1, cv=3)
+grid_result = grid.fit(X_train, y_train)
+print_summary(grid_result)
 
 
 
