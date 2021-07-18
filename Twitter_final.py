@@ -43,6 +43,11 @@ def load_nodes_data(path):
 
 def load_nodes_csv(path):
     
+# get Twitter Data for German data
+# since many of the important people were not incldued in the twitter data we chose some specific persons
+# we calculate the mean and add the follower count 
+# then proceed as usual with normalisation 
+
     twitter = pd.read_csv(path)        
     twitter.id = twitter.id.str.lower()    
     twitter = twitter[['id', 'name', 'followers_count', 'degree', 'betweenness', 'contribution_index', 
@@ -50,7 +55,7 @@ def load_nodes_csv(path):
                        'complexity_avg', 'betweenness_oscillation']]  
     twitter = twitter.fillna(0)
     
-    Empties = {'janboehm': 2324793, 'Karl_lauterbach': 556072, 'frank_thelen': 58203, 'rezomusik': 471174, 'maithi_nk': 327247, 'officiallyjoko': 2148369, 'Luisamneubauer': 263300,
+    Empties = {'janboehm': 2324793, 'Karl_Lauterbach': 556072, 'frank_thelen': 58203, 'rezomusik': 471174, 'maithi_nk': 327247, 'officiallyjoko': 2148369, 'Luisamneubauer': 263300,
                 'SophiePassmann': 181300, 'SporkPeter': 1227, 'FuestClemens': 24600, 'saschalobo': 760900, 'richprecht': 3180, 'Natascha_Strobl': 125600, 'PinarAtalay': 27200,
                 'Sloterdijk_P': 5917, 'Mirjam_Fischer': 14000, 'BrinkmannLab': 103700, 'MalcolmOhanwe': 30600, 'beyond_ideology': 77000, 'kathrinpassig': 34900, 'KaiDiekmann': 178400, 
                 'JoyceIlg': 326000, 'EckerleIsabella': 54600, 'DenizUtlu': 2040, 'ardenthistorian': 43200, '_AliceSchwarzer': 2318}
@@ -126,7 +131,7 @@ rank_SW = r'CSV Data/COINs Intelektuellen-Ranking.xlsx'
 rank_DE = r'CSV Data/Thoughtleader List_GermanSpeaking.xlsx'
 
 def prepare_data(path):
-    data = pd.read_excel(path)
+    data = pd.read_excel(rank_DE)
     data.rename(columns={'Google Search Results (this year)': 'GSR'}, inplace=True)
     data.Twitter = data.Twitter.str.replace("@", "")
     data.Twitter = data.Twitter.str.lower()
@@ -172,7 +177,8 @@ data_SW = prepare_data(rank_SW);
 
 
 def get_twitter_original_DE():
-    global twitter_original_DE; 
+    global twitter_original_DE;
+    nodes_DE = load_nodes_csv(path);
     twitter_original_DE = pd.DataFrame(nodes_DE)
     return twitter_original_DE;
 
@@ -190,12 +196,6 @@ def get_twitter_factor_SW():
     twitter_factor_SW['Twitter']=(twitter_factor_SW['Twitter']-twitter_factor_SW['Twitter'].min())/(twitter_factor_SW['Twitter'].max()-twitter_factor_SW['Twitter'].min())
     return twitter_factor_SW;
 
-
-
-# get Twitter Data for German data
-# since many of the important people were not incldued in the twitter data we chose some specific persons
-# we calculate the mean and add the follower count 
-# then proceed as usual with normalisation 
 def get_twitter_factor_DE(): 
    global twitter_factor_DE; 
    twitter_DE = create_final_twitter(nodes_DE, data_DE)
