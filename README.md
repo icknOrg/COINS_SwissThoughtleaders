@@ -7,7 +7,7 @@ consisting of
 
 - Twitter data fetched with Griffin
 - Google Search Results
-- Wikipedia Backlinks, Publications and Awards in 2020/2021
+- Wikipedia Links, Backlinks, Publications and Awards in 2020/2021
 - Sentiment Analysis from Google News Articles in the year 2021
 
 Each area calculates an index for each person. In the end the various factors are combined into one general index where the highest number is closest to be considered a Thoughtleader based on our collected data. 
@@ -41,12 +41,13 @@ The Sentiment Index is calculated by:
 ```
 - The same is done for the highest positive value, where the standard deviation divided by 10 is added to the mean. For the neg_bit and pos_bit values the same is done with a division by 50.
 - The Index List gets then normalized in a Min/Max way and returned as Dataframe to be completed with the rest of the analysis.
+- For calculating the Thoughtleader score the Sentiment score is divided by 5 as otherwise the sentiment score would be weighted disproportionately.
 
 ## Twitter Data (fetched with Griffin)
 We used the fetcher from Griffin to extract Twitter data for each Thoughtleader candidate for analysing of their tweets sand comparing their vocabulary [3]. Building on that, we calculated an index describing the overall trend of each profile. This results in our normalized Twitter index [0,1].
 
 ## Google Search Results
-For getting the Google Search Results of each person, we manually searched for them in Google, set the filter to results of the last year and put the name into "" to make sure that only relevant results were included. Then, these numbers were punt into our initial Thoughtleader.csv file, for both the German and the Swiss people.
+For getting the Google Search Results of each person, we manually searched for them in Google, set the filter to results of the last year and put the name into "" to make sure that only relevant results were included. Then, these numbers were punt into our initial Thoughtleader.csv file, for both the German-speaking and the Swiss people.
 
 ## Wikipedia
 For each of the potential Thoughtledaer of our initial list disposing of a Wikipedia entry, a Wikipedia Index [0,1] is calculated based on the following aspects:
@@ -65,12 +66,22 @@ wikipedia_score['Wikipedia_score']=(wikipedia_score['Wikipedia_score']-wikipedia
 ```
 
 ## Classification
-We decided to predict the membership of the people to our Thoughtleader Tribe in a two-fold way. First, a model was trained by the Swiss people and then used for predicitng the German people's Thoughtleader Tribe membership. Second, a model was trained by the German people and then used for predicting the Swiss people's Thoughtleader Tribe membership.
-For this, two Machine Learning Models were used:
-  - Neural Network
-  - Random Forest Model
+We decided to predict the membership of the people to our Thoughtleader Tribe in a four-fold way:
 
-In the end, the ... was selected as ...
+First, the thoughtleader score was calculated for the Swiss and German-speaking people separately and based on this they were labelled as a Thoughtleader or not. 
+
+Second, the thoughtleader score was calculated for both the Swiss and German-speaking people all together and based on this they were labelled as a Thoughtleader or not.
+
+Based on each approach two prediction models were created: 
+  1. a model was trained on the Swiss people and was then used for predicting the German-speaking people's Thoughtleader Tribe membership
+  2. a model was trained by the German-speaking people and then used for predicting the Swiss people's Thoughtleader Tribe membership.
+
+#### For execution of these two approaches, please follow this instruction:
+  - For executing the first approach, the thoughtleader_index.py and create_classification_df need to be used and the min-max nominalization need to be done in the Wikipedia.py     and Twitter_final.py.
+  - For executing the second approach, the thoughtleader_index_all.py and create_classification_all_df need to be used and the min-max nominalization need to be commented out in     the Wikipedia.py and Twitter_final.py.
+
+The two implemented Machine Learning Models are a Neural Network and a Random Forest.
+
 
 ## References
 <a id="1">[1]</a> 
