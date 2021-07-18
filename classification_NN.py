@@ -29,8 +29,8 @@ X=features
 
 y=np.ravel(labels)
 
-# split into 40% and 60% training and testing data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
+# split into 30% and 70% training and testing data
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # normalize data 
 scaler = StandardScaler().fit(X_train)
