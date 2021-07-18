@@ -75,10 +75,10 @@ def get_thoughtleader_score():
     Thoughtleaders = prepare_data(tl, wikipedia_score, twitter, sentiment);
     df_thoughtleaders = pd.DataFrame(Thoughtleaders)
     df_thoughtleaders.drop_duplicates(subset=['Name'], inplace=True)
-    df_thoughtleaders.to_csv(r'CSV Data/Thoughtleaders_final.csv', index=False)
+    #df_thoughtleaders.to_csv(r'CSV Data/Thoughtleaders_Score_all.csv', index=False)
     return df_thoughtleaders;
 
-test = get_thoughtleader_score()
+#test = get_thoughtleader_score()
 
 
 

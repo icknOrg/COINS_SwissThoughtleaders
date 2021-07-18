@@ -27,6 +27,18 @@ wikipedia_DE = get_wikipedia_DE()
 wikipedia_SW = get_wikipedia_SW()
 score = get_thoughtleader_score()
 
+x = score[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False)[(score[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False).cumsum()
+  
+                                                                                          /score[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False).sum())<=.5].dropna()
+# add labels
+class_labels = []
+for value in score.index: 
+    if value in x.index:
+        class_labels.append(1)
+    else:
+        class_labels.append(0)
+    
+score['class_labels'] = class_labels
 
 def prepare_data(data, wikipedia, twitter, score):
     
@@ -64,19 +76,6 @@ def prepare_data(data, wikipedia, twitter, score):
     class_data.fillna(0, inplace=True)
     class_data.drop_duplicates(subset=['Name'], inplace=True)
 
-    # get percentage, top 30%
-    x = class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False)[(class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False).cumsum()
-                                                     /class_data[['Thoughtleader_Score']].sort_values(by='Thoughtleader_Score',ascending=False).sum())<=.3].dropna()
-    
-    # add labels
-    class_labels = []
-    for value in class_data.index: 
-        if value in x.index:
-            class_labels.append(1)
-        else:
-            class_labels.append(0)
-    
-    class_data['class_labels'] = class_labels
     return class_data
 
 Classification_DE = prepare_data(tl_DE, wikipedia_DE, twitter_DE, score);
@@ -86,12 +85,12 @@ Classification_SW = prepare_data(tl_SW,  wikipedia_SW, twitter_SW, score);
 def get_class_original_DE():
     global classification_data_de; 
     classification_data_de = pd.DataFrame(Classification_DE)
-    classification_data_de.to_csv(r'CSV Data/Classified_Thoughtleaders_DE.csv')
+    #classification_data_de.to_csv(r'CSV Data/Classified_Thoughtleaders_DE_from_all.csv')
     return classification_data_de;
 
 def get_class_original_SW():
     global classification_data_sw; 
     classification_data_sw = pd.DataFrame(Classification_SW)
-    classification_data_sw.to_csv(r'CSV Data/Classified_Thoughtleaders_SW.csv')
+    #classification_data_sw.to_csv(r'CSV Data/Classified_Thoughtleaders_SW_from_all.csv')
     return classification_data_sw;
 

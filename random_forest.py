@@ -15,8 +15,9 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
-from create_classification_df import get_class_original_SW
-from create_classification_df import get_class_original_DE
+from create_classification_all_df import get_class_original_SW
+from create_classification_all_df import get_class_original_DE
+
 
 
 # Get whole data of Swiss and German people
@@ -35,12 +36,11 @@ print("")
 # X contains the features and y the prediction variable
 X=data_sw[['GSR', 'verified', 'followers_count', 'degree', 'betweenness', 'contribution_index', 'sentiment_avg', 
            'emotionality_avg','ego_art', 'ego_nudges', 'alter_art','alter_nudges', 'complexity_avg', 
-           'betweenness_oscillation','Backlinks', 'Links', 'Awards', 'Publications']]
-
+           'Backlinks', 'Links', 'Awards', 'Publications', 'Sentiment_score']]
 y=data_sw[['class_labels']]
 
 # Split into 40% testing and 60% training data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Normalize data 
 scaler = StandardScaler().fit(X_train)
@@ -65,7 +65,7 @@ print("")
 # Select relevant columns
 test_de=data_de[['GSR', 'verified', 'followers_count', 'degree', 'betweenness', 'contribution_index', 'sentiment_avg', 
                  'emotionality_avg','ego_art', 'ego_nudges', 'alter_art','alter_nudges', 'complexity_avg', 
-                 'betweenness_oscillation','Backlinks', 'Links', 'Awards', 'Publications']]
+                 'Backlinks', 'Links', 'Awards', 'Publications', 'Sentiment_score']]
 
 test_de['prediction'] = clf.predict(test_de)
 
@@ -87,13 +87,13 @@ print("")
 
 # X contains the features and y the prediction variable
 X=data_de[['GSR', 'verified', 'followers_count', 'degree', 'betweenness', 'contribution_index', 'sentiment_avg', 
-                    'emotionality_avg','ego_art', 'ego_nudges', 'alter_art','alter_nudges', 'complexity_avg', 
-                    'betweenness_oscillation','Backlinks', 'Links', 'Awards', 'Publications']]
+           'emotionality_avg','ego_art', 'ego_nudges', 'alter_art','alter_nudges', 'complexity_avg', 
+           'Backlinks', 'Links', 'Awards', 'Publications', 'Sentiment_score']]
 
 y=data_de[['class_labels']]
 
 # split into 40% test and 60% training data
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Normalize data 
 scaler = StandardScaler().fit(X_train)
@@ -118,7 +118,7 @@ print("")
 # Select relevant columns
 test_sw=data_sw[['GSR', 'verified', 'followers_count', 'degree', 'betweenness', 'contribution_index', 'sentiment_avg', 
                     'emotionality_avg','ego_art', 'ego_nudges', 'alter_art','alter_nudges', 'complexity_avg', 
-                    'betweenness_oscillation','Backlinks', 'Links', 'Awards', 'Publications']]
+                    'Backlinks', 'Links', 'Awards', 'Publications', 'Sentiment_score']]
 
 
 test_sw['prediction'] = clf_2.predict(test_sw)
