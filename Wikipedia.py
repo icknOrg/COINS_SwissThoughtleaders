@@ -192,7 +192,7 @@ def get_wikipedia_score_DE():
     wikipedia_score_DE["Wikipedia_score"] = wikipedia_score_DE.apply(lambda x: x['Links'] + x['Backlinks'] + 50* x['Awards'] + 50* x['Publications'], axis=1)
     
     #Normalize with min_max
-    wikipedia_score_DE['Wikipedia_score']=(wikipedia_score_DE['Wikipedia_score']-wikipedia_score_DE['Wikipedia_score'].min())/(wikipedia_score_DE['Wikipedia_score'].max()-wikipedia_score_DE['Wikipedia_score'].min())
+   # wikipedia_score_DE['Wikipedia_score']=(wikipedia_score_DE['Wikipedia_score']-wikipedia_score_DE['Wikipedia_score'].min())/(wikipedia_score_DE['Wikipedia_score'].max()-wikipedia_score_DE['Wikipedia_score'].min())
     wikipedia_score_DE = wikipedia_score_DE[['Name', 'Wikipedia_score']]
     return wikipedia_score_DE;
     
@@ -204,7 +204,7 @@ def get_wikipedia_score_SW():
     wikipedia_score_SW["Wikipedia_score"] = wikipedia_score_SW.apply(lambda x: x['Links'] + x['Backlinks'] + 50* x['Awards'] + 50* x['Publications'], axis=1)
     
     #Normalize with min_max
-    wikipedia_score_SW['Wikipedia_score']=(wikipedia_score_SW['Wikipedia_score']-wikipedia_score_SW['Wikipedia_score'].min())/(wikipedia_score_SW['Wikipedia_score'].max()-wikipedia_score_SW['Wikipedia_score'].min())
+   # wikipedia_score_SW['Wikipedia_score']=(wikipedia_score_SW['Wikipedia_score']-wikipedia_score_SW['Wikipedia_score'].min())/(wikipedia_score_SW['Wikipedia_score'].max()-wikipedia_score_SW['Wikipedia_score'].min())
     wikipedia_score_SW = wikipedia_score_SW[['Name', 'Wikipedia_score']]
     return wikipedia_score_SW;
 

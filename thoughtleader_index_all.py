@@ -60,6 +60,9 @@ def prepare_data(df_gsr, wikipedia_score, twitter_score, sentiment_score):
     #Merge all dataframes
     df_thoughtleaders = pd.merge(df_gsr[['Name', 'GSR_score']], df_wikipedia[['Name', 'Wikipedia_score']], on='Name', how='left')
     df_thoughtleaders = pd.merge(df_thoughtleaders, df_sentiment[['Name', 'Sentiment_score']], on='Name', how='left')
+    
+    df_thoughtleaders['Sentiment_score'] = df_thoughtleaders['Sentiment_score']/5
+    
     df_thoughtleaders = pd.merge(df_thoughtleaders, df_twitter[['Name', 'Twitter_score']], on='Name', how='left')
     df_thoughtleaders.fillna(0, inplace=True)
     
@@ -79,6 +82,7 @@ def get_thoughtleader_score():
     return df_thoughtleaders;
 
 #test = get_thoughtleader_score()
+
 
 
 
