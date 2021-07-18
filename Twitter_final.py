@@ -131,7 +131,7 @@ rank_SW = r'CSV Data/COINs Intelektuellen-Ranking.xlsx'
 rank_DE = r'CSV Data/Thoughtleader List_GermanSpeaking.xlsx'
 
 def prepare_data(path):
-    data = pd.read_excel(rank_DE)
+    data = pd.read_excel(path)
     data.rename(columns={'Google Search Results (this year)': 'GSR'}, inplace=True)
     data.Twitter = data.Twitter.str.replace("@", "")
     data.Twitter = data.Twitter.str.lower()
