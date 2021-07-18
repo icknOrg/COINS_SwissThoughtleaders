@@ -205,7 +205,7 @@ def get_twitter_factor_DE():
    twitter_factor_DE['Twitter']=(twitter_factor_DE['Twitter']-twitter_factor_DE['Twitter'].min())/(twitter_factor_DE['Twitter'].max()-twitter_factor_DE['Twitter'].min())
    return twitter_factor_DE;
 
-test = get_twitter_factor_DE()
+#test = get_twitter_factor_DE()
 
 
 
