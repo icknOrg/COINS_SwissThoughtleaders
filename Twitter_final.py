@@ -153,7 +153,6 @@ def create_final_twitter(twitter, data):
     combined['rapid_responses'] = (1/combined['ego_art']) + (1/combined['ego_nudges']) + (1/combined['alter_nudges']) + (1/combined['alter_art'])
     combined['honest_language'] = combined['sentiment_avg'] + combined['emotionality_avg']
     combined['shared_context'] = combined['complexity_avg']
-    combined = combined.fillna(0)
     combined['Twitter'] = combined['central_leadership'] + combined['rotation_leadership'] + combined['balanced_contribution'] + combined['rapid_responses'] + combined['honest_language'] + combined['shared_context']+(combined['followers_count']/100)
     
     #drop unncessary columns 
