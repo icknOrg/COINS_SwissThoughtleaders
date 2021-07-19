@@ -44,7 +44,20 @@ The Sentiment Index is calculated by:
 - For calculating the Thoughtleader score the Sentiment score is divided by 5 as otherwise the sentiment score would be weighted disproportionately.
 
 ## Twitter Data (fetched with Griffin)
-We used the fetcher from Griffin to extract Twitter data for each Thoughtleader candidate for analysing of their tweets sand comparing their vocabulary [3]. Building on that, we calculated an index describing the overall trend of each profile. This results in our normalized Twitter index [0,1].
+We used the fetcher from Griffin to extract Twitter data for each Thoughtleader candidate for analysing of their tweets sand comparing their vocabulary [3]. Building on that, we calculated an index describing the overall trend of each profile. 
+
+The twitter index is calculated from the different values that are representative for the 6 honest signals [5] and the followers count/100. 
+
+```python
+ combined['central_leadership'] = combined['degree'] + combined['betweenness']
+    combined['rotation_leadership'] = combined['betweenness_oscillation']
+    combined['balanced_contribution'] = combined['contribution_index']
+    combined['rapid_responses'] = (1/combined['ego_art']) + (1/combined['ego_nudges']) + (1/combined['alter_nudges']) + (1/combined['alter_art'])
+    combined['honest_language'] = combined['sentiment_avg'] + combined['emotionality_avg']
+    combined['shared_context'] = combined['complexity_avg']
+    combined['Twitter'] = combined['central_leadership'] + combined['rotation_leadership'] + combined['balanced_contribution'] + combined['rapid_responses'] + combined['honest_language'] + combined['shared_context']+(combined['followers_count']/100)
+```
+The end result is normalized to a range from [0,1].
 
 ## Google Search Results
 For getting the Google Search Results of each person, we manually searched for them in Google, set the filter to results of the last year and put the name into "" to make sure that only relevant results were included. Then, these numbers were punt into our initial Thoughtleader.csv file, for both the German-speaking and the Swiss people.
@@ -82,7 +95,7 @@ Based on each approach two prediction models were created:
 
 The two implemented Machine Learning Models are a Neural Network and a Random Forest.
 
-The results were as followed (shown in the accuracy of the training/test evaluation).
+The results were as followed (shown is the accuracy of the training/test evaluation and the amount of predicted thoughtleaders).
 
 
 
