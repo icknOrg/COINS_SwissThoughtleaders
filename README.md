@@ -86,15 +86,15 @@ The results were as followed (shown in the accuracy of the training/test evaluat
 
 
 
-            RUN                |   RF Accuracy    |      RF TLs      |   NN Accuracy    |      NN TLs     
-|        :---:                 |           :---:  |         :---:    |    :---:         |       :---:     |
-| Train on SW Predict DE       |       0.93       |       44/54      |       0.93       |       17/54     |
-|                              |                  |                  |                  |                 |
-| Train on DE Predict SW       |       0.94       |      36/100      |       0.88       |       0/100     |        
-|                              |                  |                  |                  |                 | 
-| ALL Train on SW Predict DE   |       0.93       |        1/54      |       0.86       |        9/54     |
-|                              |                  |                  |                  |                 |
-| ALL Train on DE Predict SW   |       0.71       |      18/100      |       0.94       |       3/100     |             
+           RUN                |   RF Accuracy    |      RF TLs      |   NN Accuracy    |      NN TLs     
+        :---:                 |           :---:  |         :---:    |    :---:         |       :---:     
+ Train on SW Predict DE       |       0.93       |       44/54      |       0.93       |       17/54     
+                              |                  |                  |                  |                 
+ Train on DE Predict SW       |       0.94       |      36/100      |       0.88       |       0/100             
+                              |                  |                  |                  |                  
+ ALL Train on SW Predict DE   |       0.93       |        1/54      |       0.86       |        9/54    
+                              |                  |                  |                  |                 
+ ALL Train on DE Predict SW   |       0.71       |      18/100      |       0.94       |       3/100                  
 
 
 
