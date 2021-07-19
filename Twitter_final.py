@@ -18,7 +18,7 @@ import numpy as np
 import glob
 
 # read nodes data
-path_DE = r'Nodes_DE/Swiss German nodes.csv'
+# path_DE = r'Nodes_DE/Swiss German nodes.csv'
 path_SW = r'Nodes_SW'
 
 def load_nodes_data(path):
@@ -40,6 +40,8 @@ def load_nodes_data(path):
     
     return twitter;
 
+# this function could be used in case data is missing 
+# we didn't use it in the end since our wanted data turned out to be all together in the Swiss nodes paquet data
 def load_nodes_csv(path):
     
 # get Twitter Data for German data
