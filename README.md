@@ -17,7 +17,7 @@ The different Google News Articles are assigned a weight based on how often the 
 
 The Sentiment is assigned in 2 ways: 
 - by comparing positive and negative words of the SentiWS [1] dataset with the articles and assigning the sentiment of majority to the overall article. 
-- by using the SentimentModel which includes the German model of BERT [2] and assigns the sentiments automatically to the articles. 
+- by using the SentimentModel which includes the German model of BERT [2] that assigns the sentiments automatically to the articles. 
 
 The Sentiment Index is calculated by: 
 - comparing the two sentiments of an article an adding up the amount of articles for a specific value times the weight that was assigned in the beginning.
@@ -40,11 +40,11 @@ The Sentiment Index is calculated by:
                 sentiment_index.append(index_value)
 ```
 - The same is done for the highest positive value, where the standard deviation divided by 10 is added to the mean. For the neg_bit and pos_bit values the same is done with a division by 50.
-- The Index List gets then normalized in a Min/Max way and returned as Dataframe to be completed with the rest of the analysis.
-- For calculating the Thoughtleader score the Sentiment score is divided by 5 as otherwise the sentiment score would be weighted disproportionately.
+- The Index List then gets normalized in a Min/Max way and is returned as Dataframe to be completed with the rest of the analysis.
+- For calculating the Thoughtleader score the Sentiment score is divided by 5 as otherwise the sentiment score would be weighted higher relatively to the Twitter and Wikipedia score.
 
 ## Twitter Data (fetched with Griffin)
-We used the fetcher from Griffin to extract Twitter data for each Thoughtleader candidate for analysing of their tweets sand comparing their vocabulary [3]. Building on that, we calculated an index describing the overall trend of each profile. 
+We used the fetcher from Griffin to extract Twitter data for each Thoughtleader candidate for analysing their tweets sand comparing their vocabulary [3]. Building on that, we calculated an index describing the overall trend of each profile. 
 
 The twitter index is calculated from the different values that are representative for the 6 honest signals [5] and the followers count/100. 
 
@@ -57,13 +57,13 @@ The twitter index is calculated from the different values that are representativ
     combined['shared_context'] = combined['complexity_avg']
     combined['Twitter'] = combined['central_leadership'] + combined['rotation_leadership'] + combined['balanced_contribution'] + combined['rapid_responses'] + combined['honest_language'] + combined['shared_context']+(combined['followers_count']/100)
 ```
-The end result is normalized to a range from [0,1].
+The end result is normalized in a range from [0,1].
 
 ## Google Search Results
-For getting the Google Search Results of each person, we manually searched for them in Google, set the filter to results of the last year and put the name into "" to make sure that only relevant results were included. Then, these numbers were punt into our initial Thoughtleader.csv file, for both the German-speaking and the Swiss people.
+For getting the Google Search Results of each person, we manually researched in Google, where we set the filter to results of the last year and put the name into "" to make sure that only relevant results were included. Then, these numbers were put into our initial Thoughtleader.csv file, for both the German-speaking and the Swiss people.
 
 ## Wikipedia
-For each of the potential Thoughtledaer of our initial list disposing of a Wikipedia entry, a Wikipedia Index [0,1] is calculated based on the following aspects:
+For each of the potential Thoughtleaders of our initial list who has a Wikipedia entry, a Wikipedia Index [0,1] is calculated based on the following aspects:
   - number of backlinks 
   - number of links
   - number of awards won in 2020/21
@@ -86,7 +86,7 @@ First, the thoughtleader score was calculated for the Swiss and German-speaking 
 Second, the thoughtleader score was calculated for both the Swiss and German-speaking people all together and based on this they were labelled as a Thoughtleader or not.
 
 Based on each approach two prediction models were created: 
-  1. a model was trained on the Swiss people and was then used for predicting the German-speaking people's Thoughtleader Tribe membership
+  1. a model was trained on the Swiss people and was then used for predicting the German-speaking people's Thoughtleader Tribe membership.
   2. a model was trained by the German-speaking people and then used for predicting the Swiss people's Thoughtleader Tribe membership.
 
 #### For execution of these two approaches, please follow this instruction:
