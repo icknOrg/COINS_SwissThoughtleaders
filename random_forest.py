@@ -15,9 +15,11 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
+#Select here which classification should be done:
+#from create_classification_df import get_class_original_SW
+#from create_classification_df import get_class_original_DE
 from create_classification_all_df import get_class_original_SW
 from create_classification_all_df import get_class_original_DE
-
 
 
 # Get whole data of Swiss and German people
