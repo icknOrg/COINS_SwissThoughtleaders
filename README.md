@@ -86,8 +86,8 @@ The results were as followed (shown in the accuracy of the training/test evaluat
 
 
 
-|                              |        Random Forest          |         Neural Network       | 
-|             RUN              | ----------------------------- | ---------------------------- |
+|             RUN              |        Random Forest          |         Neural Network       | 
+| ---------------------------- | ----------------------------- | ---------------------------- |
 |                              |   Accuracy    |      TLs      |   Accuracy    |      TLs     |
 | ---------------------------- | ------------- | ------------- | ------------- | ------------ |
 | Train on SW Predict DE       |      0.93     |     44/54     |      0.93     |     17/54    |
