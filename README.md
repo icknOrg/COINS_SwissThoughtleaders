@@ -82,6 +82,27 @@ Based on each approach two prediction models were created:
 
 The two implemented Machine Learning Models are a Neural Network and a Random Forest.
 
+The results were as followed (shown in the accuracy of the training/test evaluation).
+
+
+              |       Random Forest           |         Neural Network       | 
+     RUN      | ----------------------------- | -----------------------------|
+              |   Accuracy    |      TLs      |   Accuracy    |     TLs      |
+------------- | ------------- |-----------------------------------------------
+Train on SW   |               |               |               |              |
+Predict DE    |      0.93     |     44/54     |     0.93      |     17/54    |
+------------- | ------------- | ------------- | ------------- | ------------ |
+Train in DE   |               |               |               |              |
+Predict SW    |      0.94     |     36/100    |     0.88      |     0/100    |
+------------- | ------------- | ------------- | ------------- | ------------ |
+ALL           |               |               |               |              |
+Train on SW   |      0.93     |      1/54     |     0.86      |      9/54    |
+Predict DE    |               |               |               |              |
+--------------| ------------- | ------------- | ------------- | ------------ |
+ALL           |               |               |               |              |
+Train on DE   |      0.71     |     18/100    |     0.94      |     3/100    |
+Predict SW    |               |               |               |              |
+
 
 ## References
 <a id="1">[1]</a> 
