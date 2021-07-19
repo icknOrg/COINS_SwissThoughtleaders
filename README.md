@@ -122,3 +122,6 @@ Frick, K., Guertler, D., & Gloor, P. A. (2013). Coolhunting for the world's thou
 
 <a id="4">[4]</a> 
 Gloor, P. A., Colladon, A. F., de Oliveira, J. M., Rovelli, P., Galbier, M., & Vogel, M. (2019). Identifying tribes on twitter through shared context. In Collaborative innovation networks (pp. 91-111). Springer, Cham.
+
+<a id="5">[5]</a> 
+Gloor, P. A. (2017). Sociometrics and human relationships: Analyzing social networks to manage brands, predict trends, and improve organizational performance. Emerald Group Publishing.
