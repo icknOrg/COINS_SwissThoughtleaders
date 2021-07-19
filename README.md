@@ -77,6 +77,12 @@ wikipedia_score = links + backlinks + 50*auszeichnungen + 50*publications
 #Normalize with min_max
 wikipedia_score['Wikipedia_score']=(wikipedia_score['Wikipedia_score']-wikipedia_score['Wikipedia_score'].min())/(wikipedia_score['Wikipedia_score'].max()-wikipedia_score['Wikipedia_score'].min())
 ```
+## Thoughtleader Score
+The Thoughtleader Score was calculated by adding the 4 different factors described above and deviding the results by 4. 
+
+The labels for the classification were 1 (classified as Thoughtleader) and 0 (not classified as Thoughtleader) based on the earlier calculated Thoughtleader Score. 
+For the separated German-speaking and Swiss list, the persons with the upper 30% of the Thoughtleader Score were classified as Thoughtleaders. For the concatenated list of
+both 50% were used instead. 
 
 ## Classification
 We decided to predict the membership of the people to our Thoughtleader Tribe in a four-fold way:
