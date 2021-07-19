@@ -87,6 +87,7 @@ The results were as followed (shown in the accuracy of the training/test evaluat
 
 
 |             RUN              |        Random Forest          |         Neural Network       | 
+|                              | :---:                         |    :---:                     |
 |        :---:                 |               |               |               |              |
 |                              |   Accuracy    |      TLs      |   Accuracy    |      TLs     |
 |                              |    :---:      |       :---:   |   :---:       |   :---:      |
