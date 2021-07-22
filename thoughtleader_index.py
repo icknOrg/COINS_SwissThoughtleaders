@@ -69,16 +69,16 @@ def get_thoughtleaders_DE():
     global df_thoughtleaders_de; 
     df_thoughtleaders_de = pd.DataFrame(Thoughtleaders_DE)
     #df_thoughtleaders_de = df_thoughtleaders_de.drop_duplicates(subset=['Name'], inplace=True)
-    #df_thoughtleaders_de.to_csv(r'CSV Data/Thoughtleaders_DE_final.csv', index=False)
+    df_thoughtleaders_de.to_csv(r'CSV Data/Thoughtleaders_DE_final.csv', index=False)
     return df_thoughtleaders_de;
     
 def get_thoughtleaders_SW():
     global df_thoughtleaders_sw; 
     df_thoughtleaders_sw = pd.DataFrame(Thoughtleaders_SW)
-    df_thoughtleaders_sw.drop_duplicates(subset=['Name'], inplace=True)
-    #df_thoughtleaders_sw = df_thoughtleaders_sw.to_csv(r'CSV Data/Thoughtleaders_SW_final.csv', index=False)
+    #df_thoughtleaders_sw.drop_duplicates(subset=['Name'], inplace=True)
+    df_thoughtleaders_sw.to_csv(r'CSV Data/Thoughtleaders_SW_final.csv', index=False)
     return df_thoughtleaders_sw;
 
-
-
+get_thoughtleaders_DE()
+get_thoughtleaders_SW()
 

@@ -81,7 +81,7 @@ def get_thoughtleader_score():
     #df_thoughtleaders.to_csv(r'CSV Data/Thoughtleaders_Score_all.csv', index=False)
     return df_thoughtleaders;
 
-#test = get_thoughtleader_score()
+#get_thoughtleader_score()
 
 
 

@@ -197,7 +197,7 @@ def get_twitter_factor_SW():
     twitter_factor_SW = twitter_factor_SW.fillna(0)
     
     #Normalize with min_max -> When executing the thoughtleader_index_all.py and the create_classification_all_df.py files then this needs to be commented out
-    #twitter_factor_SW['Twitter']=(twitter_factor_SW['Twitter']-twitter_factor_SW['Twitter'].min())/(twitter_factor_SW['Twitter'].max()-twitter_factor_SW['Twitter'].min())
+    twitter_factor_SW['Twitter']=(twitter_factor_SW['Twitter']-twitter_factor_SW['Twitter'].min())/(twitter_factor_SW['Twitter'].max()-twitter_factor_SW['Twitter'].min())
     
     return twitter_factor_SW;
 
@@ -209,7 +209,7 @@ def get_twitter_factor_DE():
    twitter_factor_DE = twitter_factor_DE.fillna(0)
    
    #Normalize with min_max -> When executing the thoughtleader_index_all.py and the create_classification_all_df.py files then this needs to be commented out
-   #twitter_factor_DE['Twitter']=(twitter_factor_DE['Twitter']-twitter_factor_DE['Twitter'].min())/(twitter_factor_DE['Twitter'].max()-twitter_factor_DE['Twitter'].min())
+   twitter_factor_DE['Twitter']=(twitter_factor_DE['Twitter']-twitter_factor_DE['Twitter'].min())/(twitter_factor_DE['Twitter'].max()-twitter_factor_DE['Twitter'].min())
    
    return twitter_factor_DE;
 

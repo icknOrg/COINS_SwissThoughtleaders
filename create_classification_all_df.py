@@ -85,12 +85,12 @@ Classification_SW = prepare_data(tl_SW,  wikipedia_SW, twitter_SW, score);
 def get_class_original_DE():
     global classification_data_de; 
     classification_data_de = pd.DataFrame(Classification_DE)
-    #classification_data_de.to_csv(r'CSV Data/Classified_Thoughtleaders_DE_from_all.csv')
+    classification_data_de.to_csv(r'CSV Data/Classified_Thoughtleaders_DE_from_all.csv')
     return classification_data_de;
 
 def get_class_original_SW():
     global classification_data_sw; 
     classification_data_sw = pd.DataFrame(Classification_SW)
-    #classification_data_sw.to_csv(r'CSV Data/Classified_Thoughtleaders_SW_from_all.csv')
+    classification_data_sw.to_csv(r'CSV Data/Classified_Thoughtleaders_SW_from_all.csv')
     return classification_data_sw;
 

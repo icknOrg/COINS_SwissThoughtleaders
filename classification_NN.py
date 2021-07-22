@@ -27,11 +27,11 @@ so that can be skipped upon running
     before running it multiple times.
 """
 
-#from create_classification_df import get_class_original_SW
-#from create_classification_df import get_class_original_DE
+from create_classification_df import get_class_original_SW
+from create_classification_df import get_class_original_DE
 
-from create_classification_all_df import get_class_original_SW
-from create_classification_all_df import get_class_original_DE
+#from create_classification_all_df import get_class_original_SW
+#from create_classification_all_df import get_class_original_DE
 
 import pandas as pd
 from keras.models import Sequential
@@ -81,15 +81,15 @@ X_test = scaler.transform(X_test)
 def create_model():
     model = Sequential()
     
-    model.add(Dense(8, activation='linear', input_shape=(19,)))
+    model.add(Dense(8, activation='relu', input_shape=(19,)))
     
-    model.add(Dense(8, activation='linear'))
+    model.add(Dense(8, activation='relu'))
     
     model.add(Dense(1, activation='sigmoid'))
     
     
     model.compile(loss='binary_crossentropy',
-                  optimizer='adam',
+                  optimizer='Nadam',
                   metrics=['accuracy'])
     
     return model
@@ -107,8 +107,8 @@ def print_summary(grid_result):
         print("%f (%f) with: %r" % (mean, stdev, param))
 
 # define the grid search parameters
-batch_size = [1, 3, 5, 7, 9, 12]
-epochs = [5, 10, 20, 30, 40]
+batch_size = [1, 3, 4, 5, 7]
+epochs = [5, 10, 20, 30, 40, 50, 60]
 param_grid = dict(batch_size=batch_size, epochs=epochs)
 grid = GridSearchCV(estimator=model, param_grid=param_grid, n_jobs=-1, cv=3)
 grid_result = grid.fit(X_train, y_train)
@@ -119,9 +119,9 @@ print_summary(grid_result)
 def create_model_opt(optimizer='sgd'):
     model = Sequential()
     
-    model.add(Dense(8, activation='relu', input_shape=(19,)))
+    model.add(Dense(8, activation='tanh', input_shape=(19,)))
     
-    model.add(Dense(8, activation='relu'))
+    model.add(Dense(8, activation='tanh'))
     
     model.add(Dense(1, activation='sigmoid'))
     
@@ -132,7 +132,7 @@ def create_model_opt(optimizer='sgd'):
     
     return model
 
-model_opt = KerasClassifier(build_fn=create_model_opt, epochs=30, batch_size=3, verbose=0)
+model_opt = KerasClassifier(build_fn=create_model_opt, epochs=40, batch_size=1, verbose=0)
 
 # define the grid search parameters
 optimizer = ['SGD', 'RMSprop', 'Adagrad', 'Adadelta', 'Adam', 'Adamax', 'Nadam']
@@ -153,14 +153,14 @@ def create_model_act(activation='relu'):
     
     
     model.compile(loss='binary_crossentropy',
-                  optimizer='sgd',
+                  optimizer='Adamax',
                   metrics=['accuracy'])
     
     return model
 
 
 # create model
-model_act = KerasClassifier(build_fn=create_model_act, epochs=30, batch_size=3, verbose=0)
+model_act = KerasClassifier(build_fn=create_model_act, epochs=40, batch_size=1, verbose=0)
 activation = ['softmax', 'softplus', 'softsign', 'relu', 'tanh', 'sigmoid', 'hard_sigmoid', 'linear']
 param_grid = dict(activation=activation)
 grid = GridSearchCV(estimator=model_act, param_grid=param_grid, n_jobs=-1, cv=3)
@@ -173,9 +173,11 @@ print_summary(grid_result)
 def create_model_tuned():
     model = Sequential()
     
-    model.add(Dense(8, activation='tanh', input_shape=(19,)))
+    model.add(Dense(8, activation='relu', input_shape=(19,)))
     
-    model.add(Dense(8, activation='tanh'))
+    model.add(Dense(8, activation='relu'))
+    
+    model.add(Dense(8, activation='relu'))
     
     model.add(Dense(1, activation='sigmoid'))
     
@@ -187,14 +189,14 @@ def create_model_tuned():
     return model
 
 #create model
-model_SW = KerasClassifier(build_fn=create_model_tuned, epochs=30, batch_size=3, verbose=0)
+model_SW = KerasClassifier(build_fn=create_model_tuned, epochs=10, batch_size=1, verbose=0)
 
-model_SW.fit(X_train, y_train,epochs=30, batch_size=3, verbose=1)
+model_SW.fit(X_train, y_train,epochs=10, batch_size=1, verbose=1)
 
 y_pred = model_SW.predict(X_test)
 
 score_SW = model_SW.score(X_test, y_test,verbose=1)
-
+print("Accuracy on Test Set:")
 print(score_SW)
 
 predict_features = predict_DE.iloc[:,1:20]
@@ -208,6 +210,7 @@ Q_test = scaler.transform(Q)
 q_pred = model_SW.predict(Q_test)
 
 score_pred_DE = model_SW.score(Q_test, predict_labels,verbose=1)
+print("Accuracy on German Prediction Set:")
 print(score_pred_DE)
 predict_DE['prediction'] = q_pred
 
@@ -225,9 +228,11 @@ print("")
 def create_model_tuned_SW():
     model_SW = Sequential()
     
-    model_SW.add(Dense(8, activation='tanh', input_shape=(19,)))
+    model_SW.add(Dense(8, activation='relu', input_shape=(19,)))
     
-    model_SW.add(Dense(8, activation='tanh'))
+    model_SW.add(Dense(8, activation='relu'))
+    
+    model_SW.add(Dense(8, activation='relu'))
     
     model_SW.add(Dense(1, activation='sigmoid'))
     
@@ -258,14 +263,14 @@ X_train = scaler.transform(X_train)
 X_test = scaler.transform(X_test)
 
 # create model 
-model_DE = KerasClassifier(build_fn=create_model_tuned_SW, epochs=30, batch_size=3, verbose=0)
+model_DE = KerasClassifier(build_fn=create_model_tuned_SW, epochs=10, batch_size=1, verbose=0)
 
-model_DE.fit(X_train, y_train,epochs=30, batch_size=3, verbose=1)
+model_DE.fit(X_train, y_train,epochs=10, batch_size=1, verbose=1)
 
 y_pred = model_DE.predict(X_test)
 
 score_DE = model_DE.score(X_test, y_test,verbose=1)
-
+print("Accuracy on Test Set:")
 print(score_DE)
 
 predict_features = predict_SW.iloc[:,1:20]
@@ -279,6 +284,7 @@ Q_test = scaler.transform(Q)
 q_pred = model_DE.predict(Q_test)
 
 score_pred_SW = model_DE.score(Q_test, predict_labels,verbose=1)
+print("Accuracy on Swiss Prediction Set:")
 print(score_pred_SW)
 predict_SW['prediction'] = q_pred
 
@@ -290,8 +296,6 @@ print(test_de_prediction)
 print("")
 print("")
 
-
-print(score_DE)
 
 
 

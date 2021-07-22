@@ -152,7 +152,7 @@ def prepare_Wikipedia(tl):
     
         
         #calculate the wikipedia score by adding all up
-        wikipedia_score = links + backlinks + 50*auszeichnungen + 50*publications
+        wikipedia_score = links + backlinks + 185*auszeichnungen + 185*publications
         
         #create the dataframes
         d = {'Wikipedia_name': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
@@ -189,10 +189,10 @@ def get_wikipedia_score_DE():
     wikipedia_score_DE = pd.DataFrame(Wikipedia_DE)
     
     #Calculate Wikipedia score
-    wikipedia_score_DE["Wikipedia_score"] = wikipedia_score_DE.apply(lambda x: x['Links'] + x['Backlinks'] + 50* x['Awards'] + 50* x['Publications'], axis=1)
+    wikipedia_score_DE["Wikipedia_score"] = wikipedia_score_DE.apply(lambda x: x['Links'] + x['Backlinks'] + 185* x['Awards'] + 185* x['Publications'], axis=1)
     
     #Normalize with min_max -> When executing the thoughtleader_index_all.py and the create_classification_all_df.py files then this needs to be commented out
-    #wikipedia_score_DE['Wikipedia_score']=(wikipedia_score_DE['Wikipedia_score']-wikipedia_score_DE['Wikipedia_score'].min())/(wikipedia_score_DE['Wikipedia_score'].max()-wikipedia_score_DE['Wikipedia_score'].min())
+    wikipedia_score_DE['Wikipedia_score']=(wikipedia_score_DE['Wikipedia_score']-wikipedia_score_DE['Wikipedia_score'].min())/(wikipedia_score_DE['Wikipedia_score'].max()-wikipedia_score_DE['Wikipedia_score'].min())
     
     wikipedia_score_DE = wikipedia_score_DE[['Name', 'Wikipedia_score']]
     return wikipedia_score_DE;
@@ -202,10 +202,10 @@ def get_wikipedia_score_SW():
     wikipedia_score_SW = pd.DataFrame(Wikipedia_SW)
     
     #Calculate Wikipedia score
-    wikipedia_score_SW["Wikipedia_score"] = wikipedia_score_SW.apply(lambda x: x['Links'] + x['Backlinks'] + 50* x['Awards'] + 50* x['Publications'], axis=1)
+    wikipedia_score_SW["Wikipedia_score"] = wikipedia_score_SW.apply(lambda x: x['Links'] + x['Backlinks'] + 185* x['Awards'] + 185* x['Publications'], axis=1)
     
     #Normalize with min_max -> When executing the thoughtleader_index_all.py and the create_classification_all_df.py files then this needs to be commented out
-    #wikipedia_score_SW['Wikipedia_score']=(wikipedia_score_SW['Wikipedia_score']-wikipedia_score_SW['Wikipedia_score'].min())/(wikipedia_score_SW['Wikipedia_score'].max()-wikipedia_score_SW['Wikipedia_score'].min())
+    wikipedia_score_SW['Wikipedia_score']=(wikipedia_score_SW['Wikipedia_score']-wikipedia_score_SW['Wikipedia_score'].min())/(wikipedia_score_SW['Wikipedia_score'].max()-wikipedia_score_SW['Wikipedia_score'].min())
     
     wikipedia_score_SW = wikipedia_score_SW[['Name', 'Wikipedia_score']]
     return wikipedia_score_SW;

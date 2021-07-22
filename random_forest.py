@@ -41,7 +41,7 @@ X=data_sw[['GSR', 'verified', 'followers_count', 'degree', 'betweenness', 'contr
            'Backlinks', 'Links', 'Awards', 'Publications', 'Sentiment_score']]
 y=data_sw[['class_labels']]
 
-# Split into 40% testing and 60% training data
+# Split into 30% testing and 70% training data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
 # Normalize data 
@@ -66,9 +66,11 @@ print("")
 
 # Select relevant columns
 test_de=data_de[['GSR', 'verified', 'followers_count', 'degree', 'betweenness', 'contribution_index', 'sentiment_avg', 
-                 'emotionality_avg','ego_art', 'ego_nudges', 'alter_art','alter_nudges', 'complexity_avg', 
-                 'Backlinks', 'Links', 'Awards', 'Publications', 'Sentiment_score']]
+           'emotionality_avg','ego_art', 'ego_nudges', 'alter_art','alter_nudges', 'complexity_avg', 
+           'Backlinks', 'Links', 'Awards', 'Publications', 'Sentiment_score']]
 
+test_de_labels=data_de[['class_labels']] 
+print("Accuracy of DE data: ", clf.score(test_de, test_de_labels))
 test_de['prediction'] = clf.predict(test_de)
 
 test_de_prediction = test_de[['GSR', 'prediction']].groupby('prediction').count()
@@ -122,7 +124,8 @@ test_sw=data_sw[['GSR', 'verified', 'followers_count', 'degree', 'betweenness', 
                     'emotionality_avg','ego_art', 'ego_nudges', 'alter_art','alter_nudges', 'complexity_avg', 
                     'Backlinks', 'Links', 'Awards', 'Publications', 'Sentiment_score']]
 
-
+test_sw_labels=data_sw[['class_labels']]
+print("Accuracy of SW data: ", clf_2.score(test_sw, test_sw_labels))
 test_sw['prediction'] = clf_2.predict(test_sw)
 
 test_sw_prediction = test_sw[['GSR', 'prediction']].groupby('prediction').count()
