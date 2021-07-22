@@ -77,6 +77,12 @@ wikipedia_score = links + backlinks + 50*auszeichnungen + 50*publications
 #Normalize with min_max
 wikipedia_score['Wikipedia_score']=(wikipedia_score['Wikipedia_score']-wikipedia_score['Wikipedia_score'].min())/(wikipedia_score['Wikipedia_score'].max()-wikipedia_score['Wikipedia_score'].min())
 ```
+## Thoughtleader Score
+The Thoughtleader Score was calculated by adding the 4 different factors described above and deviding the results by 4. 
+
+The labels for the classification were 1 (classified as Thoughtleader) and 0 (not classified as Thoughtleader) based on the earlier calculated Thoughtleader Score. 
+For the separated German-speaking and Swiss list, the persons with the upper 30% of the Thoughtleader Score were classified as Thoughtleaders. For the concatenated list of
+both 50% were used instead. 
 
 ## Classification
 We decided to predict the membership of the people to our Thoughtleader Tribe in a four-fold way:
@@ -110,12 +116,12 @@ The results were as followed (shown is the accuracy of the training/test evaluat
 
 ## References
 <a id="1">[1]</a> 
-R. Remus, U. Quasthoff & G. Heyer: SentiWS - a Publicly Available German-language Resource for Sentiment Analysis. 
-In: Proceedings of the 7th International Language Ressources and Evaluation (LREC'10), 2010.
+Remus R., Quasthoff U. & Heyer G. (2010). SentiWS - a Publicly Available German-language Resource for Sentiment Analysis. 
+In: Proceedings of the 7th International Language Ressources and Evaluation (LREC'10).
 
 <a id="2">[2]</a> 
-Guhr O, Schumann AK, Bahrmann F, Böhme HJ. Training a Broad-Coverage German Sentiment Classification Model for Dialog Systems. 
-In: Proceedings of the 12th Language Resources and Evaluation Conference 2020 May (pp. 1627-1632).
+Guhr O., Schumann A.K., Bahrmann F. & Böhme H.J. (2020). Training a Broad-Coverage German Sentiment Classification Model for Dialog Systems. 
+In: Proceedings of the 12th Language Resources and Evaluation Conference (pp. 1627-1632).
 
 <a id="3">[3]</a> 
 Frick, K., Guertler, D., & Gloor, P. A. (2013). Coolhunting for the world's thought leaders. arXiv preprint arXiv:1308.1160.
