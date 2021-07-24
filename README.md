@@ -69,11 +69,11 @@ For each of the potential Thoughtleaders of our initial list who has a Wikipedia
   - number of awards won in 2020/21
   - number of publications in 2020/21
 
-This information was fetched using the Python library wikipediaapi. Doing so, Awards and Publications were multiplied by 50 as they are seen as important as 50 links or backlinks. Furthermore, the min-max normalization is used to get a score between 0 and 1.
+This information was fetched using the Python library wikipediaapi. Doing so, Awards and Publications were multiplied by 185 which is the average amount of times the backlinks/links were higher than the awards and publications. Furthermore, the min-max normalization is used to get a score between 0 and 1.
 
 ```python
 #Calculate Wikipedia score
-wikipedia_score = links + backlinks + 50*auszeichnungen + 50*publications
+wikipedia_score = links + backlinks + 185*auszeichnungen + 185*publications
 #Normalize with min_max
 wikipedia_score['Wikipedia_score']=(wikipedia_score['Wikipedia_score']-wikipedia_score['Wikipedia_score'].min())/(wikipedia_score['Wikipedia_score'].max()-wikipedia_score['Wikipedia_score'].min())
 ```
