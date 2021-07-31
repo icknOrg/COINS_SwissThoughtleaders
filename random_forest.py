@@ -16,11 +16,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
 #Select here which classification should be done:
-#from create_classification_df import get_class_original_SW
-#from create_classification_df import get_class_original_DE
-from create_classification_all_df import get_class_original_SW
-from create_classification_all_df import get_class_original_DE
-
+from create_classification_df import get_class_original_SW
+from create_classification_df import get_class_original_DE
+#from create_classification_all_df import get_class_original_SW
+#from create_classification_all_df import get_class_original_DE
+from sklearn.model_selection import GridSearchCV
 
 # Get whole data of Swiss and German people
 data_sw = get_class_original_SW()
@@ -50,8 +50,37 @@ scaler = StandardScaler().fit(X_train)
 X_train = scaler.transform(X_train)
 X_test = scaler.transform(X_test)
 
+###########################################################
+#Fine tuning of hyperparameters of random forest classifier
+###########################################################
+
+# Create the parameter grid based on the results of random search 
+#param_grid = {
+#    'n_estimators' : [100, 300, 500, 800, 1200],
+#    'max_depth' : [5, 8, 15, 25, 30],
+#    'min_samples_split' : [2, 5, 10, 15, 100],
+#    'min_samples_leaf' : [1, 2, 5, 10]
+#}
+
+# Create a based model
+#clf = RandomForestClassifier()
+# Instantiate the grid search model
+#grid_search = GridSearchCV(estimator = clf, param_grid = param_grid, 
+                           #cv = 3, n_jobs = -1, verbose = 2)
+
+# Fit the grid search to the data
+#grid_search.fit(X_train, y_train)
+#print(grid_search.best_params_)
+
+##########################################################################################################################
+#Hyperparameter fine tuning results:
+# 1. Classification based on the separate datasets: max_depth=5, min_samples_leaf=1, min_samples_split=2, n_estimators=100
+# 2. Classification based on the whole dataset: max_depth=30, min_samples_leaf=1, min_samples_split=2, n_estimators=100
+##########################################################################################################################
+
+clf = RandomForestClassifier(max_depth=5, min_samples_leaf=1, min_samples_split=2, n_estimators=100)
+
 # Create Random Forest model and train it with the training data
-clf = RandomForestClassifier()
 clf.fit(X_train, y_train)
 
 # Predict the classification using the test data
@@ -106,7 +135,7 @@ X_train = scaler.transform(X_train)
 X_test = scaler.transform(X_test)
 
 # Create Random Forest model and train it with the training data
-clf_2 = RandomForestClassifier()
+clf_2 = RandomForestClassifier(max_depth=5, min_samples_leaf=1, min_samples_split=2, n_estimators=100)
 clf_2.fit(X_train, y_train)
 
 # Predict the classification using the test data
