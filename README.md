@@ -107,10 +107,10 @@ The results were as followed (shown is the accuracy of the training/test evaluat
 
  |            RUN              |   RF Accuracy TEST   |   RF Accuracy Pred |   RF TLs      |   NN Accuracy TEST  |  NN Accuracy Pred |      NN TLs    | 
  |          :---:              |      :---:           |       :---:        |   :---:       |      :---:          |     :---:         |       :---:    |
- | Train on SW Predict DE      |         0.93         |      0.3           |    41/54      |       0.96          |      0.75         |       16/54    | 
- | Train on DE Predict SW      |         0.94         |      0.67          |   36/100      |       0.94          |      0.91         |       0/100    |         
- | ALL Train on SW Predict DE  |         0.96         |       0.7          |     14/54     |       0.52          |      0.57         |        9/54    |
- | ALL Train on DE Predict SW  |         0.88         |      0.05          |   100/100     |       0.88          |     0.85          |       18/100   |              
+ | Train on SW Predict DE      |         0.97         |      0.31           |    14/54      |       0.96          |      0.75         |       16/54    | 
+ | Train on DE Predict SW      |         0.88         |      0.7          |   33/100      |       0.94          |      0.91         |       0/100    |         
+ | ALL Train on SW Predict DE  |         0.9         |       0.48          |     5/54     |       0.52          |      0.57         |        9/54    |
+ | ALL Train on DE Predict SW  |         0.71         |      0.78          |   25/100     |       0.88          |     0.85          |       18/100   |              
 
 
 
