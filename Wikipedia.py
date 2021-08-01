@@ -6,7 +6,7 @@ Created on Fri May 28 10:16:27 2021
 
 Fetch data from Wikipedia: Links, Backlinks, Awards and Publications in 2020/2021
 Based on this a Wikipedia Score is calculated. 
-For this, Awards and Publications are multiplied by 50 as they are seen as important as 50 links or backlinks.
+For this, Awards and Publications are multiplied by 185 as they are seen as important as 185 links or backlinks.
 Furthermore, the min-max normalization is used to get a score between 0 and 1.
 """
 
@@ -152,7 +152,7 @@ def prepare_Wikipedia(tl):
     
         
         #calculate the wikipedia score by adding all up
-        wikipedia_score = links + backlinks + 185*auszeichnungen + 185*publications
+        #wikipedia_score = links + backlinks + 185*auszeichnungen + 185*publications
         
         #create the dataframes
         d = {'Wikipedia_name': thoughtleader, 'Backlinks': [backlinks], 'Links': [links], 'Awards': [auszeichnungen], 'Publications': [publications]}
